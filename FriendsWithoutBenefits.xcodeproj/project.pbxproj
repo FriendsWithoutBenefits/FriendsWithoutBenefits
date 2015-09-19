@@ -14,6 +14,7 @@
 		1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5EB1BACF4E600382704 /* Assets.xcassets */; };
 		1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */; };
 		1F78B5FA1BACF4E700382704 /* FriendsWithoutBenefitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */; };
+		7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		1F78B5F51BACF4E700382704 /* FriendsWithoutBenefitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsWithoutBenefitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsWithoutBenefitsTests.m; sourceTree = "<group>"; };
 		1F78B5FB1BACF4E700382704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
+		8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendsWithoutBenefits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				1F78B5DE1BACF4E600382704 /* FriendsWithoutBenefits */,
 				1F78B5F81BACF4E700382704 /* FriendsWithoutBenefitsTests */,
 				1F78B5DD1BACF4E600382704 /* Products */,
+				CD47B01CEC433B93E6114E81 /* Pods */,
+				9A12A98E1D273C8BF37FD1BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +118,23 @@
 			path = FriendsWithoutBenefitsTests;
 			sourceTree = "<group>";
 		};
+		9A12A98E1D273C8BF37FD1BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD47B01CEC433B93E6114E81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */,
+				98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F78B5FE1BACF4E700382704 /* Build configuration list for PBXNativeTarget "FriendsWithoutBenefits" */;
 			buildPhases = (
+				83BBD9F58D0C46D8B75EBB3C /* Check Pods Manifest.lock */,
 				1F78B5D81BACF4E600382704 /* Sources */,
 				1F78B5D91BACF4E600382704 /* Frameworks */,
 				1F78B5DA1BACF4E600382704 /* Resources */,
+				DDD10EB67EA73B6E5ABB1C32 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +231,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83BBD9F58D0C46D8B75EBB3C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDD10EB67EA73B6E5ABB1C32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F78B5D81BACF4E600382704 /* Sources */ = {
@@ -339,6 +398,7 @@
 		};
 		1F78B5FF1BACF4E700382704 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
@@ -350,6 +410,7 @@
 		};
 		1F78B6001BACF4E700382704 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
@@ -402,6 +463,7 @@
 				1F78B6001BACF4E700382704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F78B6011BACF4E700382704 /* Build configuration list for PBXNativeTarget "FriendsWithoutBenefitsTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +472,7 @@
 				1F78B6031BACF4E700382704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

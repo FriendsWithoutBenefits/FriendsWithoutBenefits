@@ -1,0 +1,25 @@
+PODS:
+  - Atlas (1.0.11):
+    - LayerKit (>= 0.16.0)
+  - Bolts/Tasks (1.2.2)
+  - LayerKit (0.16.0)
+  - Parse (1.8.5):
+    - Bolts/Tasks (>= 1.2.2)
+  - ParseUI (1.1.6):
+    - Bolts/Tasks (~> 1.2)
+    - Parse (~> 1.8)
+
+DEPENDENCIES:
+  - Atlas
+  - LayerKit
+  - Parse
+  - ParseUI
+
+SPEC CHECKSUMS:
+  Atlas: 9bb6dccf270236d591b36882288ecf185b464f82
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
+  LayerKit: 8976a2a4d5f73b808e6328a5c66732605a3c247a
+  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
+  ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
+
+COCOAPODS: 0.38.2
