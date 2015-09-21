@@ -14,6 +14,7 @@
 		1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5EB1BACF4E600382704 /* Assets.xcassets */; };
 		1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */; };
 		1F78B5FA1BACF4E700382704 /* FriendsWithoutBenefitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */; };
+		58548EA91BB07F4000AB10C4 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58548EA81BB07F4000AB10C4 /* LogInViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsWithoutBenefitsTests.m; sourceTree = "<group>"; };
 		1F78B5FB1BACF4E700382704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
+		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendsWithoutBenefits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +88,8 @@
 		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
+				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
 				1F78B5E61BACF4E600382704 /* ViewController.m */,
 			);
@@ -294,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58548EA91BB07F4000AB10C4 /* LogInViewController.m in Sources */,
 				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
 				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
