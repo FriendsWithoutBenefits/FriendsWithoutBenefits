@@ -11,8 +11,8 @@
 #import <Parse/Parse.h>
 
 
-@interface AppDelegate () <PFSubclassing>
-+ (NSString *)parseClassName;
+@interface AppDelegate ()
+
 @end
 
 @implementation AppDelegate
