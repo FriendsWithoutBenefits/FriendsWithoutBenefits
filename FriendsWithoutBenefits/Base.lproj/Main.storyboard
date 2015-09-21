@@ -38,10 +38,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="bAq-ml-ti1" kind="show" identifier="showTabBarSeque" id="fVV-Tg-Wak"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dto-VO-XS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="-344"/>
+            <point key="canvasLocation" x="-407" y="1065"/>
         </scene>
         <!--Item-->
         <scene sceneID="DSP-Wi-2oX">
