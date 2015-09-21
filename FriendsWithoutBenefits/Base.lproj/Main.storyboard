@@ -25,6 +25,24 @@
             </objects>
             <point key="canvasLocation" x="868" y="-2171"/>
         </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="2qp-Py-NTb">
+            <objects>
+                <viewController id="UOy-8F-p7i" customClass="LogInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dhg-o5-SQU"/>
+                        <viewControllerLayoutGuide type="bottom" id="uPf-M4-bCr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e1H-O8-zMO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dto-VO-XS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-407" y="-344"/>
+        </scene>
         <!--Item-->
         <scene sceneID="DSP-Wi-2oX">
             <objects>

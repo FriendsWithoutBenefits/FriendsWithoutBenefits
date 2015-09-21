@@ -51,6 +51,8 @@
 		3400C0971BB08BF4005DA6C8 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
+		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendsWithoutBenefits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,8 @@
 		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
+				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
 				1F78B5E61BACF4E600382704 /* ViewController.m */,
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
