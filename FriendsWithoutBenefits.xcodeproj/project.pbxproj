@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1F1CE7E51BB08A3B00FB7FAA /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; settings = {ASSET_TAGS = (); }; };
+		1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1F78B5E11BACF4E600382704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E01BACF4E600382704 /* main.m */; };
 		1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E31BACF4E600382704 /* AppDelegate.m */; };
 		1F78B5E71BACF4E600382704 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E61BACF4E600382704 /* ViewController.m */; };
@@ -28,6 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationListViewController.h; sourceTree = "<group>"; };
+		1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationListViewController.m; sourceTree = "<group>"; };
+		1F1CE7E31BB08A3B00FB7FAA /* ParseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseService.h; sourceTree = "<group>"; };
+		1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseService.m; sourceTree = "<group>"; };
+		1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		1F78B5DC1BACF4E600382704 /* FriendsWithoutBenefits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsWithoutBenefits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78B5E01BACF4E600382704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F78B5E21BACF4E600382704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +77,8 @@
 		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1F1CE7E31BB08A3B00FB7FAA /* ParseService.h */,
+				1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -87,6 +98,10 @@
 			children = (
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
 				1F78B5E61BACF4E600382704 /* ViewController.m */,
+				1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */,
+				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
+				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
+				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,8 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1CE7E51BB08A3B00FB7FAA /* ParseService.m in Sources */,
 				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
 				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
+				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
+				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
