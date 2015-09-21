@@ -7,10 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 #import <Parse/Parse.h>
 
-@interface AppDelegate ()
 
+@interface AppDelegate () <PFSubclassing>
++ (NSString *)parseClassName;
 @end
 
 @implementation AppDelegate
@@ -23,6 +25,8 @@
   // [Optional] Power your app with Local Datastore. For more info, go to
   // https://parse.com/docs/ios_guide#localdatastore/iOS
   [Parse enableLocalDatastore];
+  
+  [User registerSubclass];
   
   // Initialize Parse.
   [Parse setApplicationId:@"eXoPCyqhxElHM9oDEmbZWnt8mMMLKJo7yWMQM0Eh"
