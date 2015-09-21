@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "Friends Without Benefits": {
+      "applicationId": "eXoPCyqhxElHM9oDEmbZWnt8mMMLKJo7yWMQM0Eh"
+    },
+    "_default": {
+      "link": "Friends Without Benefits"
+    }
+  }
+}

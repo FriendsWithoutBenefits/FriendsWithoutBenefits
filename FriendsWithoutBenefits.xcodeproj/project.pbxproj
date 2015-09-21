@@ -65,6 +65,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1F1CE7DE1BB06E0B00FB7FAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F78B5E81BACF4E600382704 /* Main.storyboard */,
+				1F78B5EB1BACF4E600382704 /* Assets.xcassets */,
+				1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1F78B5E51BACF4E600382704 /* ViewController.h */,
+				1F78B5E61BACF4E600382704 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		1F78B5D31BACF4E600382704 = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +114,11 @@
 		1F78B5DE1BACF4E600382704 /* FriendsWithoutBenefits */ = {
 			isa = PBXGroup;
 			children = (
+				1F1CE7DF1BB06E1000FB7FAA /* Controller */,
+				1F1CE7DE1BB06E0B00FB7FAA /* View */,
+				1F1CE7DD1BB06E0500FB7FAA /* Model */,
 				1F78B5E21BACF4E600382704 /* AppDelegate.h */,
 				1F78B5E31BACF4E600382704 /* AppDelegate.m */,
-				1F78B5E51BACF4E600382704 /* ViewController.h */,
-				1F78B5E61BACF4E600382704 /* ViewController.m */,
-				1F78B5E81BACF4E600382704 /* Main.storyboard */,
-				1F78B5EB1BACF4E600382704 /* Assets.xcassets */,
-				1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */,
 				1F78B5F01BACF4E600382704 /* Info.plist */,
 				1F78B5DF1BACF4E600382704 /* Supporting Files */,
 			);
