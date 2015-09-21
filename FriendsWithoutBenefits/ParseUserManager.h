@@ -1,5 +1,5 @@
 //
-//  ParseService.h
+//  ParseUserManager.h
 //  FriendsWithoutBenefits
 //
 //  Created by Jeffrey Jacka on 9/21/15.
@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
 
-@interface ParseService : NSObject
-
-+(void)queryForUserWithId:(NSString *)userID completionHandler:(void(^)(User *user))completion;
+@interface ParseUserManager : NSObject
 
 @end

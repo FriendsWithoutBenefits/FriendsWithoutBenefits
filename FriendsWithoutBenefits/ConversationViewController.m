@@ -7,10 +7,13 @@
 //
 
 #import "ConversationViewController.h"
+#import "ParseService.h"
+#import "User.h"
 
 @interface ConversationViewController () <ATLConversationViewControllerDataSource, ATLConversationViewControllerDelegate>
 
 @property (nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) User *participant;
 
 @end
 
@@ -64,7 +67,10 @@
 
 - (id<ATLParticipant>)conversationViewController:(ATLConversationViewController *)conversationViewController participantForIdentifier:(NSString *)participantIdentifier
 {
-  //TODO
+  [ParseService queryForUserWithId:participantIdentifier completionHandler:^(User *user) {
+    
+  }];
+
   return nil;
 }
 
