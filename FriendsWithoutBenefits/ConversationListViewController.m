@@ -42,7 +42,14 @@
 
 #pragma mark - ATLConversationListViewControllerDatasource
 - (NSString *)conversationListViewController:(ATLConversationListViewController *)conversationListViewController titleForConversation:(LYRConversation *)conversation {
-  return @"This is my conversation title";
+  
+  if ([conversation.metadata valueForKey:@"title"]) {
+    return [conversation.metadata valueForKey:@"title"];
+  } else {
+    
+  }
+  
+  return @"Conversation Title Error";
 }
 
 #pragma mark - ATLConversationListViewControllerDelegate
