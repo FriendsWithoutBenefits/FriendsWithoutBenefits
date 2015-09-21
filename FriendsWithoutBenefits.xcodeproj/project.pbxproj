@@ -11,6 +11,7 @@
 		1F1CE7E51BB08A3B00FB7FAA /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; settings = {ASSET_TAGS = (); }; };
 		1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1F26FF421BB0BAC900AEB60C /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
+		1F26FF481BB0BFFC00AEB60C /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF471BB0BFFC00AEB60C /* Keys.m */; settings = {ASSET_TAGS = (); }; };
 		1F78B5E11BACF4E600382704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E01BACF4E600382704 /* main.m */; };
 		1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E31BACF4E600382704 /* AppDelegate.m */; };
 		1F78B5E71BACF4E600382704 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E61BACF4E600382704 /* ViewController.m */; };
@@ -43,6 +44,7 @@
 		1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		1F26FF401BB0BAC900AEB60C /* ParseUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseUserManager.h; sourceTree = "<group>"; };
 		1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseUserManager.m; sourceTree = "<group>"; };
+		1F26FF471BB0BFFC00AEB60C /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		1F78B5DC1BACF4E600382704 /* FriendsWithoutBenefits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendsWithoutBenefits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78B5E01BACF4E600382704 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F78B5E21BACF4E600382704 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				3400C08F1BB07046005DA6C8 /* User.m */,
 				1F26FF401BB0BAC900AEB60C /* ParseUserManager.h */,
 				1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */,
+				1F26FF471BB0BFFC00AEB60C /* Keys.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				3400C0901BB07046005DA6C8 /* User.m in Sources */,
 				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
 				3400C0991BB08BF4005DA6C8 /* EditProfileViewController.m in Sources */,
+				1F26FF481BB0BFFC00AEB60C /* Keys.m in Sources */,
 				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
