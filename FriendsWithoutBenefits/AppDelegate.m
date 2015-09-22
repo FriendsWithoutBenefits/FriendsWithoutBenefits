@@ -36,12 +36,12 @@
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   //END PARSE
   
-  PFUser *currentUser = [PFUser currentUser];
-  if (currentUser) {
-    // do stuff with the user
-  } else {
-    // show the signup or login screen
-  }
+//  PFUser *currentUser = [PFUser currentUser];
+//  if (currentUser) {
+//    // do stuff with the user
+//  } else {
+//    // show the signup or login screen
+//  }
 
   
   return YES;
