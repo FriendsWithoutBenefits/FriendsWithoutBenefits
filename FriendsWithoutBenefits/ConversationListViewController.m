@@ -9,6 +9,7 @@
 #import "ConversationListViewController.h"
 #import "ConversationViewController.h"
 #import "AppDelegate.h"
+#import "Keys.m"
 
 @interface ConversationListViewController () <ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate>
 
@@ -21,7 +22,7 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   // Initializes a LYRClient object
-  static NSString *const LayerAppIDString = @"layer:///apps/staging/c18f2932-5e63-11e5-a5eb-130000000104";
+
   NSURL *appID = [NSURL URLWithString:LayerAppIDString];
   LYRClient *layerClient = [LYRClient clientWithAppID:appID];
   return [super initWithLayerClient:layerClient];

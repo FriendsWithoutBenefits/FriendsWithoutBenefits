@@ -28,6 +28,7 @@ xcuserdata
 *.hmap
 *.ipa
 Keys.m
+Keys.h
 
 # CocoaPods
 #

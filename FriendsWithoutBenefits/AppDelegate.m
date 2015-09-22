@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import <Parse/Parse.h>
+#import "LogInViewController.h"
 
 
 @interface AppDelegate ()
@@ -40,7 +41,13 @@
   if (currentUser) {
     // do stuff with the user
   } else {
-    // show the signup or login screen
+      self.window = [[UIWindow alloc] init];
+      
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+      
+      LogInViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LogInViewController"];
+      self.window.rootViewController = loginVC;
+      [self.window makeKeyAndVisible];
   }
 
   
