@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class FSQCategory;
 @class FSQLocation;
 @class FSQStats;
 
 @interface FSQVenue : NSObject
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) FSQCategory *category;
 @property (nonatomic, strong) FSQLocation *location;
-@property (strong, nonatomic) FSQStats *stats;
+@property (nonatomic, strong) FSQStats *stats;
 
 @end

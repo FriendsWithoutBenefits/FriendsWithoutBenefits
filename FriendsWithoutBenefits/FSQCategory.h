@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface FSQCategory : NSObject
-
-@property (nonatomic, strong) NSString *iconPrefix;
-@property (nonatomic, strong) NSString *iconSuffix;
 @property (nonatomic, strong) NSString *catID;
+@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *name;
+
 
 
 @end

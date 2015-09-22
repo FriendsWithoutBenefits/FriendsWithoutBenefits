@@ -11,6 +11,7 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "FSQVenue.h"
+#import "FSQCategory.h"
 #import "FSQLocation.h"
 #import "FSQStats.h"
 #import "Keys.h"
@@ -23,7 +24,8 @@
 
 @property (nonatomic, strong) NSArray *venues;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong,nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
 
 @end
 
@@ -36,12 +38,16 @@ BOOL lsAllowed = FALSE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    self.mapView.showsUserLocation = true;
+  
+  
+
   
   //initial mapView is of downtown Seattle
-  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.6097, -122.3331), 5550, 5550) animated:true];
+//  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.6097, -122.3331), 5550, 5550) animated:true];
   
-    [self configureRestKit];
-    [self loadVenues];
+   // [self configureRestKit];
+    //[self loadVenues];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,10 +58,14 @@ BOOL lsAllowed = FALSE;
   
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
       [self.locationManager requestWhenInUseAuthorization];
+      if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self configureRestKit];
+        [self loadVenues];
+      }
     }
   }
-
 }
+
 
 //Initial code structure sourced from RayW tutorial code
 - (void)configureRestKit
@@ -81,23 +91,38 @@ BOOL lsAllowed = FALSE;
   
   [objectManager addResponseDescriptor:responseDescriptor];
   
-  // define location object mapping
+  // define category object and relationship mapping
+  RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[FSQCategory class]];
+  [categoryMapping addAttributeMappingsFromDictionary:@{@"id": @"catID", @"icon": @"icon", @"name": @"name"}];
+  [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"category" toKeyPath:@"category" withMapping:categoryMapping]];
+  
+  // define location object and relationship mapping
   RKObjectMapping *locationMapping = [RKObjectMapping mappingForClass:[FSQLocation class]];
   [locationMapping addAttributeMappingsFromArray:@[@"address", @"city", @"country", @"crossStreet", @"postalCode", @"state", @"distance", @"lat", @"lng"]];
-  
-  // define relationship mapping
   [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:locationMapping]];
   
+  // define stats object and relationship mapping
   RKObjectMapping *statsMapping = [RKObjectMapping mappingForClass:[FSQStats class]];
   [statsMapping addAttributeMappingsFromDictionary:@{@"checkinsCount": @"checkins", @"tipsCount": @"tips", @"usersCount": @"users"}];
-  
   [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"stats" toKeyPath:@"stats" withMapping:statsMapping]];
+  
+ 
+  
 }
 
 //Initial code structure sourced from RayW tutorial code
 - (void)loadVenues
 {
-  NSString *latLon = @"47.61,-122.33";
+  [self getUserLocation];
+  //use the User's current location as the reference point for loading venues
+  NSString *latLon;
+  NSNumber *latN = [NSNumber numberWithDouble: self.currentLocation.coordinate.latitude];
+  latLon = [latN stringValue];
+  latLon = [latLon stringByAppendingString:@","];
+  
+  NSNumber *lngN = [NSNumber numberWithDouble: self.currentLocation.coordinate.longitude];
+  latLon = [latLon stringByAppendingString:[lngN stringValue]];
+  
   NSString *clientID = kCLIENTID;
   NSString *clientSecret = kCLIENTSECRET;
   NSString *categoryIDs = kFCoffeeShops;
@@ -153,7 +178,9 @@ BOOL lsAllowed = FALSE;
   self.locationManager.distanceFilter = 500;
   [self.locationManager startUpdatingLocation];
   
-  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 1000, 1000) animated:true];
+  self.currentLocation = self.locationManager.location;
+  
+  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 5000, 5000) animated:true];
   
   [self.locationManager stopUpdatingLocation];
   
@@ -180,13 +207,21 @@ BOOL lsAllowed = FALSE;
 
 #pragma mark - CLLocationManagerDelegate
 
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+  CLLocation* location = [locations lastObject];
+  self.currentLocation = location;
+  // NSLog(@"lat: %f, long: %f",location.coordinate.latitude, location.coordinate.longitude);
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+  NSLog(@"didFailWithError");
+}
+
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
   
   switch ([CLLocationManager authorizationStatus]) {
     case kCLAuthorizationStatusAuthorizedWhenInUse:
-      [self.locationManager startUpdatingLocation];
-      [self getUserLocation];
-       self.mapView.showsUserLocation = true;
       lsAllowed = TRUE;
       break;
     case kCLAuthorizationStatusAuthorizedAlways:
