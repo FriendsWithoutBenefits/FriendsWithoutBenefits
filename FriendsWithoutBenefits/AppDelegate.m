@@ -39,12 +39,18 @@
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   //END PARSE
   
-//  PFUser *currentUser = [PFUser currentUser];
-//  if (currentUser) {
-//    // do stuff with the user
-//  } else {
-//    // show the signup or login screen
-//  }
+  PFUser *currentUser = [PFUser currentUser];
+  if (currentUser) {
+      [LayerService.sharedService loginLayer];
+  } else {
+      self.window = [[UIWindow alloc] init];
+      
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+      
+      LogInViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LogInViewController"];
+      self.window.rootViewController = loginVC;
+      [self.window makeKeyAndVisible];
+  }
 
   
   return YES;

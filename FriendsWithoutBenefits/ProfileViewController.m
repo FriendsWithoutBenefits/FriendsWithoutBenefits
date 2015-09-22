@@ -9,6 +9,8 @@
 #import "ProfileViewController.h"
 #import "User.h"
 #import "EditProfileViewController.h"
+#import <Parse/Parse.h>
+#import "ParseService.h"
 
 
 @interface ProfileViewController ()
@@ -26,21 +28,30 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
     // Do any additional setup after loading the view.
+  [self fetchProfile];
+  [self setUpProfile];
 }
 
 - (void)fetchProfile {
   //Download User Information from Parse
   //Parser service for user info
+  PFUser *currentUser = [PFUser currentUser];
+  NSString *currentUserObjectId = currentUser.objectId;
+  [ParseService queryForUserWithId:currentUserObjectId completionHandler:^(User *user) {
+    self.user = user;
+  }];
+
 }
 
 -(void)setUpProfile {
   //Populate VC's fields
+  self.firstNameLabel.text = self.user.firstName;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"ShowEditViewController"]) {
     EditProfileViewController *editProfileViewController = [segue destinationViewController];
-    self.firstNameLabel.text = @"Cat";
+//    self.firstNameLabel.text = @"Cat";
     self.ageLabel.text = @"123";
     editProfileViewController.editUser = self.user;
     [editProfileViewController.editNameTextField setPlaceholder:self.firstNameLabel.text];
