@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */; settings = {ASSET_TAGS = (); }; };
-		1F1CE7E51BB08A3B00FB7FAA /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; settings = {ASSET_TAGS = (); }; };
 		1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1F26FF421BB0BAC900AEB60C /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
 		1F78B5E11BACF4E600382704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E01BACF4E600382704 /* main.m */; };
@@ -23,6 +22,7 @@
 		3400C0991BB08BF4005DA6C8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		58D423DA1BB0C7C100195783 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D423D91BB0C7C100195783 /* Keys.m */; settings = {ASSET_TAGS = (); }; };
 		7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */; };
+		7BED70231BB0F88700D9BA6A /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +125,8 @@
 				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
 				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
 				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
+				7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */,
+				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
 			);
 			name = Controller;
@@ -351,9 +353,11 @@
 				3400C0991BB08BF4005DA6C8 /* EditProfileViewController.m in Sources */,
 				58D423DA1BB0C7C100195783 /* Keys.m in Sources */,
 				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
+				7B087C2A1BB1068D0074276B /* ParseUserManager.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
+				7BED70231BB0F88700D9BA6A /* LayerService.m in Sources */,
 				3400C0961BB07EDE005DA6C8 /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,7 @@
         <!--Log In View Controller-->
         <scene sceneID="2qp-Py-NTb">
             <objects>
-                <viewController storyboardIdentifier="LogInViewContoller" id="UOy-8F-p7i" customClass="LogInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" id="UOy-8F-p7i" customClass="LogInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dhg-o5-SQU"/>
                         <viewControllerLayoutGuide type="bottom" id="uPf-M4-bCr"/>
@@ -128,7 +128,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4TM-Iy-qyO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4TM-Iy-qyO">
                                 <rect key="frame" x="20" y="72" width="560" height="300"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.068672631119999994" green="0.72349846149999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,7 +136,7 @@
                                     <constraint firstAttribute="height" constant="300" id="39z-1f-cSR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-ui-wvt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ds-ui-wvt">
                                 <rect key="frame" x="20" y="380" width="79" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -315,7 +315,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fIz-LP-hhe">
             <objects>
-                <tabBarController id="bAq-ml-ti1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootTabBar" id="bAq-ml-ti1" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="WOg-iN-uyw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -356,6 +356,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="isu-UZ-Nvl"/>
+        <segue reference="fIx-dr-YR7"/>
     </inferredMetricsTieBreakers>
 </document>
