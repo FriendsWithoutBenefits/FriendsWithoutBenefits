@@ -9,7 +9,8 @@
 #import "ConversationListViewController.h"
 #import "ConversationViewController.h"
 #import "AppDelegate.h"
-#import "Keys.m"
+#import "Keys.h"
+#import "LayerService.h"
 
 @interface ConversationListViewController () <ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate>
 
@@ -22,9 +23,8 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   // Initializes a LYRClient object
-
-  NSURL *appID = [NSURL URLWithString:LayerAppIDString];
-  LYRClient *layerClient = [LYRClient clientWithAppID:appID];
+    LayerService *sharedService = [LayerService sharedService];
+    LYRClient *layerClient = sharedService.layerClient;
   return [super initWithLayerClient:layerClient];
 }
 
@@ -59,7 +59,5 @@
   destinationVC.conversation = conversation;
   [self.navigationController pushViewController:destinationVC animated:true];
 }
-
-
 
 @end

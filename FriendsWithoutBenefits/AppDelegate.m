@@ -10,6 +10,8 @@
 #import "User.h"
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
+#import "Keys.h"
+#import "LayerService.h"
 
 
 @interface AppDelegate ()
@@ -20,7 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Override point for customization after application launch.
+  // Override point for customization after application launch
   
   //PARSE
   // [Optional] Power your app with Local Datastore. For more info, go to
@@ -30,8 +32,8 @@
   [User registerSubclass];
   
   // Initialize Parse.
-  [Parse setApplicationId:@"eXoPCyqhxElHM9oDEmbZWnt8mMMLKJo7yWMQM0Eh"
-                clientKey:@"D1KOZVEQcgwxMFOdjvyvyExdVwM8rW5Fqin6GILT"];
+  [Parse setApplicationId:kParseAppID
+                clientKey:kParseClientKey];
   
   // [Optional] Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
@@ -39,7 +41,7 @@
   
   PFUser *currentUser = [PFUser currentUser];
   if (currentUser) {
-    // do stuff with the user
+      [LayerService.sharedService loginLayer];
   } else {
       self.window = [[UIWindow alloc] init];
       

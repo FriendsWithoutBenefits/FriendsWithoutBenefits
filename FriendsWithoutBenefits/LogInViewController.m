@@ -7,8 +7,11 @@
 //
 
 #import "LogInViewController.h"
+#import "LayerService.h"
+#import <LayerKit/LayerKit.h>
 
 @interface LogInViewController ()
+
 
 @end
 
@@ -16,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+
     
     self.delegate = self;
     
@@ -55,6 +60,7 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+        [LayerService.sharedService loginLayer];
   [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
 }
 
@@ -92,6 +98,7 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [LayerService.sharedService loginLayer];
     [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
 }
 
@@ -106,6 +113,9 @@
   NSLog(@"User dismissed the signUpViewController");
   // Direct the user the rootView Controller
 }
+
+
+
 
 
 @end
