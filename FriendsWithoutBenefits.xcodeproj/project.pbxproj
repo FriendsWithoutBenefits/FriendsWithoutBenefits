@@ -23,6 +23,7 @@
 		3400C0961BB07EDE005DA6C8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0951BB07EDE005DA6C8 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3400C0991BB08BF4005DA6C8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		58548EA91BB07F4000AB10C4 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58548EA81BB07F4000AB10C4 /* LogInViewController.m */; settings = {ASSET_TAGS = (); }; };
+		58581EF91BB1BC8F0061B557 /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = 58581EF81BB1BC8F0061B557 /* Keys.m */; settings = {ASSET_TAGS = (); }; };
 		7B087C2A1BB1068D0074276B /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
 		7B087C2D1BB109EA0074276B /* ParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; };
@@ -91,6 +92,8 @@
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
 		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		58581EF71BB1BC8F0061B557 /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		58581EF81BB1BC8F0061B557 /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantTableViewController.h; sourceTree = "<group>"; };
 		7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantTableViewController.m; sourceTree = "<group>"; };
 		7BED70211BB0F88700D9BA6A /* LayerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerService.h; sourceTree = "<group>"; };
