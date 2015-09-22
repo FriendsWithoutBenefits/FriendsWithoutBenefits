@@ -59,9 +59,6 @@
 //    self.firstNameLabel.text = @"Cat";
     self.ageLabel.text = @"123";
     editProfileViewController.editUser = self.user;
-    [editProfileViewController.editNameTextField setPlaceholder:self.firstNameLabel.text];
-    editProfileViewController.editAgeTextField.placeholder = self.ageLabel.text;
-    editProfileViewController.editAboutTextView.text = self.aboutTextView.text;
   }
 }
 
