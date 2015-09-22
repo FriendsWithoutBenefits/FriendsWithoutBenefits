@@ -13,22 +13,70 @@
 @interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (strong, nonatomic) UIAlertController *imageSelector;
 @property (strong, nonatomic) UIImagePickerController *picker;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileImageButton;
+@property (weak, nonatomic) IBOutlet UITextField *editFirstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *editLastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *editAgeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *editInterestsTextField;
+@property (weak, nonatomic) IBOutlet UITextView *editAboutTextView;
+@property (strong, nonatomic) UIImage *chosenImage;
 @end
 
 @implementation EditProfileViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.editNameTextField.delegate = self;
+  self.editFirstNameTextField.delegate = self;
+  self.editLastNameTextField.delegate = self;
   self.editAgeTextField.delegate = self;
   self.editAboutTextView.delegate = self;
   [self setUpActionSheet];
 
     // Do any additional setup after loading the view.
 }
+
+-(void)setUpTextFields {
+  //If your first name is not nil Display current first name
+  if (self.editUser.firstName) {
+    self.editFirstNameTextField.placeholder = self.editUser.firstName;
+  }
+  //If your last name is not nil Display its set name
+  if (self.editUser.lastName) {
+    self.editLastNameTextField.placeholder = self.editUser.lastName;
+  }
+  //If your age is not nil display its age
+  if (self.editUser.age) {
+    NSString *age = [NSString stringWithFormat:@"%@",self.editUser.age];
+    self.editAgeTextField.placeholder = age;
+  }
+  //If your about me is not nil, display text
+  if (self.editUser.aboutMe) {
+    self.editAboutTextView.text = self.editUser.aboutMe;
+  }
+}
+
 - (IBAction)editProfilePictureButtonPressed:(UIButton *)sender {
   self.imageSelector.modalPresentationStyle = UIModalPresentationPageSheet;
   [self presentViewController:self.imageSelector animated:true completion:nil];
+}
+- (IBAction)saveChangesButtonPressed:(UIButton *)sender {
+  self.editUser.firstName = self.editFirstNameTextField.text;
+  self.editUser.lastName = self.editLastNameTextField.text;
+  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+  formatter.numberStyle = NSNumberFormatterDecimalStyle;
+  NSNumber *age = [formatter numberFromString:self.editAgeTextField.text];
+  self.editUser.age = age;
+  self.editUser.aboutMe = self.editAboutTextView.text;
+  self.editUser.profilePicture = self.chosenImage;
+  
+  
+  
+  
+    //Figure out interests
+  
+  
+  
+  [self.editUser saveInBackground];
 }
 
 - (void)setUpActionSheet {
@@ -57,23 +105,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - UIImagePickerControllerDelegate and UINavigationControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+
   UIImage *image = info[UIImagePickerControllerOriginalImage];
-  //[self.editUser setProfilePicture:image];
+  self.chosenImage = [[UIImage alloc] init];
+  self.chosenImage = image;
   [self.editProfileImageButton setImage:image forState:UIControlStateNormal];
-//  [self.editProfileImageButton setBackgroundImage:image forState:UIControlStateNormal];
   [self.picker dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -83,8 +122,7 @@
 
 #pragma mark - UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
-  [self.editAgeTextField resignFirstResponder];
-  [self.editNameTextField resignFirstResponder];
+  [textField resignFirstResponder];
   return true;
 }
 
