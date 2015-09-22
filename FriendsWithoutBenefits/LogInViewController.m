@@ -23,6 +23,7 @@
 
     
     self.delegate = self;
+  self.signUpController.delegate = self;
     
     // Do any additional setup after loading the view.
  }
@@ -98,8 +99,10 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [LayerService.sharedService loginLayer];
-    [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
+    [signUpController dismissViewControllerAnimated:true completion:^{
+      [LayerService.sharedService loginLayer];
+      [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
+    }];
 }
 
 // Sent to the delegate when the sign up attempt fails.
