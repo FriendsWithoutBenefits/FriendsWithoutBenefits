@@ -12,8 +12,5 @@
 
 @interface EditProfileViewController : UIViewController
 @property (weak, nonatomic) User *editUser;
-@property (weak, nonatomic) IBOutlet UIButton *editProfileImageButton;
-@property (weak, nonatomic) IBOutlet UITextField *editNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *editAgeTextField;
-@property (weak, nonatomic) IBOutlet UITextView *editAboutTextView;
+
 @end
