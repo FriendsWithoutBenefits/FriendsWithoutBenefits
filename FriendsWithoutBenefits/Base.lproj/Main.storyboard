@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="868" y="-1491"/>
         </scene>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="QQD-WR-30F">
             <objects>
-                <viewController id="z2S-KC-3mo" sceneMemberID="viewController">
+                <viewController title="Map" id="z2S-KC-3mo" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GyK-hY-L7o"/>
                         <viewControllerLayoutGuide type="bottom" id="Kn9-TW-ff9"/>
@@ -78,10 +78,24 @@
                     <view key="view" contentMode="scaleToFill" id="QNg-8F-xLU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1Ve-Kn-A9l">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Ve-Kn-A9l" secondAttribute="trailing" constant="-20" id="ca2-yo-HeD"/>
+                            <constraint firstItem="1Ve-Kn-A9l" firstAttribute="top" secondItem="QNg-8F-xLU" secondAttribute="topMargin" id="lnn-Eh-RND"/>
+                            <constraint firstItem="Kn9-TW-ff9" firstAttribute="top" secondItem="1Ve-Kn-A9l" secondAttribute="bottom" id="saM-iK-4Dx"/>
+                            <constraint firstItem="1Ve-Kn-A9l" firstAttribute="leading" secondItem="QNg-8F-xLU" secondAttribute="leadingMargin" constant="-20" id="wDh-Me-Kcf"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="xPS-bI-brg"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="xPS-bI-brg"/>
+                    <connections>
+                        <outlet property="mapView" destination="1Ve-Kn-A9l" id="KC8-p5-a85"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2I-4e-rxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

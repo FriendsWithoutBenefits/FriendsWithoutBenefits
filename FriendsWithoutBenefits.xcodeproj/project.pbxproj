@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1F78B5E11BACF4E600382704 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E01BACF4E600382704 /* main.m */; };
+		1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E31BACF4E600382704 /* AppDelegate.m */; };
+		1F78B5E71BACF4E600382704 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E61BACF4E600382704 /* ViewController.m */; };
+>>>>>>> 70b4efbb51c1236f238070c4cbe5595c2214d66b
 		1F78B5EA1BACF4E600382704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5E81BACF4E600382704 /* Main.storyboard */; };
 		1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5EB1BACF4E600382704 /* Assets.xcassets */; };
 		1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */; };
 		1F78B5FA1BACF4E700382704 /* FriendsWithoutBenefitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */; };
 		3400C0BE1BB1BCAC005DA6C8 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58548EA81BB07F4000AB10C4 /* LogInViewController.m */; };
-		3400C0BF1BB1BCAC005DA6C8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E61BACF4E600382704 /* ViewController.m */; };
-		3400C0C01BB1BCAC005DA6C8 /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */; };
-		3400C0C11BB1BCAC005DA6C8 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */; };
+
 		3400C0C21BB1BCAC005DA6C8 /* ParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */; };
 		3400C0C31BB1BCAC005DA6C8 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0951BB07EDE005DA6C8 /* ProfileViewController.m */; };
 		3400C0C41BB1BCAC005DA6C8 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */; };
@@ -23,9 +27,14 @@
 		3400C0C71BB1BCAC005DA6C8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C08F1BB07046005DA6C8 /* User.m */; };
 		3400C0C81BB1BCAC005DA6C8 /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; };
 		3400C0C91BB1BCAC005DA6C8 /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; };
-		3400C0CA1BB1BCAC005DA6C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E31BACF4E600382704 /* AppDelegate.m */; };
-		3400C0CB1BB1BCAC005DA6C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5E01BACF4E600382704 /* main.m */; };
 		7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */; };
+		B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F351BB1D0C9002099AF /* FSQCategoryIDs.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F401BB1D0C9002099AF /* FSQLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F391BB1D0C9002099AF /* FSQLocation.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F411BB1D0C9002099AF /* FSQStats.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F3B1BB1D0C9002099AF /* FSQStats.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F421BB1D0C9002099AF /* FSQVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F3D1BB1D0C9002099AF /* FSQVenue.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F451BB1D119002099AF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F441BB1D119002099AF /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4D1BB1EDFC002099AF /* FSQCategory.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +86,22 @@
 		7BED70221BB0F88700D9BA6A /* LayerService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerService.m; sourceTree = "<group>"; };
 		8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FriendsWithoutBenefits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.release.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.release.xcconfig"; sourceTree = "<group>"; };
+		B0107F341BB1D0C8002099AF /* FSQCategoryIDs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQCategoryIDs.h; sourceTree = "<group>"; };
+		B0107F351BB1D0C9002099AF /* FSQCategoryIDs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQCategoryIDs.m; sourceTree = "<group>"; };
+		B0107F381BB1D0C9002099AF /* FSQLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQLocation.h; sourceTree = "<group>"; };
+		B0107F391BB1D0C9002099AF /* FSQLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQLocation.m; sourceTree = "<group>"; };
+		B0107F3A1BB1D0C9002099AF /* FSQStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQStats.h; sourceTree = "<group>"; };
+		B0107F3B1BB1D0C9002099AF /* FSQStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQStats.m; sourceTree = "<group>"; };
+		B0107F3C1BB1D0C9002099AF /* FSQVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenue.h; sourceTree = "<group>"; };
+		B0107F3D1BB1D0C9002099AF /* FSQVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenue.m; sourceTree = "<group>"; };
+		B0107F431BB1D119002099AF /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		B0107F441BB1D119002099AF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		B0107F461BB1D1DC002099AF /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		B0107F471BB1D1DC002099AF /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
+		B0107F491BB1D2F6002099AF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B0107F4A1BB1D2F6002099AF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B0107F4C1BB1EDFC002099AF /* FSQCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQCategory.h; sourceTree = "<group>"; };
+		B0107F4D1BB1EDFC002099AF /* FSQCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQCategory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +126,27 @@
 		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3400C0AA1BB1B64B005DA6C8 /* Keys.h */,
-				3400C0AB1BB1B64B005DA6C8 /* Keys.m */,
+				B0107F491BB1D2F6002099AF /* Constants.h */,
+				B0107F4A1BB1D2F6002099AF /* Constants.m */,
 				1F1CE7E31BB08A3B00FB7FAA /* ParseService.h */,
 				1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */,
 				3400C08E1BB07046005DA6C8 /* User.h */,
 				3400C08F1BB07046005DA6C8 /* User.m */,
 				1F26FF401BB0BAC900AEB60C /* ParseUserManager.h */,
 				1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */,
+				B0107F461BB1D1DC002099AF /* Keys.h */,
+				B0107F471BB1D1DC002099AF /* Keys.m */,
 				7BED70211BB0F88700D9BA6A /* LayerService.h */,
+				B0107F341BB1D0C8002099AF /* FSQCategoryIDs.h */,
+				B0107F351BB1D0C9002099AF /* FSQCategoryIDs.m */,
+				B0107F381BB1D0C9002099AF /* FSQLocation.h */,
+				B0107F391BB1D0C9002099AF /* FSQLocation.m */,
+				B0107F3A1BB1D0C9002099AF /* FSQStats.h */,
+				B0107F3B1BB1D0C9002099AF /* FSQStats.m */,
+				B0107F3C1BB1D0C9002099AF /* FSQVenue.h */,
+				B0107F4C1BB1EDFC002099AF /* FSQCategory.h */,
+				B0107F4D1BB1EDFC002099AF /* FSQCategory.m */,
+				B0107F3D1BB1D0C9002099AF /* FSQVenue.m */,
 				7BED70221BB0F88700D9BA6A /* LayerService.m */,
 			);
 			name = Model;
@@ -128,6 +165,8 @@
 		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B0107F431BB1D119002099AF /* MapViewController.h */,
+				B0107F441BB1D119002099AF /* MapViewController.m */,
 				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
 				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
@@ -357,20 +396,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3400C0BE1BB1BCAC005DA6C8 /* LogInViewController.m in Sources */,
-				3400C0BF1BB1BCAC005DA6C8 /* ViewController.m in Sources */,
-				3400C0C01BB1BCAC005DA6C8 /* ConversationListViewController.m in Sources */,
-				3400C0C11BB1BCAC005DA6C8 /* ConversationViewController.m in Sources */,
-				3400C0C21BB1BCAC005DA6C8 /* ParticipantTableViewController.m in Sources */,
-				3400C0C31BB1BCAC005DA6C8 /* ProfileViewController.m in Sources */,
-				3400C0C41BB1BCAC005DA6C8 /* EditProfileViewController.m in Sources */,
-				3400C0C51BB1BCAC005DA6C8 /* Keys.m in Sources */,
 				3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */,
-				3400C0C71BB1BCAC005DA6C8 /* User.m in Sources */,
-				3400C0C81BB1BCAC005DA6C8 /* ParseUserManager.m in Sources */,
-				3400C0C91BB1BCAC005DA6C8 /* LayerService.m in Sources */,
-				3400C0CA1BB1BCAC005DA6C8 /* AppDelegate.m in Sources */,
-				3400C0CB1BB1BCAC005DA6C8 /* main.m in Sources */,
+				7B087C2D1BB109EA0074276B /* ParticipantTableViewController.m in Sources */,
+				58548EA91BB07F4000AB10C4 /* LogInViewController.m in Sources */,
+				3400C0901BB07046005DA6C8 /* User.m in Sources */,
+				B0107F411BB1D0C9002099AF /* FSQStats.m in Sources */,
+				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
+				3400C0991BB08BF4005DA6C8 /* EditProfileViewController.m in Sources */,
+				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
+				7B087C2A1BB1068D0074276B /* ParseUserManager.m in Sources */,
+				B0107F421BB1D0C9002099AF /* FSQVenue.m in Sources */,
+				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
+				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
+				B0107F401BB1D0C9002099AF /* FSQLocation.m in Sources */,
+				1F78B5E11BACF4E600382704 /* main.m in Sources */,
+				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,
+				B0107F451BB1D119002099AF /* MapViewController.m in Sources */,
+				7BED70231BB0F88700D9BA6A /* LayerService.m in Sources */,
+				B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */,
+				3400C0961BB07EDE005DA6C8 /* ProfileViewController.m in Sources */,
+				B0107F481BB1D1DC002099AF /* Keys.m in Sources */,
+				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +545,7 @@
 			baseConfigurationReference = 4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
@@ -511,6 +558,7 @@
 			baseConfigurationReference = 98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
