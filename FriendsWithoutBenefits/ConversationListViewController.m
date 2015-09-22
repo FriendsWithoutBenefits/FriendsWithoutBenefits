@@ -9,6 +9,8 @@
 #import "ConversationListViewController.h"
 #import "ConversationViewController.h"
 #import "AppDelegate.h"
+#import "Keys.h"
+#import "LayerService.h"
 
 @interface ConversationListViewController () <ATLConversationListViewControllerDataSource, ATLConversationListViewControllerDelegate>
 
@@ -21,9 +23,8 @@
 -(id)initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   // Initializes a LYRClient object
-  static NSString *const LayerAppIDString = @"layer:///apps/staging/c18f2932-5e63-11e5-a5eb-130000000104";
-  NSURL *appID = [NSURL URLWithString:LayerAppIDString];
-  LYRClient *layerClient = [LYRClient clientWithAppID:appID];
+    LayerService *sharedService = [LayerService sharedService];
+    LYRClient *layerClient = sharedService.layerClient;
   return [super initWithLayerClient:layerClient];
 }
 
@@ -42,7 +43,14 @@
 
 #pragma mark - ATLConversationListViewControllerDatasource
 - (NSString *)conversationListViewController:(ATLConversationListViewController *)conversationListViewController titleForConversation:(LYRConversation *)conversation {
-  return @"This is my conversation title";
+  
+  if ([conversation.metadata valueForKey:@"title"]) {
+    return [conversation.metadata valueForKey:@"title"];
+  } else {
+    
+  }
+  
+  return @"Conversation Title Error";
 }
 
 #pragma mark - ATLConversationListViewControllerDelegate
@@ -51,7 +59,5 @@
   destinationVC.conversation = conversation;
   [self.navigationController pushViewController:destinationVC animated:true];
 }
-
-
 
 @end

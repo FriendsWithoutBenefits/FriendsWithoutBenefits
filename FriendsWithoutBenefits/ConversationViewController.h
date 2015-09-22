@@ -6,7 +6,6 @@
 //  Copyright © 2015 Jeffrey Jacka. All rights reserved.
 //
 
-#import "ATLConversationViewController.h"
 #import <Atlas/Atlas.h>
 #import <Parse/Parse.h>
 
