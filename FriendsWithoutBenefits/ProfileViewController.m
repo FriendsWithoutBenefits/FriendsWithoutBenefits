@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) PFObject *currentUser;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editNavButton;
 
 @end
@@ -28,24 +29,28 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
     // Do any additional setup after loading the view.
-  [self fetchProfile];
-  [self setUpProfile];
+  self.user = (User*)[PFUser currentUser];
+  if (self.user) {
+    self.title = self.user.firstName;
+    self.firstNameLabel.text = self.user.firstName;
+    if (!self.user.age) {
+      self.ageLabel.text = @"What's your age?";
+    }
+    
+    self.ageLabel.text = [self.user.age stringValue];
+    self.aboutTextView.text = self.user.aboutMe; // default text shall be put in here
+  }
 }
 
 - (void)fetchProfile {
   //Download User Information from Parse
   //Parser service for user info
-  PFUser *currentUser = [PFUser currentUser];
-  NSString *currentUserObjectId = currentUser.objectId;
-  [ParseService queryForUserWithId:currentUserObjectId completionHandler:^(User *user) {
-    self.user = user;
-  }];
 
 }
 
 -(void)setUpProfile {
   //Populate VC's fields
-  self.firstNameLabel.text = self.user.firstName;
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
