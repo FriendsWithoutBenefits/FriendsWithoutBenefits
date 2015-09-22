@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
+#import <Atlas/Atlas.h>
 
-@interface User : PFObject<PFSubclassing>
+@interface User : PFUser <PFSubclassing, ATLParticipant>
 
 @property (strong,nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *firstName;
@@ -24,8 +26,7 @@
 //Location property
 
 @property (nonatomic) BOOL *isOnline;
-@property (strong,nonatomic) PFUser *user;
 
-+ (NSString *)parseClassName;
+-(NSString *)fullName;
 
 @end

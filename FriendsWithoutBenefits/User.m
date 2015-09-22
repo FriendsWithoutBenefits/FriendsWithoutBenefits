@@ -7,11 +7,8 @@
 //
 
 #import "User.h"
-#import <Parse/Parse.h>
+#import <LayerKit/LayerKit.h>
 
-@interface User()
-
-@end
 
 @implementation User
 
@@ -25,11 +22,29 @@
 @dynamic peopleMatched;
 @dynamic peopleNotMatched;
 @dynamic isOnline;
-@dynamic user;
+@dynamic avatarImage;
+@dynamic avatarImageURL;
 
-+ (NSString * __nonnull)parseClassName {
-  return @"User";
++(void)load {
+    [self registerSubclass];
 }
+
+- (NSString *)fullName
+{
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
+- (NSString *)participantIdentifier
+{
+    return self.objectId;
+}
+
+- (NSString *)avatarInitials
+{
+    return [[NSString stringWithFormat:@"%@%@", [self.firstName substringToIndex:1], [self.lastName substringToIndex:1]] uppercaseString];
+}
+
+//TODO - AvatarImage & AvatarImageURL
 
 
 @end
