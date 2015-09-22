@@ -67,9 +67,7 @@
 
 - (id<ATLParticipant>)conversationViewController:(ATLConversationViewController *)conversationViewController participantForIdentifier:(NSString *)participantIdentifier
 {
-  [ParseService queryForUserWithId:participantIdentifier completionHandler:^(User *user) {
-    
-  }];
+  //TODO
 
   return nil;
 }

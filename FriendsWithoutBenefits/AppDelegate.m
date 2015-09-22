@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 #import <Parse/Parse.h>
+
 
 @interface AppDelegate ()
 
@@ -24,6 +26,8 @@
   // https://parse.com/docs/ios_guide#localdatastore/iOS
   [Parse enableLocalDatastore];
   
+  [User registerSubclass];
+  
   // Initialize Parse.
   [Parse setApplicationId:@"eXoPCyqhxElHM9oDEmbZWnt8mMMLKJo7yWMQM0Eh"
                 clientKey:@"D1KOZVEQcgwxMFOdjvyvyExdVwM8rW5Fqin6GILT"];
@@ -31,6 +35,14 @@
   // [Optional] Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   //END PARSE
+  
+  PFUser *currentUser = [PFUser currentUser];
+  if (currentUser) {
+    // do stuff with the user
+  } else {
+    // show the signup or login screen
+  }
+
   
   return YES;
 }
