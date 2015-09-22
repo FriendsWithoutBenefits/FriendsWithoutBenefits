@@ -11,3 +11,7 @@
 NSString *const kLocationServicesTitle = @"Location Services";
 NSString *const kLocationServicesMsg = @"Please enable Location Services to use this feature.";
 NSString *const kRegionAdded = @"RegionAdded";
+
+NSString *const kNoVenuesTitle = @"Venues";
+NSString *const kNoVenuesMsg = @"No Venues are near your location";
+
