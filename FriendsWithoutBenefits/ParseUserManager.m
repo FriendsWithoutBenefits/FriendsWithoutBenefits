@@ -44,14 +44,14 @@
 
 - (void)queryForUserWithName:(NSString *)searchText completion:(void (^)(NSArray *, NSError *))completion
 {
-  PFQuery *query = [PFUser query];
-  [query whereKey:@"objectId" notEqualTo:[PFUser currentUser].objectId];
+  PFQuery *query = [User query];
+  [query whereKey:@"objectId" notEqualTo:[User currentUser].objectId];
   
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
       NSMutableArray *contacts = [NSMutableArray new];
-      for (PFUser *user in objects){
-        if ([user.fullName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) {
+      for (User *user in objects){
+        if ([user.firstName rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) {
           [contacts addObject:user];
         }
       }
@@ -64,8 +64,8 @@
 
 - (void)queryForAllUsersWithCompletion:(void (^)(NSArray *, NSError *))completion
 {
-  PFQuery *query = [PFUser query];
-  [query whereKey:@"objectId" notEqualTo:[PFUser currentUser].objectId];
+  PFQuery *query = [User query];
+  [query whereKey:@"objectId" notEqualTo:[User currentUser].objectId];
   
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
@@ -78,12 +78,12 @@
 
 - (void)queryAndCacheUsersWithIDs:(NSArray *)userIDs completion:(void (^)(NSArray *, NSError *))completion
 {
-  PFQuery *query = [PFUser query];
+  PFQuery *query = [User query];
   [query whereKey:@"objectId" containedIn:userIDs];
   
   [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
     if (!error) {
-      for (PFUser *user in objects) {
+      for (User *user in objects) {
         [self cacheUserIfNeeded:user];
       }
       if (completion) objects.count > 0 ? completion(objects, nil) : completion(nil, nil);
@@ -93,7 +93,7 @@
   }];
 }
 
-- (PFUser *)cachedUserForUserID:(NSString *)userID
+- (User *)cachedUserForUserID:(NSString *)userID
 {
   if ([self.userCache objectForKey:userID]) {
     return [self.userCache objectForKey:userID];
@@ -101,7 +101,9 @@
   return nil;
 }
 
-- (void)cacheUserIfNeeded:(PFUser *)user
+
+
+- (void)cacheUserIfNeeded:(User *)user
 {
   if (![self.userCache objectForKey:user.objectId]) {
     [self.userCache setObject:user forKey:user.objectId];
@@ -110,10 +112,10 @@
 
 - (NSArray *)unCachedUserIDsFromParticipants:(NSArray *)participants
 {
-  NSMutableArray *array = [NSMutableArray new];
+    NSMutableArray *array = [NSMutableArray new];
   
   for (NSString *userID in participants) {
-    if ([userID isEqualToString:[PFUser currentUser].objectId]) continue;
+    if ([userID isEqualToString:[User currentUser].objectId]) continue;
     if (![self.userCache objectForKey:userID]) {
       [array addObject:userID];
     }
@@ -126,9 +128,9 @@
 {
   NSMutableArray *array = [NSMutableArray new];
   for (NSString *userID in participants) {
-    if ([userID isEqualToString:[PFUser currentUser].objectId]) continue;
+    if ([userID isEqualToString:[User currentUser].objectId]) continue;
     if ([self.userCache objectForKey:userID]) {
-      PFUser *user = [self.userCache objectForKey:userID];
+      User *user = [self.userCache objectForKey:userID];
       [array addObject:user.firstName];
     }
   }
