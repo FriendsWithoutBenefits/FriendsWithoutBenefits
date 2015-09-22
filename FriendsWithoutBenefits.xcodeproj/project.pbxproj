@@ -31,6 +31,7 @@
 		B0107F451BB1D119002099AF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F441BB1D119002099AF /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F481BB1D1DC002099AF /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F471BB1D1DC002099AF /* Keys.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4D1BB1EDFC002099AF /* FSQCategory.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		B0107F471BB1D1DC002099AF /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
 		B0107F491BB1D2F6002099AF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B0107F4A1BB1D2F6002099AF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B0107F4C1BB1EDFC002099AF /* FSQCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQCategory.h; sourceTree = "<group>"; };
+		B0107F4D1BB1EDFC002099AF /* FSQCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQCategory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				B0107F3A1BB1D0C9002099AF /* FSQStats.h */,
 				B0107F3B1BB1D0C9002099AF /* FSQStats.m */,
 				B0107F3C1BB1D0C9002099AF /* FSQVenue.h */,
+				B0107F4C1BB1EDFC002099AF /* FSQCategory.h */,
+				B0107F4D1BB1EDFC002099AF /* FSQCategory.m */,
 				B0107F3D1BB1D0C9002099AF /* FSQVenue.m */,
 				7BED70221BB0F88700D9BA6A /* LayerService.m */,
 			);
@@ -402,6 +407,7 @@
 				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,
 				B0107F451BB1D119002099AF /* MapViewController.m in Sources */,
 				7BED70231BB0F88700D9BA6A /* LayerService.m in Sources */,
+				B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */,
 				3400C0961BB07EDE005DA6C8 /* ProfileViewController.m in Sources */,
 				B0107F481BB1D1DC002099AF /* Keys.m in Sources */,
 				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
@@ -533,6 +539,7 @@
 			baseConfigurationReference = 4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
@@ -545,6 +552,7 @@
 			baseConfigurationReference = 98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;

@@ -12,3 +12,6 @@ extern NSString *const kReminderNotification;
 extern NSString *const kLocationServicesTitle;
 extern NSString *const kLocationServicesMsg;
 extern NSString *const kRegionAdded;
+
+extern NSString *const kNoVenuesTitle;
+extern NSString *const kNoVenuesMsg;

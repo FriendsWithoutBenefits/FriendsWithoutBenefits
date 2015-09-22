@@ -100,20 +100,26 @@ BOOL lsAllowed = FALSE;
   NSString *latLon = @"47.61,-122.33";
   NSString *clientID = kCLIENTID;
   NSString *clientSecret = kCLIENTSECRET;
+  NSString *categoryIDs = kFCoffeeShops;
+  categoryIDs = [categoryIDs stringByAppendingString:@","];
+  categoryIDs = [categoryIDs stringByAppendingString:KAEMuseums];
   
   NSDictionary *queryParams = @{@"ll" : latLon,
                                 @"client_id" : clientID,
                                 @"client_secret" : clientSecret,
-                                @"categoryId" : kCoffeeShops,
+                                @"categoryId" : categoryIDs,
                                 @"v" : @"20140118"};
   
   [[RKObjectManager sharedManager] getObjectsAtPath:@"/v2/venues/search"
                                          parameters:queryParams
                                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                               _venues = mappingResult.array;
+                                              for (FSQVenue *venue in _venues) {
+                                                [self createAnnotation:venue];
+                                              }
                                             }
                                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                              NSLog(@"What do you mean by 'there is no coffee?': %@", error);
+                                              [self presentNoVenuesAlert];
                                             }];
 }
 
@@ -122,6 +128,17 @@ BOOL lsAllowed = FALSE;
 - (void)presentLocationServicesAlert
 {
   UIAlertController *alertController = [UIAlertController alertControllerWithTitle:kLocationServicesTitle message:kLocationServicesMsg preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertController dismissViewControllerAnimated:true completion:nil];
+  }];
+  [alertController addAction:action];
+  
+  [self presentViewController:alertController animated:true completion:nil];
+}
+
+- (void)presentNoVenuesAlert
+{
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:kNoVenuesTitle message:kNoVenuesMsg preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [alertController dismissViewControllerAnimated:true completion:nil];
   }];
@@ -141,6 +158,25 @@ BOOL lsAllowed = FALSE;
   [self.locationManager stopUpdatingLocation];
   
 }
+
+-(void)createAnnotation:(FSQVenue *)venue {
+  
+  MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+  double lat = [venue.location.lat doubleValue];
+  double lng = [venue.location.lng doubleValue];
+  
+  annotation.coordinate = CLLocationCoordinate2DMake(lat, lng);
+  annotation.title = venue.name;
+  
+//  annotation.subtitle = @"Lat: ";
+//  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLat];
+//  annotation.subtitle = [annotation.subtitle stringByAppendingString:@"  Long:"];
+//  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLong];
+  
+  [self.mapView addAnnotation:annotation];
+  
+}
+
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -178,7 +214,7 @@ BOOL lsAllowed = FALSE;
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   
-  [self performSegueWithIdentifier:@"ShowAddReminder" sender:self];
+  [self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
   
 }
 
@@ -199,13 +235,15 @@ BOOL lsAllowed = FALSE;
   }
   
   pinView.animatesDrop = true;
-  pinView.pinTintColor = [MKPinAnnotationView greenPinColor];
+  pinView.pinTintColor = [MKPinAnnotationView redPinColor];
   pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
   pinView.canShowCallout = YES;
   
   return pinView;
   
 }
+
+
 
 /*
 #pragma mark - Navigation
