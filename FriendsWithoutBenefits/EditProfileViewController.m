@@ -10,7 +10,7 @@
 #import "User.h"
 #import <UIKit/UIKit.h>
 
-@interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (strong, nonatomic) UIAlertController *imageSelector;
 @property (strong, nonatomic) UIImagePickerController *picker;
 @end
@@ -19,7 +19,9 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
+  self.editNameTextField.delegate = self;
+  self.editAgeTextField.delegate = self;
+  self.editAboutTextView.delegate = self;
   [self setUpActionSheet];
 
     // Do any additional setup after loading the view.
@@ -78,5 +80,24 @@
 -(void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   [self.picker dismissViewControllerAnimated:true completion:nil];
 }
+
+#pragma mark - UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [self.editAgeTextField resignFirstResponder];
+  [self.editNameTextField resignFirstResponder];
+  return true;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+  [self.editAboutTextView endEditing:YES];
+}
+
+//- (BOOL) textView: (UITextView*) textView shouldChangeTextInRange: (NSRange) range replacementText: (NSString*) text {
+//  if ([text isEqualToString:@"\n"]) {
+//    [self.editAboutTextView resignFirstResponder];
+//    return NO;
+//  }
+//  return YES;
+//}
 
 @end
