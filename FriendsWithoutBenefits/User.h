@@ -6,20 +6,27 @@
 //  Copyright © 2015 Jeffrey Jacka. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
+#import <Atlas/Atlas.h>
 
-@interface User : NSObject
+@interface User : PFUser <PFSubclassing, ATLParticipant>
 
--(void)setFirstName:(NSString *)firstName;
--(void)setLastName:(NSString *)lastName;
--(NSString *)getFullName;
+@property (strong,nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *firstName;
+@property (strong, nonatomic) NSString *lastName;
+@property (strong, nonatomic) NSNumber *age;
+@property (strong, nonatomic) NSString *aboutMe;
+@property (strong, nonatomic) UIImage *profilePicture;
+//Interests, what kind of data structure is best?
+@property (strong, nonatomic) NSMutableArray *interests;
+@property (strong, nonatomic) NSMutableArray *peopleMatched;
+@property (strong, nonatomic) NSMutableArray *peopleNotMatched;
+//Location property
 
--(void)setAge:(NSNumber *)age;
--(NSNumber *)getAge;
+@property (nonatomic) BOOL *isOnline;
 
--(void)setAboutMe:(NSString *)aboutMe;
-
--(void)setProfilePicture:(UIImage *)profilePicture;
--(UIImage *)getProfilePicture;
+-(NSString *)fullName;
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 #import <Parse/Parse.h>
+#import "LogInViewController.h"
+#import "Keys.h"
+#import "LayerService.h"
+
 
 @interface AppDelegate ()
 
@@ -17,20 +22,36 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Override point for customization after application launch.
+  // Override point for customization after application launch
   
   //PARSE
   // [Optional] Power your app with Local Datastore. For more info, go to
   // https://parse.com/docs/ios_guide#localdatastore/iOS
   [Parse enableLocalDatastore];
   
+  [User registerSubclass];
+  
   // Initialize Parse.
-  [Parse setApplicationId:@"eXoPCyqhxElHM9oDEmbZWnt8mMMLKJo7yWMQM0Eh"
-                clientKey:@"D1KOZVEQcgwxMFOdjvyvyExdVwM8rW5Fqin6GILT"];
+  [Parse setApplicationId:kParseAppID
+                clientKey:kParseClientKey];
   
   // [Optional] Track statistics around application opens.
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   //END PARSE
+  
+  PFUser *currentUser = [PFUser currentUser];
+  if (currentUser) {
+      [LayerService.sharedService loginLayer];
+  } else {
+      self.window = [[UIWindow alloc] init];
+      
+      UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+      
+      LogInViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LogInViewController"];
+      self.window.rootViewController = loginVC;
+      [self.window makeKeyAndVisible];
+  }
+
   
   return YES;
 }
