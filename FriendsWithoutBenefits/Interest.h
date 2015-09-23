@@ -13,6 +13,7 @@
 @interface Interest : PFObject<PFSubclassing>
 
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic, readonly) PFRelation *interestedUsers;
 
 + (NSString *)parseClassName;
 
