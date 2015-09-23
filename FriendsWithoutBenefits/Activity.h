@@ -1,0 +1,29 @@
+//
+//  Activity.h
+//  FriendsWithoutBenefits
+//
+//  Created by Sau Chung Loh on 9/22/15.
+//  Copyright © 2015 Jeffrey Jacka. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Atlas/Atlas.h>
+#import "User.h"
+
+@interface Activity : PFObject <PFSubclassing>
+
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSDate *time;
+@property (strong, nonatomic) NSString *about;
+@property (strong, nonatomic) PFGeoPoint *location;
+//Location, coordinates FSQ stuff?
+@property (strong, nonatomic) UIImage *picture;
+//Interests, what kind of data structure is best?
+@property (strong, nonatomic) NSMutableArray *attendees;
+@property (strong, nonatomic) User *owner;
+
+@end
