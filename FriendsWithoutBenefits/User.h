@@ -23,6 +23,7 @@
 @property (strong, nonatomic) NSMutableArray *interests;
 @property (strong, nonatomic) NSMutableArray *peopleMatched;
 @property (strong, nonatomic) NSMutableArray *peopleNotMatched;
+@property (strong, nonatomic) PFFile *userProfileImageFile;
 //Location property
 
 @property (nonatomic) BOOL *isOnline;

@@ -9,6 +9,7 @@
 #import "EditProfileViewController.h"
 #import "User.h"
 #import <UIKit/UIKit.h>
+#import "ImageResizer.h"
 
 @interface EditProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
 @property (strong, nonatomic) UIAlertController *imageSelector;
@@ -75,19 +76,16 @@
   NSNumber *age = [formatter numberFromString:self.editAgeTextField.text];
   self.editUser.age = age;
   self.editUser.aboutMe = self.editAboutTextView.text;
-  self.editUser.profilePicture = self.chosenImage;
   
-//  NSData *imageData = UIImagePNGRepresentation(self.chosenImage);
-//  PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
-//  
-//  PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
-//  userPhoto[@"imageName"] = @"My trip to Hawaii!";
-//  userPhoto[@"imageFile"] = imageFile;
-  
-    //Figure out interests
-  
-  
-  
+  //Configure and resize image before uploading to Parse
+  if (self.chosenImage) {
+    CGSize imageSize;
+    imageSize = CGSizeMake(200, 200);
+    UIImage *resizedImage = [ImageResizer resizeImageWithImage:self.chosenImage toSize:imageSize];
+    NSData *imageData = UIImagePNGRepresentation(resizedImage);
+    PFFile *imageFile = [PFFile fileWithName:self.editUser.firstName data:imageData];
+    self.editUser[@"profileImageFile"] = imageFile;
+  }
   [self.editUser saveInBackground];
 }
 

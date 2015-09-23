@@ -36,6 +36,7 @@
 		34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4E81BB28B3200C33815 /* ActivityManager.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4F31BB31D3500C33815 /* ActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4F21BB31D3500C33815 /* ActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4F61BB31DCB00C33815 /* UserActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4F51BB31DCB00C33815 /* UserActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		588006121BB359450060CD00 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 588006111BB359450060CD00 /* ImageResizer.m */; settings = {ASSET_TAGS = (); }; };
 		7B1A197853274552BD551F91 /* libPods-FriendsWithoutBenefits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAD4F73507E4A9A3D922C2E /* libPods-FriendsWithoutBenefits.a */; };
 		7B3B0AC81BB25B52004CA4FF /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3B0AC71BB25B52004CA4FF /* MatchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F351BB1D0C9002099AF /* FSQCategoryIDs.m */; settings = {ASSET_TAGS = (); }; };
@@ -111,6 +112,8 @@
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
 		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		588006101BB359450060CD00 /* ImageResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageResizer.h; sourceTree = "<group>"; };
+		588006111BB359450060CD00 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
 		7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantTableViewController.h; sourceTree = "<group>"; };
 		7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantTableViewController.m; sourceTree = "<group>"; };
 		7B3B0AC61BB25B52004CA4FF /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
@@ -254,6 +257,7 @@
 		1F78B5DE1BACF4E600382704 /* FriendsWithoutBenefits */ = {
 			isa = PBXGroup;
 			children = (
+				5880060F1BB359090060CD00 /* Helper */,
 				1F1CE7DF1BB06E1000FB7FAA /* Controller */,
 				1F1CE7DE1BB06E0B00FB7FAA /* View */,
 				1F1CE7DD1BB06E0500FB7FAA /* Model */,
@@ -304,6 +308,15 @@
 				34C9E4F51BB31DCB00C33815 /* UserActivityFeedTableViewController.m */,
 			);
 			name = ActivityViewControllers;
+			sourceTree = "<group>";
+		};
+		5880060F1BB359090060CD00 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				588006101BB359450060CD00 /* ImageResizer.h */,
+				588006111BB359450060CD00 /* ImageResizer.m */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		9A12A98E1D273C8BF37FD1BD /* Frameworks */ = {
@@ -477,6 +490,7 @@
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				1F417D6B1BB34C4300640281 /* Keys.m in Sources */,
 				1F4116AA1BB333CD00C278EE /* InterestsListTableViewController.m in Sources */,
+				588006121BB359450060CD00 /* ImageResizer.m in Sources */,
 				34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */,
 				34C9E4E01BB20C3400C33815 /* ProfileViewController.m in Sources */,
 				1F4116A71BB32C8500C278EE /* PersonView.m in Sources */,
