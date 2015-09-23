@@ -18,6 +18,7 @@ extern NSString *const kFood; //86 subcategories
 extern NSString *const kFCoffeeShops;
 extern NSString *const kNightlifeSpot; //8 subcategories
 extern NSString *const kOutdoorsAndRecreation; //47 subcategories
+extern NSString *const kOARAthletics;
 extern NSString *const kProfessionalPlaces; //29 subcategories
 extern NSString *const kResidence; //5 subcategories
 extern NSString *const kShopAndService; //23 subcategories

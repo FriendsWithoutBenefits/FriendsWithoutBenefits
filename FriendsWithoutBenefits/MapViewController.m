@@ -11,6 +11,7 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "FSQVenue.h"
+#import "FSQCategory.h"
 #import "FSQLocation.h"
 #import "FSQStats.h"
 #import "Keys.h"
@@ -23,7 +24,8 @@
 
 @property (nonatomic, strong) NSArray *venues;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong,nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currentLocation;
 
 @end
 
@@ -36,12 +38,7 @@ BOOL lsAllowed = FALSE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
-  
-  //initial mapView is of downtown Seattle
-  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.6097, -122.3331), 5550, 5550) animated:true];
-  
-    [self configureRestKit];
-    [self loadVenues];
+    self.mapView.showsUserLocation = true;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,13 +46,29 @@ BOOL lsAllowed = FALSE;
   if (nil == self.locationManager) {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-  
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-      [self.locationManager requestWhenInUseAuthorization];
+    
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+      [self configureRestKit];
+      [self loadVenues];
+    } else {
+      if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+          [self.locationManager requestWhenInUseAuthorization];
+          if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+              [self configureRestKit];
+              [self loadVenues];
+          }
+      } else {
+        [self presentLocationServicesAlert];
+        //initial mapView is of downtown Seattle
+        [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(47.6097, -122.3331), 5550, 5550) animated:true];
+      }
+      
     }
+    }
+    
   }
 
-}
+
 
 //Initial code structure sourced from RayW tutorial code
 - (void)configureRestKit
@@ -81,33 +94,58 @@ BOOL lsAllowed = FALSE;
   
   [objectManager addResponseDescriptor:responseDescriptor];
   
-  // define location object mapping
+  // define category object and relationship mapping
+  RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[FSQCategory class]];
+  [categoryMapping addAttributeMappingsFromDictionary:@{@"id": @"catID", @"icon": @"icon", @"name": @"name"}];
+  [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"category" toKeyPath:@"category" withMapping:categoryMapping]];
+  
+  // define location object and relationship mapping
   RKObjectMapping *locationMapping = [RKObjectMapping mappingForClass:[FSQLocation class]];
   [locationMapping addAttributeMappingsFromArray:@[@"address", @"city", @"country", @"crossStreet", @"postalCode", @"state", @"distance", @"lat", @"lng"]];
-  
-  // define relationship mapping
   [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:locationMapping]];
   
+  // define stats object and relationship mapping
   RKObjectMapping *statsMapping = [RKObjectMapping mappingForClass:[FSQStats class]];
   [statsMapping addAttributeMappingsFromDictionary:@{@"checkinsCount": @"checkins", @"tipsCount": @"tips", @"usersCount": @"users"}];
-  
   [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"stats" toKeyPath:@"stats" withMapping:statsMapping]];
+  
+ 
+  
 }
 
 //Initial code structure sourced from RayW tutorial code
 - (void)loadVenues
 {
-  NSString *latLon = @"47.61,-122.33";
+  [self getUserLocation];
+  //use the User's current location as the reference point for loading venues
+  NSString *latLon;
+  NSNumber *latN = [NSNumber numberWithDouble: self.currentLocation.coordinate.latitude];
+  latLon = [latN stringValue];
+  latLon = [latLon stringByAppendingString:@","];
+  
+  NSNumber *lngN = [NSNumber numberWithDouble: self.currentLocation.coordinate.longitude];
+  latLon = [latLon stringByAppendingString:[lngN stringValue]];
+  
+  //credentials for FourSquare
   NSString *clientID = kCLIENTID;
   NSString *clientSecret = kCLIENTSECRET;
-  NSString *categoryIDs = kFCoffeeShops;
-  categoryIDs = [categoryIDs stringByAppendingString:@","];
-  categoryIDs = [categoryIDs stringByAppendingString:KAEMuseums];
+  
+  //construct categoryID array
+  NSMutableArray *catStr = [[NSMutableArray alloc] init];
+  [catStr addObject:kFCoffeeShops];
+  [catStr addObject:KAEMuseums];
+  [catStr addObject:kOARAthletics];
+  [catStr addObject:kShopAndService];
+  
+  
+  NSString *categoryIDs = [self generateCategoryIdString:catStr];
   
   NSDictionary *queryParams = @{@"ll" : latLon,
                                 @"client_id" : clientID,
                                 @"client_secret" : clientSecret,
                                 @"categoryId" : categoryIDs,
+                                @"radius" : @20000,
+                                @"limit" : @50,
                                 @"v" : @"20140118"};
   
   [[RKObjectManager sharedManager] getObjectsAtPath:@"/v2/venues/search"
@@ -153,13 +191,17 @@ BOOL lsAllowed = FALSE;
   self.locationManager.distanceFilter = 500;
   [self.locationManager startUpdatingLocation];
   
-  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, 1000, 1000) animated:true];
+  self.currentLocation = self.locationManager.location;
+  
+  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, 5000, 5000) animated:true];
   
   [self.locationManager stopUpdatingLocation];
   
 }
 
 -(void)createAnnotation:(FSQVenue *)venue {
+  
+  static double multiplier = 0.000621371;
   
   MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
   double lat = [venue.location.lat doubleValue];
@@ -168,25 +210,53 @@ BOOL lsAllowed = FALSE;
   annotation.coordinate = CLLocationCoordinate2DMake(lat, lng);
   annotation.title = venue.name;
   
-//  annotation.subtitle = @"Lat: ";
-//  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLat];
-//  annotation.subtitle = [annotation.subtitle stringByAppendingString:@"  Long:"];
+  //setup subtitle with the Distance in feet
+  annotation.subtitle = @"Distance: ";
+  //roughly convert meters to miles
+  NSNumber *distance = venue.location.distance;
+  distance = @([distance floatValue] * multiplier);
+  NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+  [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+  [formatter setMaximumFractionDigits:2];
+  NSString *distanceFormatted = [formatter stringFromNumber:distance];
+  annotation.subtitle = [annotation.subtitle stringByAppendingString:distanceFormatted];
+  annotation.subtitle = [annotation.subtitle stringByAppendingString:@"  miles"];
 //  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLong];
   
   [self.mapView addAnnotation:annotation];
   
 }
 
+-(NSString *)generateCategoryIdString:(NSArray *)catIDArray {
+  
+  NSString *categoryIDs = @"";
+  for (NSString *catID in catIDArray) {
+    categoryIDs = [categoryIDs stringByAppendingString:catID];
+    if (catID != catIDArray.lastObject) {
+      categoryIDs = [categoryIDs stringByAppendingString:@","];
+    }
+  }
+  return categoryIDs;
+}
+
 
 #pragma mark - CLLocationManagerDelegate
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+  CLLocation* location = [locations lastObject];
+  self.currentLocation = location;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+  NSLog(@"didFailWithError");
+}
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
   
   switch ([CLLocationManager authorizationStatus]) {
     case kCLAuthorizationStatusAuthorizedWhenInUse:
       [self.locationManager startUpdatingLocation];
-      [self getUserLocation];
-       self.mapView.showsUserLocation = true;
       lsAllowed = TRUE;
       break;
     case kCLAuthorizationStatusAuthorizedAlways:
@@ -214,7 +284,7 @@ BOOL lsAllowed = FALSE;
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   
-  [self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
+  //[self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
   
 }
 
