@@ -224,6 +224,8 @@
 				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
 				7B3B0AC61BB25B52004CA4FF /* MatchViewController.h */,
 				7B3B0AC71BB25B52004CA4FF /* MatchViewController.m */,
+				B0107F531BB3157D002099AF /* VenueDetailViewController.h */,
+				B0107F541BB3157D002099AF /* VenueDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -460,6 +462,7 @@
 				34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */,
 				3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */,
 				7B3B0AC81BB25B52004CA4FF /* MatchViewController.m in Sources */,
+				B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */,
 				34C9E4DE1BB20C2400C33815 /* ParticipantTableViewController.m in Sources */,
 				34C9E4E61BB2151100C33815 /* Activity.m in Sources */,
 				B0107F411BB1D0C9002099AF /* FSQStats.m in Sources */,
@@ -472,11 +475,13 @@
 				34C9E4DF1BB20C2D00C33815 /* LogInViewController.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				1F4116AA1BB333CD00C278EE /* InterestsListTableViewController.m in Sources */,
+				34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */,
 				34C9E4E01BB20C3400C33815 /* ProfileViewController.m in Sources */,
 				1F4116A71BB32C8500C278EE /* PersonView.m in Sources */,
 				B0107F521BB21698002099AF /* Keys.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
 				1F4116A41BB30DAB00C278EE /* ChoosePersonView.m in Sources */,
+				34C9E4F31BB31D3500C33815 /* ActivityFeedTableViewController.m in Sources */,
 				B0107F401BB1D0C9002099AF /* FSQLocation.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
 				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,
