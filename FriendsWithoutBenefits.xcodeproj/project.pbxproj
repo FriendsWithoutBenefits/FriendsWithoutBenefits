@@ -34,8 +34,8 @@
 		B0107F421BB1D0C9002099AF /* FSQVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F3D1BB1D0C9002099AF /* FSQVenue.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F451BB1D119002099AF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F441BB1D119002099AF /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
-		B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4D1BB1EDFC002099AF /* FSQCategory.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F521BB21698002099AF /* Keys.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F511BB21698002099AF /* Keys.m */; settings = {ASSET_TAGS = (); }; };
+		B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F541BB3157D002099AF /* VenueDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +103,10 @@
 		B0107F441BB1D119002099AF /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		B0107F491BB1D2F6002099AF /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B0107F4A1BB1D2F6002099AF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		B0107F4C1BB1EDFC002099AF /* FSQCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQCategory.h; sourceTree = "<group>"; };
-		B0107F4D1BB1EDFC002099AF /* FSQCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQCategory.m; sourceTree = "<group>"; };
 		B0107F501BB21698002099AF /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 		B0107F511BB21698002099AF /* Keys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keys.m; sourceTree = "<group>"; };
+		B0107F531BB3157D002099AF /* VenueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailViewController.h; sourceTree = "<group>"; };
+		B0107F541BB3157D002099AF /* VenueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,8 +148,6 @@
 				B0107F391BB1D0C9002099AF /* FSQLocation.m */,
 				B0107F3A1BB1D0C9002099AF /* FSQStats.h */,
 				B0107F3B1BB1D0C9002099AF /* FSQStats.m */,
-				B0107F4C1BB1EDFC002099AF /* FSQCategory.h */,
-				B0107F4D1BB1EDFC002099AF /* FSQCategory.m */,
 				B0107F3C1BB1D0C9002099AF /* FSQVenue.h */,
 				B0107F3D1BB1D0C9002099AF /* FSQVenue.m */,
 				7BED70221BB0F88700D9BA6A /* LayerService.m */,
@@ -189,6 +187,8 @@
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
 				1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */,
 				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
+				B0107F531BB3157D002099AF /* VenueDetailViewController.h */,
+				B0107F541BB3157D002099AF /* VenueDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -410,6 +410,7 @@
 				34C9E4E21BB20C3D00C33815 /* User.m in Sources */,
 				34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */,
 				3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */,
+				B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */,
 				34C9E4DE1BB20C2400C33815 /* ParticipantTableViewController.m in Sources */,
 				B0107F411BB1D0C9002099AF /* FSQStats.m in Sources */,
 				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
@@ -427,7 +428,6 @@
 				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,
 				1FDEFE851BB1F1A600DD3D04 /* InterestGraphService.m in Sources */,
 				B0107F451BB1D119002099AF /* MapViewController.m in Sources */,
-				B0107F4E1BB1EDFC002099AF /* FSQCategory.m in Sources */,
 				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
 				1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */,
 				1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */,
