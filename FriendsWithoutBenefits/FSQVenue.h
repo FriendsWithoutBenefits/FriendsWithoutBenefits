@@ -7,16 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@class FSQCategory;
 @class FSQLocation;
 @class FSQStats;
 
 @interface FSQVenue : NSObject
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) FSQCategory *category;
+@property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) FSQLocation *location;
 @property (nonatomic, strong) FSQStats *stats;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) MKPointAnnotation *annotation;
 
 @end

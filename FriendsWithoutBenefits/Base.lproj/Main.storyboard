@@ -92,14 +92,75 @@
                             <constraint firstItem="1Ve-Kn-A9l" firstAttribute="leading" secondItem="QNg-8F-xLU" secondAttribute="leadingMargin" constant="-20" id="wDh-Me-Kcf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="xPS-bI-brg"/>
+                    <navigationItem key="navigationItem" id="S3p-eW-sU3"/>
                     <connections>
                         <outlet property="mapView" destination="1Ve-Kn-A9l" id="KC8-p5-a85"/>
+                        <segue destination="dJs-AO-J7c" kind="show" identifier="ShowVenueDetail" id="CHX-PW-3wz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2I-4e-rxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="-808"/>
+            <point key="canvasLocation" x="1680" y="-808"/>
+        </scene>
+        <!--Venue Detail View Controller-->
+        <scene sceneID="UNY-To-KLE">
+            <objects>
+                <viewController id="dJs-AO-J7c" customClass="VenueDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eHr-h6-Q5B"/>
+                        <viewControllerLayoutGuide type="bottom" id="83d-ya-JvO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZjF-36-vW2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tbD-K9-ub1">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="226"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="addrLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-ZK-cm5">
+                                <rect key="frame" x="20" y="245" width="77" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="cityStateZipLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-uE-p1u">
+                                <rect key="frame" x="20" y="273" width="134" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="countryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZ7-BJ-eAA">
+                                <rect key="frame" x="20" y="302" width="100.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.61072444370000001" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tbD-K9-ub1" firstAttribute="top" secondItem="ZjF-36-vW2" secondAttribute="topMargin" id="0XH-76-7cE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tbD-K9-ub1" secondAttribute="trailing" constant="-20" id="6a0-8l-Vxf"/>
+                            <constraint firstItem="2bb-uE-p1u" firstAttribute="top" secondItem="o2b-ZK-cm5" secondAttribute="bottom" constant="8" id="Fvl-TW-JsZ"/>
+                            <constraint firstItem="2bb-uE-p1u" firstAttribute="leading" secondItem="ZjF-36-vW2" secondAttribute="leadingMargin" id="GgR-3v-Ct2"/>
+                            <constraint firstItem="o2b-ZK-cm5" firstAttribute="leading" secondItem="ZjF-36-vW2" secondAttribute="leadingMargin" id="S1I-Qh-p5g"/>
+                            <constraint firstItem="tbD-K9-ub1" firstAttribute="leading" secondItem="ZjF-36-vW2" secondAttribute="leadingMargin" constant="-20" id="dO2-jZ-1eS"/>
+                            <constraint firstItem="mZ7-BJ-eAA" firstAttribute="leading" secondItem="ZjF-36-vW2" secondAttribute="leadingMargin" id="saG-EL-Mc0"/>
+                            <constraint firstItem="o2b-ZK-cm5" firstAttribute="top" secondItem="tbD-K9-ub1" secondAttribute="bottom" constant="19" id="v8b-45-UoE"/>
+                            <constraint firstItem="83d-ya-JvO" firstAttribute="top" secondItem="tbD-K9-ub1" secondAttribute="bottom" constant="325" id="waH-pF-FP3"/>
+                            <constraint firstItem="mZ7-BJ-eAA" firstAttribute="top" secondItem="2bb-uE-p1u" secondAttribute="bottom" constant="8" id="yWq-oR-FVI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="G4e-6Y-Rjk"/>
+                    <connections>
+                        <outlet property="addrLabel" destination="o2b-ZK-cm5" id="iMm-TA-rQd"/>
+                        <outlet property="cityStateZipLabel" destination="2bb-uE-p1u" id="T5a-xs-fur"/>
+                        <outlet property="countryLabel" destination="mZ7-BJ-eAA" id="e3W-Qk-qqG"/>
+                        <outlet property="imageView" destination="tbD-K9-ub1" id="VtU-bq-zRo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SIp-GN-Ja0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2319" y="-497"/>
         </scene>
         <!--Messages-->
         <scene sceneID="zGd-Zq-3xG">
@@ -391,7 +452,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="eRA-32-JLf"/>
                         <segue destination="AA8-u0-S43" kind="relationship" relationship="viewControllers" id="ORE-rG-5LS"/>
                         <segue destination="G1J-fX-l0x" kind="relationship" relationship="viewControllers" id="IKT-Sw-Mgi"/>
-                        <segue destination="z2S-KC-3mo" kind="relationship" relationship="viewControllers" id="nca-CY-yaC"/>
+                        <segue destination="2od-hc-lID" kind="relationship" relationship="viewControllers" id="nca-CY-yaC"/>
                         <segue destination="AVe-EF-HE0" kind="relationship" relationship="viewControllers" id="QuZ-Cr-hn7"/>
                     </connections>
                 </tabBarController>
@@ -436,6 +497,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YN-LP-skA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-371" y="1073"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="91S-Zd-kj9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2od-hc-lID" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" id="xPS-bI-brg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3qC-We-HU5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z2S-KC-3mo" kind="relationship" relationship="rootViewController" id="ZB5-xy-FQf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXC-O6-c32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="-808"/>
         </scene>
     </scenes>
 </document>
