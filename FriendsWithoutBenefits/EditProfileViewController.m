@@ -31,6 +31,10 @@
   self.editAgeTextField.delegate = self;
   self.editAboutTextView.delegate = self;
   [self setUpActionSheet];
+  
+  if (self.editUser) {
+    [self setUpTextFields];
+  }
 
     // Do any additional setup after loading the view.
 }
@@ -48,10 +52,14 @@
   if (self.editUser.age) {
     NSString *age = [NSString stringWithFormat:@"%@",self.editUser.age];
     self.editAgeTextField.placeholder = age;
+  }else{
+    self.editAgeTextField.placeholder = @"Please enter update your age";
   }
   //If your about me is not nil, display text
   if (self.editUser.aboutMe) {
     self.editAboutTextView.text = self.editUser.aboutMe;
+  }else{
+    self.editAboutTextView.text = @"Feel free to let the world know about you!";
   }
 }
 
@@ -69,8 +77,12 @@
   self.editUser.aboutMe = self.editAboutTextView.text;
   self.editUser.profilePicture = self.chosenImage;
   
-  
-  
+//  NSData *imageData = UIImagePNGRepresentation(self.chosenImage);
+//  PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+//  
+//  PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
+//  userPhoto[@"imageName"] = @"My trip to Hawaii!";
+//  userPhoto[@"imageFile"] = imageFile;
   
     //Figure out interests
   
