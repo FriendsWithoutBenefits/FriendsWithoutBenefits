@@ -9,6 +9,8 @@
 #import "ProfileViewController.h"
 #import "User.h"
 #import "EditProfileViewController.h"
+#import <Parse/Parse.h>
+#import "ParseService.h"
 
 
 @interface ProfileViewController ()
@@ -17,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
 @property (weak, nonatomic) IBOutlet UITextView *aboutTextView;
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) PFObject *currentUser;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editNavButton;
 
 @end
@@ -26,26 +29,36 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
     // Do any additional setup after loading the view.
+  self.user = (User*)[PFUser currentUser];
+  if (self.user) {
+    self.title = self.user.firstName;
+    self.firstNameLabel.text = self.user.firstName;
+    if (!self.user.age) {
+      self.ageLabel.text = @"What's your age?";
+    }
+    
+    self.ageLabel.text = [self.user.age stringValue];
+    self.aboutTextView.text = self.user.aboutMe; // default text shall be put in here
+  }
 }
 
 - (void)fetchProfile {
   //Download User Information from Parse
   //Parser service for user info
+
 }
 
 -(void)setUpProfile {
   //Populate VC's fields
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"ShowEditViewController"]) {
     EditProfileViewController *editProfileViewController = [segue destinationViewController];
-    self.firstNameLabel.text = @"Cat";
+//    self.firstNameLabel.text = @"Cat";
     self.ageLabel.text = @"123";
     editProfileViewController.editUser = self.user;
-    [editProfileViewController.editNameTextField setPlaceholder:self.firstNameLabel.text];
-    editProfileViewController.editAgeTextField.placeholder = self.ageLabel.text;
-    editProfileViewController.editAboutTextView.text = self.aboutTextView.text;
   }
 }
 

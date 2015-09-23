@@ -23,6 +23,7 @@
 
     
     self.delegate = self;
+  self.signUpController.delegate = self;
     
     // Do any additional setup after loading the view.
  }
@@ -90,7 +91,18 @@
                                 message:@"Make sure you fill out all of the information!"
                                 preferredStyle:UIAlertControllerStyleAlert];
   
+  
   [self presentViewController:alert animated:YES completion:nil];
+  
+//  UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+//                                                                 message:@"This is an alert."
+//                                                          preferredStyle:UIAlertControllerStyleAlert];
+//  
+//  UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                        handler:^(UIAlertAction * action) {}];
+//  
+//  [alert addAction:defaultAction];
+//  [self presentViewController:alert animated:YES completion:nil];
   
   return informationComplete;
 }
@@ -98,8 +110,10 @@
 
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-    [LayerService.sharedService loginLayer];
-    [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
+    [signUpController dismissViewControllerAnimated:true completion:^{
+      [LayerService.sharedService loginLayer];
+      [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
+    }];
 }
 
 // Sent to the delegate when the sign up attempt fails.
