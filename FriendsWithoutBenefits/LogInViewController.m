@@ -19,13 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
-    
+  
+    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc]init];
+  
     self.delegate = self;
-  self.signUpController.delegate = self;
-    
-    // Do any additional setup after loading the view.
+    self.signUpController.delegate = self;
+    self.signUpController = signUpViewController;
+  
+    // loginViewController customized template
+    UILabel* logInLabel = [[UILabel alloc]init];
+    logInLabel.text = @"FWOB";
+    self.logInView.logo = logInLabel;
+  
+    // signUpViewController customized template
+    UILabel* signUpLabel = [[UILabel alloc]init];
+    signUpLabel.text = @"FWOB";
+    signUpViewController.signUpView.logo = signUpLabel;
+  
+  
  }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -49,13 +60,16 @@
   if (username && password && username.length != 0 && password.length != 0) {
     return YES; // Begin login process
   }
+
+  UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"All fields requred"
+                                                                 message:@"Please fill out all fields"
+                                                          preferredStyle:UIAlertControllerStyleAlert];
   
-  UIAlertController * alert=   [UIAlertController
-                                alertControllerWithTitle:@"Please fill out all fields"
-                                message:@"Make sure you fill out all of the information!"
-                                preferredStyle:UIAlertControllerStyleAlert];
-  
+  UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * action) {}];
+  [alert addAction:defaultAction];
   [self presentViewController:alert animated:YES completion:nil];
+  
   return NO; // Interrupt login process
 }
 
@@ -76,35 +90,9 @@
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
   BOOL informationComplete = YES;
   
-  // loop through all of the submitted data
-  for (id key in info) {
-    NSString *field = [info objectForKey:key];
-    if (!field || field.length == 0) { // check completion
-      informationComplete = NO;
-      break;
-    }
-  }
-  
-  // Display an alert if a field wasn't completed
-  UIAlertController * alert=  [UIAlertController
-                                alertControllerWithTitle:@"Please fill out all fields"
-                                message:@"Make sure you fill out all of the information!"
-                                preferredStyle:UIAlertControllerStyleAlert];
-  
-  
-  [self presentViewController:alert animated:YES completion:nil];
-  
-//  UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
-//                                                                 message:@"This is an alert."
-//                                                          preferredStyle:UIAlertControllerStyleAlert];
-//  
-//  UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-//                                                        handler:^(UIAlertAction * action) {}];
-//  
-//  [alert addAction:defaultAction];
-//  [self presentViewController:alert animated:YES completion:nil];
   
   return informationComplete;
+  
 }
 
 
@@ -116,20 +104,12 @@
     }];
 }
 
-// Sent to the delegate when the sign up attempt fails.
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
-  NSLog(@"Failed to sign up...");
-  //present the loginView Controller again
-}
 
 // Sent to the delegate when the sign up screen is dismissed.
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
   NSLog(@"User dismissed the signUpViewController");
   // Direct the user the rootView Controller
 }
-
-
-
 
 
 @end

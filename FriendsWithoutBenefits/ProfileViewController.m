@@ -57,7 +57,7 @@
   if ([segue.identifier isEqualToString:@"ShowEditViewController"]) {
     EditProfileViewController *editProfileViewController = [segue destinationViewController];
 //    self.firstNameLabel.text = @"Cat";
-    self.ageLabel.text = @"123";
+//    self.ageLabel.text = @"123";
     editProfileViewController.editUser = self.user;
   }
 }
