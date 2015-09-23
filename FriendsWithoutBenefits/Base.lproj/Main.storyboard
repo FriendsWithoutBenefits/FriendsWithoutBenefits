@@ -250,7 +250,8 @@
                             </textView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4TM-Iy-qyO" firstAttribute="trailing" secondItem="II4-c9-MZQ" secondAttribute="trailingMargin" id="0Qg-Qh-m36"/>
                             <constraint firstItem="CeP-bc-Ock" firstAttribute="top" secondItem="upV-JU-wjZ" secondAttribute="bottom" constant="8" id="2EA-Ze-Dnc"/>
