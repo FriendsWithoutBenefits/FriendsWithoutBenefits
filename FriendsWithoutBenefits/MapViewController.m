@@ -11,12 +11,12 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "FSQVenue.h"
-#import "FSQCategory.h"
 #import "FSQLocation.h"
 #import "FSQStats.h"
 #import "Keys.h"
 #import "Constants.h"
 #import "FSQCategoryIDs.h"
+#import "VenueDetailViewController.h"
 
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate,
@@ -26,19 +26,21 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) FSQVenue *selectedVenue;
 
 @end
 
 @implementation MapViewController
 
-BOOL lsON = FALSE;
-BOOL lsAllowed = FALSE;
-
+NSString *selLatitude;
+NSString *selLongitude;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Venues";
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = true;
+    [self setupLongPress];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,22 +84,7 @@ BOOL lsAllowed = FALSE;
   
   // setup object mappings
   RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[FSQVenue class]];
-  [venueMapping addAttributeMappingsFromArray:@[@"name"]];
-  
-  // register mappings with the provider using a response descriptor
-  RKResponseDescriptor *responseDescriptor =
-  [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
-                                               method:RKRequestMethodGET
-                                          pathPattern:@"/v2/venues/search"
-                                              keyPath:@"response.venues"
-                                          statusCodes:[NSIndexSet indexSetWithIndex:200]];
-  
-  [objectManager addResponseDescriptor:responseDescriptor];
-  
-  // define category object and relationship mapping
-  RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[FSQCategory class]];
-  [categoryMapping addAttributeMappingsFromDictionary:@{@"id": @"catID", @"icon": @"icon", @"name": @"name"}];
-  [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"category" toKeyPath:@"category" withMapping:categoryMapping]];
+  [venueMapping addAttributeMappingsFromArray:@[@"name", @"categories"]];
   
   // define location object and relationship mapping
   RKObjectMapping *locationMapping = [RKObjectMapping mappingForClass:[FSQLocation class]];
@@ -109,7 +96,15 @@ BOOL lsAllowed = FALSE;
   [statsMapping addAttributeMappingsFromDictionary:@{@"checkinsCount": @"checkins", @"tipsCount": @"tips", @"usersCount": @"users"}];
   [venueMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"stats" toKeyPath:@"stats" withMapping:statsMapping]];
   
- 
+  // register mappings with the provider using a response descriptor
+  RKResponseDescriptor *responseDescriptor =
+  [RKResponseDescriptor responseDescriptorWithMapping:venueMapping
+                                               method:RKRequestMethodGET
+                                          pathPattern:@"/v2/venues/search"
+                                              keyPath:@"response.venues"
+                                          statusCodes:[NSIndexSet indexSetWithIndex:200]];
+  
+  [objectManager addResponseDescriptor:responseDescriptor];
   
 }
 
@@ -210,9 +205,9 @@ BOOL lsAllowed = FALSE;
   annotation.coordinate = CLLocationCoordinate2DMake(lat, lng);
   annotation.title = venue.name;
   
-  //setup subtitle with the Distance in feet
+  //setup subtitle with the Distance in miles
   annotation.subtitle = @"Distance: ";
-  //roughly convert meters to miles
+  //convert meters to miles
   NSNumber *distance = venue.location.distance;
   distance = @([distance floatValue] * multiplier);
   NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -221,7 +216,7 @@ BOOL lsAllowed = FALSE;
   NSString *distanceFormatted = [formatter stringFromNumber:distance];
   annotation.subtitle = [annotation.subtitle stringByAppendingString:distanceFormatted];
   annotation.subtitle = [annotation.subtitle stringByAppendingString:@"  miles"];
-//  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLong];
+  venue.annotation = annotation;
   
   [self.mapView addAnnotation:annotation];
   
@@ -237,6 +232,40 @@ BOOL lsAllowed = FALSE;
     }
   }
   return categoryIDs;
+}
+
+-(void)setupLongPress{
+  UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(executeLongPress:)];
+  longPress.minimumPressDuration = .5; //seconds
+  longPress.delegate = self;
+  [self.mapView addGestureRecognizer:longPress];
+}
+
+-(void)executeLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+  if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+    return;
+  }
+  CGPoint p = [gestureRecognizer locationInView:self.mapView];
+  CLLocationCoordinate2D coordinate = [self.mapView convertPoint:p toCoordinateFromView:self.mapView];
+  
+  
+  MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+  annotation.coordinate = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+  annotation.title = @"Long Press Location";
+  
+  NSString *coordLat = [NSString stringWithFormat:@"%f", coordinate.latitude];
+  NSString *coordLong = [NSString stringWithFormat:@"%f", coordinate.longitude];
+  selLatitude = coordLat;
+  selLongitude = coordLong;
+  
+  annotation.subtitle = @"Lat: ";
+  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLat];
+  annotation.subtitle = [annotation.subtitle stringByAppendingString:@"  Long:"];
+  annotation.subtitle = [annotation.subtitle stringByAppendingString:coordLong];
+  
+  [self.mapView addAnnotation:annotation];
+  
 }
 
 
@@ -257,19 +286,15 @@ BOOL lsAllowed = FALSE;
   switch ([CLLocationManager authorizationStatus]) {
     case kCLAuthorizationStatusAuthorizedWhenInUse:
       [self.locationManager startUpdatingLocation];
-      lsAllowed = TRUE;
       break;
     case kCLAuthorizationStatusAuthorizedAlways:
       [self.locationManager startUpdatingLocation];
-      lsAllowed = TRUE;
       break;
     case kCLAuthorizationStatusRestricted:
       [self presentLocationServicesAlert];
-      lsAllowed = FALSE;
       break;
     case kCLAuthorizationStatusDenied:
       [self presentLocationServicesAlert];
-      lsAllowed = FALSE;
       break;
     case kCLAuthorizationStatusNotDetermined:
       [self.locationManager requestWhenInUseAuthorization];
@@ -284,7 +309,14 @@ BOOL lsAllowed = FALSE;
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   
-  //[self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
+  for (FSQVenue *venue in self.venues){
+    if (venue.annotation == view.annotation) {
+      self.selectedVenue = venue;
+//      VenueDetailViewController *venueDetailVC = [[VenueDetailViewController alloc] init];
+//      [self.navigationController pushViewController:venueDetailVC animated:YES];
+      [self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
+    }
+  }
   
 }
 
@@ -313,16 +345,17 @@ BOOL lsAllowed = FALSE;
   
 }
 
-
-
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+  // Get the new view controller using [segue destinationViewController].
+  // Pass the selected object to the new view controller.
+  if ([[segue identifier] isEqualToString:@"ShowVenueDetail"]) {
+    VenueDetailViewController *venueDetailVC = [segue destinationViewController];
+    venueDetailVC.venue = self.selectedVenue;
+  }
+  
 }
-*/
+
 
 @end
