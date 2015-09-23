@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/PFObject+Subclass.h>
+#import <Parse/Parse.h>
 
-@interface Interest : NSObject
+@interface Interest : PFObject<PFSubclassing>
+
+@property (strong, nonatomic) NSString *name;
+
++ (NSString *)parseClassName;
 
 @end

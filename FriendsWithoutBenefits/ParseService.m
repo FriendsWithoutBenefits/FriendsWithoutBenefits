@@ -24,7 +24,28 @@
       completion(objects.firstObject);
     }
   }];
+}
 
++(void)queryForInterests:(void(^)(NSArray *interests))completion {
+ 
+  PFQuery *query = [PFQuery queryWithClassName:@"Interest"];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if(!error) {
+      completion(objects);
+    }
+  }];
+}
+
++(void)queryForAllUsers:(void(^)(NSArray *users))completion {
+  
+  PFQuery *query = [PFUser query];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if(!error) {
+      completion(objects);
+    }
+  }];
 }
 
 @end

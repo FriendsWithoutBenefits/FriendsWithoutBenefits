@@ -12,5 +12,7 @@
 @interface ParseService : NSObject
 
 +(void)queryForUserWithId:(NSString *)userID completionHandler:(void(^)(User *user))completion;
++(void)queryForInterests:(void(^)(NSArray *interests))completion;
++(void)queryForAllUsers:(void(^)(NSArray *users))completion;
 
 @end
