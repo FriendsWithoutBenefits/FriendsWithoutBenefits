@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) NSMutableArray *userOwnedActivities;
 @property (strong, nonatomic) NSMutableArray *userSelectedActivities;
-@property (strong, nonatomic) 
-
+@property (strong, nonatomic) User *currentUser;
++ (void)AddSelectedActivity:(Activity *)selectedActivity;
++ (void)AddCreatedActivity:(Activity *)createdActivity;
 @end

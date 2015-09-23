@@ -10,8 +10,8 @@
 #import <Parse/Parse.h>
 #import <Parse/PFObject+Subclass.h>
 #import <CoreLocation/CoreLocation.h>
-#import <Atlas/Atlas.h>
 #import "User.h"
+#import "Interest.h"
 
 @interface Activity : PFObject <PFSubclassing>
 
@@ -22,6 +22,7 @@
 @property (strong, nonatomic) PFGeoPoint *location;
 //Location, coordinates FSQ stuff?
 @property (strong, nonatomic) UIImage *picture;
+@property (strong, nonatomic) Interest *interest;
 //Interests, what kind of data structure is best?
 @property (strong, nonatomic) NSMutableArray *attendees;
 @property (strong, nonatomic) User *owner;

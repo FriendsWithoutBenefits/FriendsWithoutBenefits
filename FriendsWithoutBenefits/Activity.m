@@ -17,15 +17,25 @@
 @dynamic location;
 //Location, coordinates FSQ stuff?
 @dynamic picture;
-//Interests, what kind of data structure is best?
+@dynamic interest;
+//Related to what Interests, what kind of data structure is best?
 @dynamic attendees;
 @dynamic owner;
+
 
 + (void)load
 {
   [self registerSubclass];
 }
 
++ (void)queryForAllActivities {
+  PFQuery *activities = [Activity query];
+  
+}
+
++ (NSString *__nonnull)parseClassName {
+  return @"Activity";
+}
 - (NSString *)activityIdentifier
 {
   return self.objectId;

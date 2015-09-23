@@ -8,15 +8,34 @@
 
 #import "ActivityManager.h"
 
-
 @implementation ActivityManager
 
 @dynamic userOwnedActivities;
 @dynamic userSelectedActivities;
+@dynamic currentUser;
 
-+ (void)load
+//+ (void)load
+//{
+//  //Query for all activities
+// // [self registerSubclass];
+//}
+
++ (NSString *__nonnull)parseClassName {
+  return @"ActivityManager";
+}
++ (void)AddSelectedActivity:(Activity *)selectedActivity
 {
-  [self registerSubclass];
+  //You will want to alloc init array
+  //Append the selectedActivity to the userselectedActivities
+  
+  
+}
+
++ (void)AddCreatedActivity:(Activity *)createdActivity
+{
+  //You will want to alloc init array
+  //Append the selectedActivity to the userownedActivities
+  
 }
 //dictionary, owners to event?
 //Owners with multiple events?
