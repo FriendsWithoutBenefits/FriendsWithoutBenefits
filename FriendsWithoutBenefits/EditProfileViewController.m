@@ -61,6 +61,12 @@
   }else{
     self.editAboutTextView.text = @"Feel free to let the world know about you!";
   }
+//  //If your about me is not nil, display text
+//  if (self.editUser.aboutMe) {
+//    self.editAboutTextView.text = self.editUser.aboutMe;
+//  }else{
+//    self.editAboutTextView.text = @"Feel free to let the world know about you!";
+//  }
 }
 
 - (IBAction)editProfilePictureButtonPressed:(UIButton *)sender {
