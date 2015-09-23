@@ -15,3 +15,5 @@ NSString *const kRegionAdded = @"RegionAdded";
 NSString *const kNoVenuesTitle = @"Venues";
 NSString *const kNoVenuesMsg = @"No Venues are near your location";
 
+
+

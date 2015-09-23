@@ -18,6 +18,7 @@ NSString *const kFood = @"4d4b7105d754a06374d81259";
 NSString *const kFCoffeeShops = @"4bf58dd8d48988d1e0931735";
 NSString *const kNightlifeSpot = @"4d4b7105d754a06376d81259";
 NSString *const kOutdoorsAndRecreation = @"4d4b7105d754a06377d81259";
+NSString *const kOARAthletics = @"4f4528bc4b90abdf24c9de85";
 NSString *const kProfessionalPlaces = @"4d4b7105d754a06375d81259";
 NSString *const kResidence = @"4e67e38e036454776db1fb3a";
 NSString *const kShopAndService = @"4d4b7105d754a06378d81259";
