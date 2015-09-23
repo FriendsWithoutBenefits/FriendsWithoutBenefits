@@ -12,6 +12,7 @@
 #import "LogInViewController.h"
 #import "Keys.h"
 #import "LayerService.h"
+#import "Activity.h"
 
 
 @interface AppDelegate ()
@@ -29,7 +30,8 @@
   // https://parse.com/docs/ios_guide#localdatastore/iOS
   [Parse enableLocalDatastore];
   
-  [User registerSubclass];
+//  [User registerSubclass];
+//  [Activity registerSubclass];
   
   // Initialize Parse.
   [Parse setApplicationId:kParseAppID
