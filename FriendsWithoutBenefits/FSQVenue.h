@@ -15,12 +15,12 @@
 
 @interface FSQVenue : NSObject
 
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) FSQLocation *location;
 @property (nonatomic, strong) FSQStats *stats;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) MKPointAnnotation *annotation;
-@property (nonatomic, strong) NSString *photo;
 
 @end

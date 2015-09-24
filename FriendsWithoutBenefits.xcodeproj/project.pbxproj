@@ -46,6 +46,8 @@
 		B0107F451BB1D119002099AF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F441BB1D119002099AF /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F541BB3157D002099AF /* VenueDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */; settings = {ASSET_TAGS = (); }; };
+		B0AC58851BB4A01B003136AF /* EV_IMAGE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +138,9 @@
 		B0107F4A1BB1D2F6002099AF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B0107F531BB3157D002099AF /* VenueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailViewController.h; sourceTree = "<group>"; };
 		B0107F541BB3157D002099AF /* VenueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailViewController.m; sourceTree = "<group>"; };
+		B0AC58811BB462E8003136AF /* FSQVenuePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenuePhoto.h; sourceTree = "<group>"; };
+		B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenuePhoto.m; sourceTree = "<group>"; };
+		B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EV_IMAGE.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +165,8 @@
 		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0AC58811BB462E8003136AF /* FSQVenuePhoto.h */,
+				B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */,
 				1F417D691BB34C4300640281 /* Keys.h */,
 				1F417D6A1BB34C4300640281 /* Keys.m */,
 				34C9E4E71BB28B3200C33815 /* ActivityManager.h */,
@@ -266,6 +273,7 @@
 		1F78B5DF1BACF4E600382704 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */,
 				1F78B5E01BACF4E600382704 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -420,6 +428,7 @@
 			files = (
 				1F4116A11BB30D2000C278EE /* PersonView.xib in Resources */,
 				1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */,
+				B0AC58851BB4A01B003136AF /* EV_IMAGE.jpg in Resources */,
 				1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */,
 				1F78B5EA1BACF4E600382704 /* Main.storyboard in Resources */,
 			);
@@ -488,6 +497,7 @@
 				34C9E4F61BB31DCB00C33815 /* UserActivityFeedTableViewController.m in Sources */,
 				34C9E4DF1BB20C2D00C33815 /* LogInViewController.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
+				B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */,
 				1F417D6B1BB34C4300640281 /* Keys.m in Sources */,
 				1F4116AA1BB333CD00C278EE /* InterestsListTableViewController.m in Sources */,
 				34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */,
