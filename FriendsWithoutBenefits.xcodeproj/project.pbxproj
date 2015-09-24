@@ -221,8 +221,6 @@
 				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
 				34C9E4F01BB3180C00C33815 /* ActivityViewControllers */,
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
-				1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */,
-				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
 				7B3B0AC61BB25B52004CA4FF /* MatchViewController.h */,
 				7B3B0AC71BB25B52004CA4FF /* MatchViewController.m */,
 				B0107F531BB3157D002099AF /* VenueDetailViewController.h */,
@@ -285,6 +283,8 @@
 		3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */,
+				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
 				1F4116A81BB333CD00C278EE /* InterestsListTableViewController.h */,
 				1F4116A91BB333CD00C278EE /* InterestsListTableViewController.m */,
 				3400C0941BB07EDE005DA6C8 /* ProfileViewController.h */,

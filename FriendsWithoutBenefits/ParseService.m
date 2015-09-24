@@ -8,6 +8,8 @@
 
 #import "ParseService.h"
 #import <Parse/Parse.h>
+#import "Interest.h"
+#import "User.h"
 
 @implementation ParseService
 
@@ -46,6 +48,50 @@
       completion(objects);
     }
   }];
+}
+
++(void)addInterestToCurrentUser:(Interest *)interest {
+  User *currentUser = [User currentUser];
+  
+  PFRelation *relation = [interest relationForKey:@"interestedUsers"];
+  [relation addObject:currentUser];
+  
+  [interest saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if (!error) {
+      NSLog(@"Interest relation saved successfulled");
+      
+      PFRelation *userRelation = [currentUser relationForKey:@"interests"];
+      [userRelation addObject:interest];
+      [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+          NSLog(@"User-interest relation saved successfully");
+        }
+      }];
+      
+    }
+  }];
+}
+
++(void)removeInterestFromCurrentUser:(Interest *)interest {
+  User *currentUser = [User currentUser];
+  
+  PFRelation *userInterestsRelation = currentUser.interests;
+  PFRelation *interestsRelation = interest.interestedUsers;
+  
+  [interestsRelation removeObject:currentUser];
+  
+  [interest saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if(!error) {
+      NSLog(@"Interest relation removed successfully");
+      [userInterestsRelation removeObject:interest];
+      [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"User-interest relation removed successfully");
+      }];
+    }
+  }];
+  
+  
+  
 }
 
 @end
