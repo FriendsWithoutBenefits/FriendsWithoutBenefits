@@ -181,7 +181,6 @@
 				3400C08F1BB07046005DA6C8 /* User.m */,
 				1F26FF401BB0BAC900AEB60C /* ParseUserManager.h */,
 				1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */,
-				7BED70211BB0F88700D9BA6A /* LayerService.h */,
 				B0107F341BB1D0C8002099AF /* FSQCategoryIDs.h */,
 				B0107F351BB1D0C9002099AF /* FSQCategoryIDs.m */,
 				B0107F381BB1D0C9002099AF /* FSQLocation.h */,
@@ -190,6 +189,7 @@
 				B0107F3B1BB1D0C9002099AF /* FSQStats.m */,
 				B0107F3C1BB1D0C9002099AF /* FSQVenue.h */,
 				B0107F3D1BB1D0C9002099AF /* FSQVenue.m */,
+				7BED70211BB0F88700D9BA6A /* LayerService.h */,
 				7BED70221BB0F88700D9BA6A /* LayerService.m */,
 				1FDEFE801BB1F17500DD3D04 /* Interest.h */,
 				1FDEFE811BB1F17500DD3D04 /* Interest.m */,
@@ -395,6 +395,12 @@
 				TargetAttributes = {
 					1F78B5DB1BACF4E600382704 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = S479M8YV5A;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1F78B5F41BACF4E700382704 = {
 						CreatedOnToolsVersion = 7.0;
@@ -643,11 +649,14 @@
 			baseConfigurationReference = 4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jeffjacka.fwob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -656,11 +665,14 @@
 			baseConfigurationReference = 98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jeffjacka.fwob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

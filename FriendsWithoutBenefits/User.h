@@ -21,8 +21,8 @@
 @property (strong, nonatomic) UIImage *profilePicture;
 //Interests, what kind of data structure is best?
 @property (strong, nonatomic, readonly) PFRelation *interests;
-@property (strong, nonatomic) PFRelation *peopleMatched;
-@property (strong, nonatomic) PFRelation *peopleNotMatched;
+@property (strong, nonatomic, readonly) PFRelation *peopleMatched;
+@property (strong, nonatomic, readonly) PFRelation *peopleNotMatched;
 //Location property
 
 @property (nonatomic) BOOL *isOnline;

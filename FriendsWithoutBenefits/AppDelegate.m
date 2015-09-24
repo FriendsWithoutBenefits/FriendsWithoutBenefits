@@ -53,7 +53,6 @@
       self.window.rootViewController = loginVC;
       [self.window makeKeyAndVisible];
   }
-
   
   return YES;
 }
@@ -78,6 +77,28 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  
+  // Store the deviceToken in the current installation and save it to Parse.
+  PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+  [currentInstallation setDeviceTokenFromData:deviceToken];
+  currentInstallation.channels = @[ @"global" ];
+  [currentInstallation saveInBackground];
+  
+  NSError *error;
+  LYRClient *layerClient = [LayerService.sharedService layerClient];
+  BOOL success = [layerClient updateRemoteNotificationDeviceToken:deviceToken error:&error];
+  if (success) {
+    NSLog(@"Application did register for remote notifications");
+  } else {
+    NSLog(@"Error updating Layer device token for push:%@", error);
+  }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+  [PFPush handlePush:userInfo];
 }
 
 @end

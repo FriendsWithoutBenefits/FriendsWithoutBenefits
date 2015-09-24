@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface NewMatchViewController : UIViewController
+
+@property (strong, nonatomic) User *matchedUser;
 
 @end
