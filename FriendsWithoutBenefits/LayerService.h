@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <LayerKit/LayerKit.h>
+#import "User.h"
 
 @interface LayerService : NSObject
 
@@ -15,5 +16,6 @@
 
 +(id)sharedService;
 -(void)loginLayer;
+-(LYRConversation *)createNewMatchConversation:(User *)newMatch;
 
 @end
