@@ -17,10 +17,14 @@
 #import "Constants.h"
 #import "FSQCategoryIDs.h"
 #import "VenueDetailViewController.h"
+#import <UIKit/UIKit.h>
 
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate,
           UIGestureRecognizerDelegate, UIAlertViewDelegate>
+
+- (IBAction)venueSegControl:(UISegmentedControl *)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControl;
 
 @property (nonatomic, strong) NSArray *venues;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -45,19 +49,36 @@ NSString *selLongitude;
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  
+  //StackOverflow answer to question about changing text color on UISegmented contrls
+  NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [UIFont boldSystemFontOfSize:12], NSFontAttributeName,
+                              [UIColor blackColor], NSForegroundColorAttributeName,
+                              nil];
+  [self.segControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+  NSDictionary *highlightedAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+  [self.segControl setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
+  
+  //construct initial categoryID array
+  NSMutableArray *catStr = [[NSMutableArray alloc] init];
+  [catStr addObject:kFCoffeeShops];
+  
+  NSString *categoryIDs = [self generateCategoryIdString:catStr];
+  
+  
   if (nil == self.locationManager) {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
       [self configureRestKit];
-      [self loadVenues];
+      [self loadVenues:categoryIDs];
     } else {
       if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
           [self.locationManager requestWhenInUseAuthorization];
           if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
               [self configureRestKit];
-              [self loadVenues];
+            [self loadVenues:categoryIDs];
           }
       } else {
         [self presentLocationServicesAlert];
@@ -84,7 +105,8 @@ NSString *selLongitude;
   
   // setup object mappings
   RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[FSQVenue class]];
-  [venueMapping addAttributeMappingsFromArray:@[@"name", @"categories"]];
+  [venueMapping addAttributeMappingsFromArray:@[@"name", @"categories", @"photo"]];
+  
   
   // define location object and relationship mapping
   RKObjectMapping *locationMapping = [RKObjectMapping mappingForClass:[FSQLocation class]];
@@ -109,8 +131,9 @@ NSString *selLongitude;
 }
 
 //Initial code structure sourced from RayW tutorial code
-- (void)loadVenues
+- (void)loadVenues:(NSString *)categoryIDs
 {
+  [self.mapView removeAnnotations:[self.mapView annotations]];
   [self getUserLocation];
   //use the User's current location as the reference point for loading venues
   NSString *latLon;
@@ -125,21 +148,12 @@ NSString *selLongitude;
   NSString *clientID = kCLIENTID;
   NSString *clientSecret = kCLIENTSECRET;
   
-  //construct categoryID array
-  NSMutableArray *catStr = [[NSMutableArray alloc] init];
-  [catStr addObject:kFCoffeeShops];
-  [catStr addObject:KAEMuseums];
-  [catStr addObject:kOARAthletics];
-  [catStr addObject:kShopAndService];
-  
-  
-  NSString *categoryIDs = [self generateCategoryIdString:catStr];
-  
   NSDictionary *queryParams = @{@"ll" : latLon,
                                 @"client_id" : clientID,
                                 @"client_secret" : clientSecret,
                                 @"categoryId" : categoryIDs,
-                                @"radius" : @20000,
+                                @"radius" : @100000,
+                                // @"query" : querySearch,
                                 @"limit" : @50,
                                 @"v" : @"20140118"};
   
@@ -157,6 +171,18 @@ NSString *selLongitude;
 }
 
 #pragma mark - User-defined functions
+
+-(NSString *)generateCategoryIdString:(NSArray *)catIDArray {
+  
+  NSString *categoryIDs = @"";
+  for (NSString *catID in catIDArray) {
+    categoryIDs = [categoryIDs stringByAppendingString:catID];
+    if (catID != catIDArray.lastObject) {
+      categoryIDs = [categoryIDs stringByAppendingString:@","];
+    }
+  }
+  return categoryIDs;
+}
 
 - (void)presentLocationServicesAlert
 {
@@ -220,18 +246,6 @@ NSString *selLongitude;
   
   [self.mapView addAnnotation:annotation];
   
-}
-
--(NSString *)generateCategoryIdString:(NSArray *)catIDArray {
-  
-  NSString *categoryIDs = @"";
-  for (NSString *catID in catIDArray) {
-    categoryIDs = [categoryIDs stringByAppendingString:catID];
-    if (catID != catIDArray.lastObject) {
-      categoryIDs = [categoryIDs stringByAppendingString:@","];
-    }
-  }
-  return categoryIDs;
 }
 
 -(void)setupLongPress{
@@ -357,5 +371,32 @@ NSString *selLongitude;
   
 }
 
+- (IBAction)venueSegControl:(UISegmentedControl *)sender {
+  
+  NSMutableArray *catStr = [[NSMutableArray alloc] init];
+  
+  switch (sender.selectedSegmentIndex)
+  {
+    case 0:
+      [catStr addObject:kOutdoorsAndRecreation];
+      break;
+    case 1:
+      [catStr addObject:kNightlifeSpot];
+      break;
+    case 2:
+      [catStr addObject:kFood];
+      break;
+    case 3:
+      [catStr addObject:kEvents];
+      break;
+    default:
+      [catStr addObject:kFCoffeeShops];
+      break;
+  }
+  
+  NSString *categoryIDs = [self generateCategoryIdString:catStr];
+  [self loadVenues:categoryIDs];
+  
+}
 
 @end

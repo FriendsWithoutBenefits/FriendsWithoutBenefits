@@ -8,6 +8,7 @@
 
 #import "VenueDetailViewController.h"
 #import "FSQLocation.h"
+#import <UIKit/UIKit.h>
 
 @interface VenueDetailViewController ()
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countryLabel;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 
 @end
 
@@ -24,6 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   self.navigationItem.title = self.venue.name;
+  
+  if (self.venue.image == nil) {
+    [self determineStockPhoto:self.venue.categories[0]];
+    //[self retrieveCategoryIcon:self.venue.categories[0]];
+  }
+  self.imageView.image = self.venue.image;
+  self.venueLabel.text = self.venue.name;
   
   self.addrLabel.text = self.venue.location.address;
   self.cityStateZipLabel.text = self.venue.location.city;
@@ -35,25 +44,25 @@
   
 }
 
+-(void)retrieveCategoryIcon:(NSDictionary *)catIcon {
+  
+  NSDictionary *icon = catIcon[@"icon"];
+  NSString *prefix = icon[@"prefix"];
+  NSString *suffix = icon[@"suffix"];
+  prefix = [prefix stringByAppendingString:suffix];
+  
+  NSString *url = prefix;
+  NSURL *imageURL = [NSURL URLWithString:url];
+  NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+  UIImage *image = [UIImage imageWithData:imageData];
+  self.venue.image = image;
+}
 
-
-
-//                                              dispatch_group_t group = dispatch_group_create();
-//                                              dispatch_queue_t imageQueue = dispatch_queue_create("JeffJacka.FriendsWithoutBenefits",DISPATCH_QUEUE_CONCURRENT );
-//
-
-//                                                NSDictionary *cat = venue.categories[0];
-//                                                NSDictionary *icon = cat[@"icon"];
-//                                                NSString *prefix = icon[@"prefix"];
-//                                                NSString *suffix = icon[@"suffix"];
-//                                                prefix = [prefix stringByAppendingString:suffix];
-//
-//                                                dispatch_group_async(group, imageQueue, ^{
-//                                                  NSString *url = prefix;
-//                                                  NSURL *imageURL = [NSURL URLWithString:url];
-//                                                  NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-//                                                  UIImage *image = [UIImage imageWithData:imageData];
-//                                                  venue.image = image;
-//                                                });
-
+-(void)determineStockPhoto:(NSDictionary *)venueType {
+  
+ // NSString *name = venueType[@"name"];
+  UIImage *image = [UIImage imageNamed: @"AE_IMAGE.jpg"];
+  self.venue.image = image;
+  
+}
 @end
