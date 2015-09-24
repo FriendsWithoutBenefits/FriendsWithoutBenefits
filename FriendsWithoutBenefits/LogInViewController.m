@@ -12,6 +12,7 @@
 
 @interface LogInViewController ()
 
+@property(strong,nonatomic) UIImageView *backgroundImageView;
 
 @end
 
@@ -29,12 +30,29 @@
     // loginViewController customized template
     UILabel* logInLabel = [[UILabel alloc]init];
     logInLabel.text = @"FWOB";
+    logInLabel.textColor = [UIColor whiteColor];
+    logInLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:65.0];
+    logInLabel.shadowColor = [UIColor lightGrayColor];
+    logInLabel.shadowOffset = CGSizeMake(1, 1);
     self.logInView.logo = logInLabel;
+  
+    // setupbackground image for Log In
+    UIImage *backgroundImage = [UIImage imageNamed:@"launch_bg"];
+    self.backgroundImageView = [[UIImageView alloc]initWithImage:backgroundImage];
+    [self.backgroundImageView setContentMode:UIViewContentModeScaleAspectFill];
+
+    [self.logInView insertSubview:self.backgroundImageView atIndex:0];
   
     // signUpViewController customized template
     UILabel* signUpLabel = [[UILabel alloc]init];
     signUpLabel.text = @"FWOB";
+    signUpLabel.textColor = [UIColor whiteColor];
+    signUpLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:65.0];
+    signUpLabel.shadowColor = [UIColor lightGrayColor];
+    signUpLabel.shadowOffset = CGSizeMake(1, 1);
     signUpViewController.signUpView.logo = signUpLabel;
+  
+//  [signUpViewController.signUpView insertSubview:self.backgroundImageView atIndex:0];
   
   
  }
@@ -44,6 +62,21 @@
                    | PFLogInFieldsLogInButton
                    | PFLogInFieldsSignUpButton
                    | PFLogInFieldsPasswordForgotten);
+}
+
+- (void)viewWillLayoutSubviews{
+    // position the logo
+    // position logo at top with larger frame
+//  logInView!.logo!.sizeToFit()
+//  let logoFrame = logInView!.logo!.frame
+//  logInView!.logo!.frame = CGRectMake(logoFrame.origin.x, logInView!.usernameField!.frame.origin.y - logoFrame.height - 16, logInView!.frame.width,  logoFrame.height)
+  [self.logInView.logo sizeToFit];
+//
+CGRect logoFrame = self.logInView.logo.frame;
+//  self.logInView.logo.frame = CGRectMake(logoFrame.origin.x, self.logInView.usernameField.frame.origin - logoFrame.size.height - 16, self.logInView.size.width, logoFrame.size.height);
+
+  self.backgroundImageView.frame = CGRectMake(0, 0, self.logInView.frame.size.height, self.logInView.frame.size.width);
+  
 }
 
 

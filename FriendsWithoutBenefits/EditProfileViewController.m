@@ -69,6 +69,7 @@
   [self presentViewController:self.imageSelector animated:true completion:nil];
 }
 - (IBAction)saveChangesButtonPressed:(UIButton *)sender {
+  
   self.editUser.firstName = self.editFirstNameTextField.text;
   self.editUser.lastName = self.editLastNameTextField.text;
   NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -83,7 +84,7 @@
     imageSize = CGSizeMake(200, 200);
     UIImage *resizedImage = [ImageResizer resizeImageWithImage:self.chosenImage toSize:imageSize];
     NSData *imageData = UIImagePNGRepresentation(resizedImage);
-    PFFile *imageFile = [PFFile fileWithName:self.editUser.firstName data:imageData];
+    PFFile *imageFile = [PFFile fileWithName:[self.editUser.username stringByAppendingString:@".png"] data:imageData];
     self.editUser[@"profileImageFile"] = imageFile;
   }
   [self.editUser saveInBackground];

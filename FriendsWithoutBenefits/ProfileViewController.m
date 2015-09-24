@@ -34,13 +34,25 @@
   NSLog(@"%@", self.user);
   if (self.user) {
     
-//    PFFile *userImageFile = self.user.userProfileImageFile;
+    PFFile *userImageFile = self.user.userProfileImageFile;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+      if (!error) {
+        UIImage *image = [UIImage imageWithData:imageData];
+        self.profilePicture.image = image;
+        NSLog(@"are there any images?");
+        NSLog(@"%@",self.profilePicture.image);
+      }
+    }];
+    
+    // Create a PFQuery object with className is User, where key is self.user.username
+    // key: profileImageFile
+//    PFFile *userImageFile = anotherPhoto[@"imageFile"];
 //    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
 //      if (!error) {
 //        UIImage *image = [UIImage imageWithData:imageData];
-//        self.profilePicture.image = image;
 //      }
 //    }];
+
 
     self.title = [@"Hello " stringByAppendingString:self.user.username];
     self.firstNameLabel.text = self.user.username;

@@ -13,6 +13,7 @@
 #import "Keys.h"
 #import "LayerService.h"
 #import "Activity.h"
+#import "ProfileViewController.h"
 
 
 @interface AppDelegate ()
@@ -44,6 +45,7 @@
   PFUser *currentUser = [PFUser currentUser];
   if (currentUser) {
       [LayerService.sharedService loginLayer];
+    
   } else {
       self.window = [[UIWindow alloc] init];
       
