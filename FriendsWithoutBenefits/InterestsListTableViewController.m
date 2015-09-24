@@ -108,8 +108,6 @@
  - (PFQuery *)queryForTable {
  PFQuery *query = [PFQuery queryWithClassName:self.className];
  
- // If Pull To Refresh is enabled, query against the network by default.
- 
  [query orderByDescending:@"name"];
  
  return query;
