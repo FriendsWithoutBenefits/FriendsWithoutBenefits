@@ -39,24 +39,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiX-AU-xrg">
-                                <rect key="frame" x="279" y="513" width="43" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRc-XP-02v">
+                                <rect key="frame" x="184" y="513" width="32" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Match"/>
+                                <state key="normal" title="Hide"/>
+                                <connections>
+                                    <action selector="hideButtonPressed:" destination="AA8-u0-S43" eventType="touchUpInside" id="eUZ-Ka-hge"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiX-AU-xrg">
+                                <rect key="frame" x="383" y="513" width="35" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Meet"/>
+                                <connections>
+                                    <action selector="meetButtonPressed:" destination="AA8-u0-S43" eventType="touchUpInside" id="CCh-UE-BPB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EiX-AU-xrg" firstAttribute="centerX" secondItem="9ap-95-bfV" secondAttribute="centerX" id="6Of-Fp-gMj"/>
+                            <constraint firstItem="lhm-a2-6sY" firstAttribute="top" secondItem="gRc-XP-02v" secondAttribute="bottom" constant="8" id="6e7-91-Ga7"/>
                             <constraint firstItem="lhm-a2-6sY" firstAttribute="top" secondItem="EiX-AU-xrg" secondAttribute="bottom" constant="8" id="6zV-SN-eI9"/>
+                            <constraint firstItem="gRc-XP-02v" firstAttribute="centerX" secondItem="9ap-95-bfV" secondAttribute="centerX" constant="-100" id="sNZ-1Q-niJ"/>
+                            <constraint firstItem="EiX-AU-xrg" firstAttribute="centerX" secondItem="9ap-95-bfV" secondAttribute="centerX" constant="100" id="uqC-IY-Mn5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6Of-Fp-gMj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" id="WW7-It-KIk"/>
+                    <navigationItem key="navigationItem" id="ind-uC-N7H"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vE-Gl-Yez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="-2199"/>
+            <point key="canvasLocation" x="1714" y="-2205"/>
         </scene>
         <!--Map-->
         <scene sceneID="QQD-WR-30F">
@@ -494,7 +514,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="WSO-cC-Q2H" kind="relationship" relationship="viewControllers" id="sPz-g8-bAj"/>
-                        <segue destination="AA8-u0-S43" kind="relationship" relationship="viewControllers" id="3q6-gK-6ub"/>
+                        <segue destination="dth-JL-wIh" kind="relationship" relationship="viewControllers" id="glK-MD-BUq"/>
                         <segue destination="G1J-fX-l0x" kind="relationship" relationship="viewControllers" id="IKT-Sw-Mgi"/>
                         <segue destination="2od-hc-lID" kind="relationship" relationship="viewControllers" id="nca-CY-yaC"/>
                         <segue destination="AVe-EF-HE0" kind="relationship" relationship="viewControllers" id="QuZ-Cr-hn7"/>
@@ -543,6 +563,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXC-O6-c32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="-808"/>
+        </scene>
+        <!--Match-->
+        <scene sceneID="gec-Zq-uq3">
+            <objects>
+                <navigationController id="dth-JL-wIh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Match" id="WMg-8h-8Zj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7Z-dO-Dx7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="AA8-u0-S43" kind="relationship" relationship="rootViewController" id="7Ve-p3-GnM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKF-96-cBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="-2205"/>
         </scene>
         <!--Activity Feed Table View Controller-->
         <scene sceneID="nhe-wJ-03z">

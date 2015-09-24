@@ -46,10 +46,6 @@
   }];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -58,7 +54,7 @@
 #pragma mark - Frame Construction
 - (CGRect)frontCardViewFrame {
   CGFloat horizontalPadding = 20.f;
-  CGFloat topPadding = 60.f;
+  CGFloat topPadding = 80.f;
   CGFloat bottomPadding = 200.f;
   return CGRectMake(horizontalPadding,
                     topPadding,
@@ -81,9 +77,17 @@
   // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
   // and "LIKED" on swipes to the right.
   if (direction == MDCSwipeDirectionLeft) {
+    //User was noped
     NSLog(@"You noped %@.", self.currentUser.firstName);
+    
+    //Add to Liked Users
+    [ParseService addMismatchForCurrentUser:self.currentUser];
   } else {
+    //User was liked
     NSLog(@"You liked %@.", self.currentUser.firstName);
+    
+    //Add to disliked users
+    [ParseService addMatchForCurrentUser:self.currentUser];
   }
   
   // MDCSwipeToChooseView removes the view from the view hierarchy
@@ -138,5 +142,15 @@
   
   return personView;
 }
+
+#pragma mark - IBActions 
+- (IBAction)meetButtonPressed:(id)sender {
+  [self.frontUserView mdc_swipe:MDCSwipeDirectionRight];
+}
+
+- (IBAction)hideButtonPressed:(id)sender {
+  [self.frontUserView mdc_swipe:MDCSwipeDirectionLeft];
+}
+
 
 @end

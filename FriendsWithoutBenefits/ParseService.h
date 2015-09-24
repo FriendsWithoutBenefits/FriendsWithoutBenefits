@@ -17,5 +17,7 @@
 +(void)queryForAllUsers:(void(^)(NSArray *users))completion;
 +(void)addInterestToCurrentUser:(Interest *)interest;
 +(void)removeInterestFromCurrentUser:(Interest *)interest;
++(void)addMatchForCurrentUser:(User *)newMatch;
++(void)addMismatchForCurrentUser:(User *)newMismatch;
 
 @end

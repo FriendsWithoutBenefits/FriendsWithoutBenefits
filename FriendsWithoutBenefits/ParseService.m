@@ -89,9 +89,34 @@
       }];
     }
   }];
+}
+
++(void)addMatchForCurrentUser:(User *)newMatch {
+  User *currentUser = [User currentUser];
   
+  PFRelation *newRelation = [currentUser relationForKey:@"peopleMatched"];
   
+  [newRelation addObject:newMatch];
   
+  [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if (!error) {
+      NSLog(@"User match saved");
+    }
+  }];
+}
+
++(void)addMismatchForCurrentUser:(User *)newMismatch {
+  User *currentUser = [User currentUser];
+  
+  PFRelation *newRelation = [currentUser relationForKey:@"peopleNotMatched"];
+  
+  [newRelation addObject:newMismatch];
+  
+  [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if (!error) {
+      NSLog(@"User mismatch saved");
+    }
+  }];
 }
 
 @end
