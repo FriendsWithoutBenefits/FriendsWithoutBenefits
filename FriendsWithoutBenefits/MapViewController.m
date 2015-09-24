@@ -31,6 +31,7 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) FSQVenue *selectedVenue;
+@property (strong, nonatomic) NSString *categoryIDs;
 
 @end
 
@@ -63,7 +64,7 @@ NSString *selLongitude;
   NSMutableArray *catStr = [[NSMutableArray alloc] init];
   [catStr addObject:kOutdoorsAndRecreation];
   
-  NSString *categoryIDs = [self generateCategoryIdString:catStr];
+  self.categoryIDs = [self generateCategoryIdString:catStr];
   
   if (nil == self.locationManager) {
     self.locationManager = [[CLLocationManager alloc] init];
@@ -73,16 +74,10 @@ NSString *selLongitude;
       [self getUserLocation];
       NSString *latLon = [self createLatLonString:self.currentLocation.coordinate];
       [self configureRestKit];
-      [self loadVenues:categoryIDs latLon:latLon];
+      [self loadVenues:self.categoryIDs latLon:latLon];
     } else {
       if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
           [self.locationManager requestWhenInUseAuthorization];
-          if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
-            [self getUserLocation];
-            NSString *latLon = [self createLatLonString:self.currentLocation.coordinate];
-            [self configureRestKit];
-            [self loadVenues:categoryIDs latLon:latLon];
-          }
       } else {
         [self presentLocationServicesAlert];
         //initial mapView is of downtown Seattle
@@ -90,11 +85,9 @@ NSString *selLongitude;
       }
       
     }
-    }
-    
   }
-
-
+    
+}
 
 //Initial code structure sourced from RayW tutorial code
 - (void)configureRestKit
@@ -225,6 +218,10 @@ NSString *selLongitude;
   
   [self.locationManager stopUpdatingLocation];
   
+  NSString *latLon = [self createLatLonString:self.currentLocation.coordinate];
+  [self configureRestKit];
+  [self loadVenues:self.categoryIDs latLon:latLon];
+  
 }
 
 -(void)createAnnotation:(FSQVenue *)venue {
@@ -307,6 +304,7 @@ NSString *selLongitude;
   switch ([CLLocationManager authorizationStatus]) {
     case kCLAuthorizationStatusAuthorizedWhenInUse:
       [self.locationManager startUpdatingLocation];
+      [self getUserLocation];
       break;
     case kCLAuthorizationStatusAuthorizedAlways:
       [self.locationManager startUpdatingLocation];
