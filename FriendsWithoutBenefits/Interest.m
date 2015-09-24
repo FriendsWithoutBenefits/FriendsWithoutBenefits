@@ -10,4 +10,14 @@
 
 @implementation Interest
 
+@dynamic name;
+
++ (void)load {
+  [self registerSubclass];
+}
+
++ (NSString *)parseClassName {
+  return @"Interest";
+}
+
 @end

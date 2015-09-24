@@ -6,6 +6,7 @@ PODS:
   - ISO8601DateFormatterValueTransformer (0.6.1):
     - RKValueTransformers (~> 1.1.0)
   - LayerKit (0.16.0)
+  - MDCSwipeToChoose (0.2.3)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
   - ParseUI (1.1.6):
@@ -37,6 +38,7 @@ PODS:
 DEPENDENCIES:
   - Atlas
   - LayerKit
+  - MDCSwipeToChoose
   - Parse
   - ParseUI
   - RestKit
@@ -47,6 +49,7 @@ SPEC CHECKSUMS:
   Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
   ISO8601DateFormatterValueTransformer: 52da467d6ec899d6aedda8e48280ac92e8ee97e6
   LayerKit: 8976a2a4d5f73b808e6328a5c66732605a3c247a
+  MDCSwipeToChoose: 56239d98b4558c66e7c3c9069482befd26092270
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
   ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
   RestKit: a4fcaf3d4bb2c204679856a46d596160bf208095

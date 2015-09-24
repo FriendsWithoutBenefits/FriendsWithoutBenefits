@@ -15,6 +15,7 @@
 
 @interface FSQVenue : NSObject
 
+@property (nonatomic, strong) NSString *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) FSQLocation *location;
