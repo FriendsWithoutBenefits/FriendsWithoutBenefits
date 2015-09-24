@@ -24,6 +24,7 @@
 		1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE811BB1F17500DD3D04 /* Interest.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE851BB1F1A600DD3D04 /* InterestGraphService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE841BB1F1A600DD3D04 /* InterestGraphService.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; };
 		34C9E4DC1BB20C1A00C33815 /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -96,6 +97,8 @@
 		1FDEFE841BB1F1A600DD3D04 /* InterestGraphService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestGraphService.m; sourceTree = "<group>"; };
 		1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsViewController.h; sourceTree = "<group>"; };
 		1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsViewController.m; sourceTree = "<group>"; };
+		1FF74EE11BB399C200BE3AFC /* NewMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMatchViewController.h; sourceTree = "<group>"; };
+		1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMatchViewController.m; sourceTree = "<group>"; };
 		3400C08E1BB07046005DA6C8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3400C08F1BB07046005DA6C8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3400C0941BB07EDE005DA6C8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -214,24 +217,21 @@
 		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1FF74EE41BB39BE800BE3AFC /* LayerViewControllers */,
 				B0107F431BB1D119002099AF /* MapViewController.h */,
 				B0107F441BB1D119002099AF /* MapViewController.m */,
 				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
 				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
 				1F78B5E61BACF4E600382704 /* ViewController.m */,
-				1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */,
-				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
-				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
-				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
-				7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */,
-				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
 				34C9E4F01BB3180C00C33815 /* ActivityViewControllers */,
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
 				7B3B0AC61BB25B52004CA4FF /* MatchViewController.h */,
 				7B3B0AC71BB25B52004CA4FF /* MatchViewController.m */,
 				B0107F531BB3157D002099AF /* VenueDetailViewController.h */,
 				B0107F541BB3157D002099AF /* VenueDetailViewController.m */,
+				1FF74EE11BB399C200BE3AFC /* NewMatchViewController.h */,
+				1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -286,6 +286,19 @@
 				1F78B5FB1BACF4E700382704 /* Info.plist */,
 			);
 			path = FriendsWithoutBenefitsTests;
+			sourceTree = "<group>";
+		};
+		1FF74EE41BB39BE800BE3AFC /* LayerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */,
+				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
+				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
+				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
+				7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */,
+				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
+			);
+			name = LayerViewControllers;
 			sourceTree = "<group>";
 		};
 		3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */ = {
@@ -501,6 +514,7 @@
 				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
 				1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */,
 				1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */,
+				1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
