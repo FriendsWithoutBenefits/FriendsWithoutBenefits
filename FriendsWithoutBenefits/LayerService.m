@@ -131,4 +131,14 @@
     }];
 }
 
+-(LYRConversation *)createNewMatchConversation:(User *)newMatch {
+  User *currentUser = [User currentUser];
+  NSSet *participants = [NSSet setWithObjects:currentUser.objectId, newMatch.objectId, nil];
+
+  NSError *error;
+  LYRConversation *newConversation = [self.layerClient newConversationWithParticipants:participants options:@{LYRConversationOptionsDistinctByParticipantsKey: @(YES)} error:&error];
+  
+  return newConversation;
+}
+
 @end

@@ -67,7 +67,6 @@
           NSLog(@"User-interest relation saved successfully");
         }
       }];
-      
     }
   }];
 }
@@ -117,6 +116,34 @@
       NSLog(@"User mismatch saved");
     }
   }];
+}
+
++(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match))completion {
+  User *currentUser = [User currentUser];
+  
+  //Second to background Queue
+  dispatch_queue_t backgroundQueue = dispatch_queue_create("BackgroundQueue", NULL);
+  dispatch_async(backgroundQueue, ^{
+    //Retrieve both users matches
+    NSArray *currentUsersMatches = [self retrieveInterestedUsers:currentUser];
+    NSArray *possibleMatchUsers = [self retrieveInterestedUsers:possibleMatch];
+    
+    //If both users are matched return true
+    if ([currentUsersMatches containsObject:possibleMatch] && [possibleMatchUsers containsObject:currentUser]) {
+      completion(true);
+    } else {
+      completion(false);
+    }
+  });
+}
+
++(NSArray *)retrieveInterestedUsers:(User *)user {
+  PFRelation *userRelation = user.peopleMatched;
+  PFQuery *query = [userRelation query];
+  
+  NSArray *matchedUsers = [query findObjects];
+  
+  return matchedUsers;
 }
 
 @end

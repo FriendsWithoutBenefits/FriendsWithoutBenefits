@@ -10,6 +10,7 @@
 //https://github.com/modocache/MDCSwipeToChoose
 
 #import "MatchViewController.h"
+#import "NewMatchViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "User.h"
 #import "ParseService.h"
@@ -85,12 +86,22 @@
   } else {
     //User was liked
     NSLog(@"You liked %@.", self.currentUser.firstName);
-    
-    //Check if other user already had current user liked
-
-    
     //Add to liked users
     [ParseService addMatchForCurrentUser:self.currentUser];
+    
+    [ParseService checkForMatch:self.currentUser completionHandler:^(BOOL match) {
+      if (match) {
+        NSLog(@"Users are a match!");
+        //Show Match VC
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *newMatchNC = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NewMatchNC"];
+        NewMatchViewController *newMatchVC = (NewMatchViewController *)newMatchNC.topViewController;
+        newMatchVC.matchedUser = self.currentUser;
+        [self presentViewController:newMatchNC animated:true completion:nil];
+        
+        //Send Notification to second user
+      }
+    }];
   }
   
   // MDCSwipeToChooseView removes the view from the view hierarchy
