@@ -21,5 +21,6 @@
 @property (nonatomic, strong) FSQStats *stats;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) MKPointAnnotation *annotation;
+@property (nonatomic, strong) NSString *photo;
 
 @end
