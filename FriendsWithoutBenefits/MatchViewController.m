@@ -80,13 +80,16 @@
     //User was noped
     NSLog(@"You noped %@.", self.currentUser.firstName);
     
-    //Add to Liked Users
+    //Add to disliked Users
     [ParseService addMismatchForCurrentUser:self.currentUser];
   } else {
     //User was liked
     NSLog(@"You liked %@.", self.currentUser.firstName);
     
-    //Add to disliked users
+    //Check if other user already had current user liked
+
+    
+    //Add to liked users
     [ParseService addMatchForCurrentUser:self.currentUser];
   }
   

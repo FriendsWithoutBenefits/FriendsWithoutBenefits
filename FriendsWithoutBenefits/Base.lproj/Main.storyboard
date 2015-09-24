@@ -134,21 +134,21 @@
                                 <rect key="frame" x="20" y="245" width="77" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="cityStateZipLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-uE-p1u">
                                 <rect key="frame" x="20" y="273" width="134" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="countryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZ7-BJ-eAA">
                                 <rect key="frame" x="20" y="302" width="101" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -563,6 +563,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXC-O6-c32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="868" y="-808"/>
+        </scene>
+        <!--New Match View Controller-->
+        <scene sceneID="eY3-ta-p5T">
+            <objects>
+                <viewController storyboardIdentifier="NewMatchVC" title="New Match View Controller" id="kqU-eF-bVq" customClass="MatchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zQQ-dY-ETE"/>
+                        <viewControllerLayoutGuide type="bottom" id="vuQ-3l-62c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uc5-Pa-RKz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Match Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sll-Tk-iN9">
+                                <rect key="frame" x="232" y="98" width="137" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="liB-pg-RCw">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="bzE-tq-0y0"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="New Match" id="cYg-Xb-Xqw"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxo-PB-WT8">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="UCB-Pg-q3d"/>
+                                    <constraint firstAttribute="width" constant="250" id="ZMN-tg-Af2"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="liB-pg-RCw" firstAttribute="top" secondItem="uc5-Pa-RKz" secondAttribute="topMargin" id="2bU-C0-OCM"/>
+                            <constraint firstItem="Sll-Tk-iN9" firstAttribute="centerX" secondItem="uc5-Pa-RKz" secondAttribute="centerX" id="4Nb-bi-mqI"/>
+                            <constraint firstItem="oxo-PB-WT8" firstAttribute="centerX" secondItem="uc5-Pa-RKz" secondAttribute="centerX" id="5bX-TS-0Cm"/>
+                            <constraint firstAttribute="trailing" secondItem="liB-pg-RCw" secondAttribute="trailing" id="7JU-Ot-b46"/>
+                            <constraint firstItem="Sll-Tk-iN9" firstAttribute="centerX" secondItem="oxo-PB-WT8" secondAttribute="centerX" id="BPS-c7-Gd7"/>
+                            <constraint firstItem="Sll-Tk-iN9" firstAttribute="top" secondItem="liB-pg-RCw" secondAttribute="bottom" constant="34" id="Vyq-yI-wGP"/>
+                            <constraint firstItem="liB-pg-RCw" firstAttribute="leading" secondItem="uc5-Pa-RKz" secondAttribute="leading" id="l87-WT-jQ4"/>
+                            <constraint firstItem="oxo-PB-WT8" firstAttribute="centerY" secondItem="uc5-Pa-RKz" secondAttribute="centerY" id="sMJ-HP-Xje"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BPS-c7-Gd7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDX-TF-qQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="-2892"/>
         </scene>
         <!--Match-->
         <scene sceneID="gec-Zq-uq3">
