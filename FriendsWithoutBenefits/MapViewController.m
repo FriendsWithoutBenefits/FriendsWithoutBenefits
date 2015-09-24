@@ -61,24 +61,27 @@ NSString *selLongitude;
   
   //construct initial categoryID array
   NSMutableArray *catStr = [[NSMutableArray alloc] init];
-  [catStr addObject:kFCoffeeShops];
+  [catStr addObject:kOutdoorsAndRecreation];
   
   NSString *categoryIDs = [self generateCategoryIdString:catStr];
-  
   
   if (nil == self.locationManager) {
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+      [self getUserLocation];
+      NSString *latLon = [self createLatLonString:self.currentLocation.coordinate];
       [self configureRestKit];
-      [self loadVenues:categoryIDs];
+      [self loadVenues:categoryIDs latLon:latLon];
     } else {
       if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
           [self.locationManager requestWhenInUseAuthorization];
           if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
-              [self configureRestKit];
-            [self loadVenues:categoryIDs];
+            [self getUserLocation];
+            NSString *latLon = [self createLatLonString:self.currentLocation.coordinate];
+            [self configureRestKit];
+            [self loadVenues:categoryIDs latLon:latLon];
           }
       } else {
         [self presentLocationServicesAlert];
@@ -105,7 +108,7 @@ NSString *selLongitude;
   
   // setup object mappings
   RKObjectMapping *venueMapping = [RKObjectMapping mappingForClass:[FSQVenue class]];
-  [venueMapping addAttributeMappingsFromArray:@[@"name", @"categories", @"photo"]];
+  [venueMapping addAttributeMappingsFromArray:@[@"id", @"name", @"categories"]];
   
   
   // define location object and relationship mapping
@@ -131,18 +134,9 @@ NSString *selLongitude;
 }
 
 //Initial code structure sourced from RayW tutorial code
-- (void)loadVenues:(NSString *)categoryIDs
+- (void)loadVenues:(NSString *)categoryIDs latLon:(NSString *)latLon
 {
   [self.mapView removeAnnotations:[self.mapView annotations]];
-  [self getUserLocation];
-  //use the User's current location as the reference point for loading venues
-  NSString *latLon;
-  NSNumber *latN = [NSNumber numberWithDouble: self.currentLocation.coordinate.latitude];
-  latLon = [latN stringValue];
-  latLon = [latLon stringByAppendingString:@","];
-  
-  NSNumber *lngN = [NSNumber numberWithDouble: self.currentLocation.coordinate.longitude];
-  latLon = [latLon stringByAppendingString:[lngN stringValue]];
   
   //credentials for FourSquare
   NSString *clientID = kCLIENTID;
@@ -168,9 +162,22 @@ NSString *selLongitude;
                                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                               [self presentNoVenuesAlert];
                                             }];
+  
 }
 
 #pragma mark - User-defined functions
+
+-(NSString *)createLatLonString:(CLLocationCoordinate2D)coordinate {
+
+  NSString *latLon;
+    NSNumber *latN = [NSNumber numberWithDouble: coordinate.latitude];
+    latLon = [latN stringValue];
+    latLon = [latLon stringByAppendingString:@","];
+  
+    NSNumber *lngN = [NSNumber numberWithDouble: coordinate.longitude];
+    latLon = [latLon stringByAppendingString:[lngN stringValue]];
+  return latLon;
+}
 
 -(NSString *)generateCategoryIdString:(NSArray *)catIDArray {
   
@@ -395,7 +402,8 @@ NSString *selLongitude;
   }
   
   NSString *categoryIDs = [self generateCategoryIdString:catStr];
-  [self loadVenues:categoryIDs];
+  NSString *latLon = [self createLatLonString:self.mapView.centerCoordinate];
+  [self loadVenues:categoryIDs latLon:latLon];
   
 }
 
