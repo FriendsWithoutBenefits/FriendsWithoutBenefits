@@ -24,6 +24,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  //Set up label and image
+  self.matchNameLabel.text = self.matchedUser.firstName;
+  
+  PFFile *userImageFile = self.matchedUser.profileImageFile;
+  [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+    if (!error) {
+      UIImage *image = [UIImage imageWithData:imageData];
+      self.profileImageView.image = image;
+    }
+  }];
   
   self.closeButton.title = @"Close";
   self.closeButton.enabled = TRUE;

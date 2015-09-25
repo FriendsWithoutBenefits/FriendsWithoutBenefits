@@ -25,8 +25,18 @@
     CGRect insideFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
     xibView.frame = insideFrame;
     
+    //Grab the user picture
+    PFFile *userImageFile = self.currentUser.profileImageFile;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+      if (!error) {
+        UIImage *image = [UIImage imageWithData:imageData];
+        xibView.profileImage.image = image;
+      }
+    }];
+    
     //TODO - Set Labels
     xibView.nameLabel.text = user.firstName;
+   // xibView.nameLabel.text = user.profileImageFile;
     
     [self insertSubview:xibView atIndex:0];
   }
