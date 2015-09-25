@@ -135,9 +135,6 @@
     Activity *activity = [self.myActivities objectAtIndex:indexPath.row];
     NSString *title = activity.title;
     cell.activityTitle.text = title;
-//    ObjectData *theCellData = [array1 objectAtIndex:indexPath.row];
-//    NSString *cellValue =theCellData.category;
-//    cell.textLabel.text = cellValue;
   }
   else if (indexPath.section == 1) { //My Activity (Find all activities that you 'joined'
 //    ObjectData *theCellData = [array2 objectAtIndex:indexPath.row];
@@ -154,7 +151,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   //Pass reference of activity to next VC
   ActivityDetailViewController *activityDetailViewController = [[ActivityDetailViewController alloc] init];
+  activityDetailViewController.selectedActivity = self.myActivities[indexPath.row]; //USING MY ACTIVITIES FOR NOW, SHOULD USE NEARBY ACTIVITIES
   //activityDetailViewController.selectedActivity = //Activity at indexPath;
+  //[self.navigationController pushViewController:activityDetailViewController animated:true];
   [self performSegueWithIdentifier:@"ShowActivityDetail" sender:nil];
 }
 

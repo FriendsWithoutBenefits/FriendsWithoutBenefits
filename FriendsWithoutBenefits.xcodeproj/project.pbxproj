@@ -32,6 +32,7 @@
 		341D96F71BB4ECC300171789 /* ActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F41BB4ECC300171789 /* ActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		341D96FA1BB4EE8600171789 /* UserActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F91BB4EE8600171789 /* UserActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		341D96FD1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96FC1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		341D97001BB506CA00171789 /* CenterPinMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96FF1BB506CA00171789 /* CenterPinMapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DC1BB20C1A00C33815 /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DE1BB20C2400C33815 /* ParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -119,6 +120,8 @@
 		341D96F91BB4EE8600171789 /* UserActivityFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityFeedTableViewController.m; sourceTree = "<group>"; };
 		341D96FB1BB4EEAD00171789 /* CreateActivityStaticTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateActivityStaticTableViewController.h; sourceTree = "<group>"; };
 		341D96FC1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateActivityStaticTableViewController.m; sourceTree = "<group>"; };
+		341D96FE1BB506CA00171789 /* CenterPinMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterPinMapViewController.h; sourceTree = "<group>"; };
+		341D96FF1BB506CA00171789 /* CenterPinMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterPinMapViewController.m; sourceTree = "<group>"; };
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
 		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				1FF74EE41BB39BE800BE3AFC /* LayerViewControllers */,
 				B0107F431BB1D119002099AF /* MapViewController.h */,
 				B0107F441BB1D119002099AF /* MapViewController.m */,
+				341D96FE1BB506CA00171789 /* CenterPinMapViewController.h */,
+				341D96FF1BB506CA00171789 /* CenterPinMapViewController.m */,
 				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
 				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
@@ -530,6 +535,7 @@
 				1FDEFE851BB1F1A600DD3D04 /* InterestGraphService.m in Sources */,
 				B0107F451BB1D119002099AF /* MapViewController.m in Sources */,
 				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
+				341D97001BB506CA00171789 /* CenterPinMapViewController.m in Sources */,
 				1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */,
 				1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */,
 				1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */,

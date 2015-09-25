@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Activity.h"
 
 @interface ActivityDetailViewController : UIViewController
-
+@property (strong, nonatomic) Activity *selectedActivity;
 @end

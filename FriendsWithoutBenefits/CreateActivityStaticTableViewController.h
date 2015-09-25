@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Activity.h"
 
 @interface CreateActivityStaticTableViewController : UITableViewController
+
 
 @end

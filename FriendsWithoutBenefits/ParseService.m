@@ -147,9 +147,10 @@
 }
 
 +(void)addUserToActivity:(Activity *)activity {
-  [activity addObject:[User currentUser] forKey: @"attendees"];
+  User *currentUser = [User currentUser];
+  [activity addObject:currentUser forKey: @"attendees"];
   [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-    [[User currentUser] addObject:activity forKey:@"joinedActivities"];
+    [currentUser addObject:activity forKey:@"joinedActivities"];
   }];
 }
 
