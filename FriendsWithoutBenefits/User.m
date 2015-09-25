@@ -58,6 +58,18 @@
   }];
 }
 
+-(void)userJoinedActivities:(void(^)(NSArray *activities))completion {
+  PFRelation *activities = self.joinedActivities;
+  
+  PFQuery *query = [activities query];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if (!error) {
+      completion(objects);
+    }
+  }];
+}
+
 //TODO - AvatarImage & AvatarImageURL
 
 

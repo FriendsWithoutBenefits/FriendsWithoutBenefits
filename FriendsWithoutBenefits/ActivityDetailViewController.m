@@ -18,11 +18,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *activityDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinButton;
-
 @property (weak, nonatomic) IBOutlet UITextView *activityDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfAttendees;
 
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) NSArray *userActivityRelations;
+@property (strong, nonatomic) NSArray *userActivities;
+@property (strong, nonatomic) NSArray *activityJoinedUsers;
 @end
 
 @implementation ActivityDetailViewController
@@ -30,11 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.user = [User currentUser];
-  if (![self.selectedActivity.attendees containsObject:[User currentUser]]) {
+  [self fetchRelations];
+  if (![self.activityJoinedUsers containsObject:self.user]) {
     [self.joinButton setTitle:@"Join" forState:UIControlStateNormal];
   } else {
     [self.joinButton setTitle:@"Leave Activity" forState:UIControlStateNormal];
   }
+  
   //load up activity
 
     // Do any additional setup after loading the view.
@@ -46,8 +50,20 @@
  // self.activityDateLabel.text = self.selectedActivity.date;
   //self.time
   self.activityDescriptionTextView.text = self.selectedActivity.description;
-  self.numberOfAttendees.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.selectedActivity.attendees.count];
+  self.numberOfAttendees.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.userActivityRelations.count];
   
+}
+
+- (void)fetchRelations {
+  User *user = [User currentUser];
+  
+  [user userJoinedActivities:^(NSArray *activities) {
+    self.userActivityRelations = activities; //Returns user's joined activities
+  }];
+  
+  [self.selectedActivity usersInActivity:^(NSArray *users) {
+    self.activityJoinedUsers = users; //Returns activity's joined users
+  }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,19 +72,28 @@
 }
 
 - (IBAction)joinButtonPressed:(UIButton *)sender {
-  if (![self.selectedActivity.attendees containsObject:[User currentUser]]) {
+  if (![self.activityJoinedUsers containsObject:self.user]) {
     [ParseService addUserToActivity:self.selectedActivity];
-    //save to parse
-    [self.navigationController popViewControllerAnimated:true];
   } else {
     [ParseService removeUserFromActivity:self.selectedActivity];
-    //save to parse
-    [self.navigationController popViewControllerAnimated:true];
   }
-  //If the array does have this user already, just pop off vc, else add then pop off.
-  // Join the activity (add user to activity) array.
-  // Add activity to user joined array
+  
+//  [[relation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//    if (error) {
+//      // There was an error
+//    } else {
+//      // objects has all the Posts the current user liked.
+//      if (![objects containsObject:self.user]) {
+//        [ParseService addUserToActivity:self.selectedActivity];
+//        [self.navigationController popViewControllerAnimated:true];
+//      } else {
+//        [ParseService removeUserFromActivity:self.selectedActivity];
+//        [self.navigationController popViewControllerAnimated:true];
+//      }
+//    }
+//  }];
 }
+
 
 /*
 #pragma mark - Navigation

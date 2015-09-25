@@ -31,5 +31,6 @@
 
 -(NSString *)fullName;
 -(void)userInterests:(void(^)(NSArray *interests))completion;
+-(void)userJoinedActivities:(void(^)(NSArray *activities))completion;
 
 @end
