@@ -23,21 +23,12 @@
 @dynamic owner;
 
 
-+ (void)load
-{
-  [self registerSubclass];
-}
 
-+ (void)queryForAllActivities {
-  PFQuery *activities = [Activity query];
-  
++ (void)load {
+  [self registerSubclass];
 }
 
 + (NSString *__nonnull)parseClassName {
   return @"Activity";
-}
-- (NSString *)activityIdentifier
-{
-  return self.objectId;
 }
 @end

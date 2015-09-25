@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Interest.h"
+#import "Activity.h"
 
 @interface ParseService : NSObject
 
@@ -20,5 +21,6 @@
 +(void)addMatchForCurrentUser:(User *)newMatch;
 +(void)addMismatchForCurrentUser:(User *)newMismatch;
 +(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match))completion;
-
++(void)addUserToActivity:(Activity *)activity;
++(void)removeUserFromActivity:(Activity *)activity;
 @end

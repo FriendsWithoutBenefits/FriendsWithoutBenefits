@@ -23,6 +23,7 @@
 @property (strong, nonatomic, readonly) PFRelation *interests;
 @property (strong, nonatomic, readonly) PFRelation *peopleMatched;
 @property (strong, nonatomic, readonly) PFRelation *peopleNotMatched;
+@property (strong, nonatomic) NSArray *joinedActivities;
 //Location property
 
 @property (nonatomic) BOOL *isOnline;
