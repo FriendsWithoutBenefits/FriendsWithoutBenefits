@@ -24,7 +24,8 @@
 @property (strong, nonatomic) UIImage *picture;
 @property (strong, nonatomic) Interest *interest;
 //Interests, what kind of data structure is best?
-@property (strong, nonatomic) NSMutableArray *attendees;
+@property (strong, nonatomic) NSArray *attendees;
 @property (strong, nonatomic) User *owner;
+
 
 @end
