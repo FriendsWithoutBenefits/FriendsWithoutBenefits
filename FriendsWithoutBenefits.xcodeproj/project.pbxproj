@@ -244,6 +244,8 @@
 				B0107F441BB1D119002099AF /* MapViewController.m */,
 				341D96FE1BB506CA00171789 /* CenterPinMapViewController.h */,
 				341D96FF1BB506CA00171789 /* CenterPinMapViewController.m */,
+				586E95281BB4638D00A77CA1 /* CustomLoginViewViewController.h */,
+				586E95291BB4638D00A77CA1 /* CustomLoginViewViewController.m */,
 				58548EA71BB07F4000AB10C4 /* LogInViewController.h */,
 				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
