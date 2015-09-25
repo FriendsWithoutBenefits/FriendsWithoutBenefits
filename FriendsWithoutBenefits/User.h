@@ -23,7 +23,7 @@
 @property (strong, nonatomic, readonly) PFRelation *interests;
 @property (strong, nonatomic, readonly) PFRelation *peopleMatched;
 @property (strong, nonatomic, readonly) PFRelation *peopleNotMatched;
-@property (strong, nonatomic) NSArray *joinedActivities;
+@property (strong, nonatomic, readonly) PFRelation *joinedActivities;
 @property (strong, nonatomic) PFFile *profileImageFile;
 //Location property
 
