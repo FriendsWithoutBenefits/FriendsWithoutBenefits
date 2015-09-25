@@ -25,7 +25,7 @@
 @dynamic avatarImage;
 @dynamic avatarImageURL;
 @dynamic joinedActivities;
-@dynamic userProfileImageFile;
+@dynamic profileImageFile;
 
 +(void)load {
     [self registerSubclass];
