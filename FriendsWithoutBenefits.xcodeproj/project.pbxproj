@@ -40,10 +40,7 @@
 		34C9E4E01BB20C3400C33815 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0951BB07EDE005DA6C8 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4E11BB20C3600C33815 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4E21BB20C3D00C33815 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3400C08F1BB07046005DA6C8 /* User.m */; settings = {ASSET_TAGS = (); }; };
-		34C9E4E61BB2151100C33815 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4E51BB2151100C33815 /* Activity.m */; settings = {ASSET_TAGS = (); }; };
-		34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4E81BB28B3200C33815 /* ActivityManager.m */; settings = {ASSET_TAGS = (); }; };
-		34C9E4F31BB31D3500C33815 /* ActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4F21BB31D3500C33815 /* ActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		34C9E4F61BB31DCB00C33815 /* UserActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34C9E4F51BB31DCB00C33815 /* UserActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		34C9E4E91BB28B3200C33815 /* (null) in Sources */ = {isa = PBXBuildFile; settings = {ASSET_TAGS = (); }; };
 		586E95271BB461F700A77CA1 /* launch_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 586E95261BB461F700A77CA1 /* launch_bg.jpg */; settings = {ASSET_TAGS = (); }; };
 		586E952A1BB4638D00A77CA1 /* CustomLoginViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 586E95291BB4638D00A77CA1 /* CustomLoginViewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		586E952C1BB47A5200A77CA1 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E952B1BB477D100A77CA1 /* Pacifico.ttf */; settings = {ASSET_TAGS = (); }; };
@@ -58,7 +55,6 @@
 		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F541BB3157D002099AF /* VenueDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */; settings = {ASSET_TAGS = (); }; };
-		B0AC58851BB4A01B003136AF /* EV_IMAGE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,10 +434,10 @@
 				TargetAttributes = {
 					1F78B5DB1BACF4E600382704 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 9PNF8T74V8;
+						DevelopmentTeam = S479M8YV5A;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -555,7 +551,7 @@
 				1F417D6B1BB34C4300640281 /* Keys.m in Sources */,
 				1F4116AA1BB333CD00C278EE /* InterestsListTableViewController.m in Sources */,
 				588006121BB359450060CD00 /* ImageResizer.m in Sources */,
-				34C9E4E91BB28B3200C33815 /* ActivityManager.m in Sources */,
+				34C9E4E91BB28B3200C33815 /* (null) in Sources */,
 				34C9E4E01BB20C3400C33815 /* ProfileViewController.m in Sources */,
 				1F4116A71BB32C8500C278EE /* PersonView.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
