@@ -15,15 +15,12 @@
 
 +(void)queryForUserWithId:(NSString *)userID completionHandler:(void(^)(User *user))completion {
   
-  PFQuery *query = [PFQuery queryWithClassName:@"User"];
-  [query whereKey:@"objectId" equalTo:userID];
+  NSLog(@"About to query for userid : %@", userID);
+  PFQuery *query = [User query];
   
-  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-    if(error) {
-      NSLog(@"Parse User ID Query Error");
-    }
-    if (objects) {
-      completion(objects.firstObject);
+  [query getObjectInBackgroundWithId:userID block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+    if (!error) {
+      completion((User *)object);
     }
   }];
 }
@@ -118,7 +115,7 @@
   }];
 }
 
-+(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match))completion {
++(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match, User *matchedUser))completion {
   User *currentUser = [User currentUser];
   
   //Second to background Queue
@@ -130,9 +127,9 @@
     
     //If both users are matched return true
     if ([currentUsersMatches containsObject:possibleMatch] && [possibleMatchUsers containsObject:currentUser]) {
-      completion(true);
+      completion(true, possibleMatch);
     } else {
-      completion(false);
+      completion(false, possibleMatch);
     }
   });
 }
@@ -144,6 +141,24 @@
   NSArray *matchedUsers = [query findObjects];
   
   return matchedUsers;
+}
+
++(void)sendPushToNewMatch:(User *)user {
+  // Create our Installation query
+  PFQuery *pushQuery = [PFInstallation query];
+  [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+  [pushQuery whereKey:@"user" equalTo:user];
+  
+  NSDictionary *data = @{@"alert":@"New Matched User!",
+                         @"user":[User currentUser].objectId};
+  
+  // Send push notification to query
+  PFPush *newPush = [[PFPush alloc] init];
+  [newPush setQuery:pushQuery];
+  [newPush setData:data];
+  
+  [newPush sendPushInBackground];
+  
 }
 
 @end

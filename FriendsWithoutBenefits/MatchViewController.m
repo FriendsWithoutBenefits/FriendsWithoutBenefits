@@ -89,17 +89,18 @@
     //Add to liked users
     [ParseService addMatchForCurrentUser:self.currentUser];
     
-    [ParseService checkForMatch:self.currentUser completionHandler:^(BOOL match) {
+    [ParseService checkForMatch:self.currentUser completionHandler:^(BOOL match, User *matchedUser) {
       if (match) {
-        NSLog(@"Users are a match!");
+        NSLog(@"Users are a match! Matched with: %@", matchedUser.firstName);
         //Show Match VC
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *newMatchNC = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NewMatchNC"];
         NewMatchViewController *newMatchVC = (NewMatchViewController *)newMatchNC.topViewController;
-        newMatchVC.matchedUser = self.currentUser;
+        newMatchVC.matchedUser = matchedUser;
         [self presentViewController:newMatchNC animated:true completion:nil];
         
         //Send Notification to second user
+        [ParseService sendPushToNewMatch:matchedUser];
       }
     }];
   }
