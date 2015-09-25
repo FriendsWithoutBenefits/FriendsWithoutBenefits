@@ -15,6 +15,7 @@
 #import "Activity.h"
 #import "ParseService.h"
 #import "NewMatchViewController.h"
+#import "ProfileViewController.h"
 
 @interface AppDelegate ()
 
@@ -45,6 +46,7 @@
   PFUser *currentUser = [PFUser currentUser];
   if (currentUser) {
       [LayerService.sharedService loginLayer];
+    
   } else {
       self.window = [[UIWindow alloc] init];
       
