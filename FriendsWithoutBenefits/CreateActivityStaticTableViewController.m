@@ -70,6 +70,10 @@
   self.activity.about = self.activityDescriptionTextView.text;
   self.activity.date = self.activityDatePicker.date;
   self.activity.owner = self.user;
+  
+  PFRelation *newRelation = [self.activity relationForKey:@"attendees"];
+  [newRelation addObject:self.user];
+  
   [self.activity saveInBackground];
   [self.navigationController popViewControllerAnimated:true];
   //Set interest
