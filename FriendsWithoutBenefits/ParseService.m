@@ -144,14 +144,14 @@
   return matchedUsers;
 }
 
-+(void)addJoinedActivityToUser:(Activity *)activity {
++(void)addActivityToUser:(Activity *)activity {
   User *user = [User currentUser];
-  PFRelation *relation = [activity relationForKey:@"joinedActivity"];
+  PFRelation *relation = [activity relationForKey:@"attendees"];
   [relation addObject:user];
   [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
     if (!error) {
       NSLog(@"Activity relation saved Successfully");
-      PFRelation *userRelation = [user relationForKey:@"joinedUsers"];
+      PFRelation *userRelation = [user relationForKey:@"joinedActivities"];
       [userRelation addObject:activity];
       [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
@@ -174,6 +174,40 @@
 //  }];
 }
 
++(void)removeActivityFromUser:(Activity *)activity {
+  User *user = [User currentUser];
+  
+  PFRelation *userActivitiesRelation = user.joinedActivities;
+  PFRelation *activitiesRelation = activity.attendees;
+  
+  [activitiesRelation removeObject:user];
+  
+  [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if(!error) {
+      NSLog(@"Activity relation removed successfully");
+      [userActivitiesRelation removeObject:activity];
+      [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        NSLog(@"User-activity relation removed successfully");
+      }];
+    }
+  }];
+  
+  //  User *user = [User currentUser];
+  //  PFRelation *relation = [user relationForKey:@"joinedActivity"];
+  //  [relation removeObject:activity];
+  //  [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+  //    if (succeeded) {
+  //      // The post has been added to the user's likes relation.
+  //      PFRelation *reverseRelation = [activity relationForKey:@"joinedUsers"];
+  //      [reverseRelation removeObject:user];
+  //      [activity saveInBackground];
+  //      NSLog(@"Removed Relation");
+  //    } else {
+  //      // There was a problem, check error.description
+  //    }
+  //  }];
+}
+
 +(void)sendPushToNewMatch:(User *)user {
   // Create our Installation query
   PFQuery *pushQuery = [PFInstallation query];
@@ -192,39 +226,7 @@
   
 }
 
-+(void)removeUserFromActivity:(Activity *)activity {
-  User *user = [User currentUser];
-  
-  PFRelation *userActivitiesRelation = user.joinedActivities;
-  PFRelation *activitiesRelation = activity.attendees;
-  
-  [activitiesRelation removeObject:user];
-  
-  [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-    if(!error) {
-      NSLog(@"Activity relation removed successfully");
-      [userActivitiesRelation removeObject:activity];
-      [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        NSLog(@"User-activity relation removed successfully");
-      }];
-    }
-  }];
-  
-//  User *user = [User currentUser];
-//  PFRelation *relation = [user relationForKey:@"joinedActivity"];
-//  [relation removeObject:activity];
-//  [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//    if (succeeded) {
-//      // The post has been added to the user's likes relation.
-//      PFRelation *reverseRelation = [activity relationForKey:@"joinedUsers"];
-//      [reverseRelation removeObject:user];
-//      [activity saveInBackground];
-//      NSLog(@"Removed Relation");
-//    } else {
-//      // There was a problem, check error.description
-//    }
-//  }];
-}
+
 
 
 @end
