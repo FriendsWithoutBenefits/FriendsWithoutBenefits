@@ -1136,7 +1136,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="K3s-JQ-pgA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="Rec-CV-taq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rec-CV-taq">
                             <connections>
                                 <action selector="userActivitiesButtonPushed:" destination="lZz-EE-n2v" id="r6u-dM-xWP"/>
                             </connections>
@@ -1168,10 +1168,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SD8-OQ-gLF">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SD8-OQ-gLF">
                                 <rect key="frame" x="0.0" y="20" width="600" height="534"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-M5-cPH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-M5-cPH">
                                 <rect key="frame" x="247" y="562" width="106" height="30"/>
                                 <state key="normal" title="Select Location"/>
                                 <connections>
