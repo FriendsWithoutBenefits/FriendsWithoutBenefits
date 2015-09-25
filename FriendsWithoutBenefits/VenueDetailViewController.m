@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *addrLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *countryLabel;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *venueLabel;
 
 @property (strong, nonatomic) NSArray *photos;
@@ -41,7 +40,6 @@
 //    [self configureRestKit];
 //    [self loadVenues];
     [self determineStockPhoto:self.venue.categories[0]];
-    //[self retrieveCategoryIcon:self.venue.categories[0]];
   }
   
   self.imageView.image = self.venue.image;
@@ -76,7 +74,7 @@
 -(void)determineStockPhoto:(NSDictionary *)venueType {
   
  // NSString *name = venueType[@"name"];
-  UIImage *image = [UIImage imageNamed: @"AE_IMAGE.jpg"];
+  UIImage *image = [UIImage imageNamed: @"EV_IMAGE.jpg"];
   self.venue.image = image;
   
 }
@@ -104,9 +102,7 @@
                                           statusCodes:[NSIndexSet indexSetWithIndex:200]];
   
   [objectManager addResponseDescriptor:responsePhotos];
-  
-  NSLog(@"Arg");
-  
+
 }
 
 //Initial code structure sourced from RayW tutorial code
