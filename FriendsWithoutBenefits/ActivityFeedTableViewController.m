@@ -77,13 +77,6 @@
     [self performSegueWithIdentifier:@"ShowActivityCreator" sender:sender];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"ShowActivityCreator"]) {
-    CreateActivityStaticTableViewController *activityCreator = [segue destinationViewController];
-  }
-}
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -151,12 +144,34 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   //Pass reference of activity to next VC
-  ActivityDetailViewController *activityDetailViewController = [[ActivityDetailViewController alloc] init];
-  activityDetailViewController.selectedActivity = self.myActivities[indexPath.row]; //USING MY ACTIVITIES FOR NOW, SHOULD USE NEARBY ACTIVITIES
+//USING MY ACTIVITIES FOR NOW, SHOULD USE NEARBY ACTIVITIES
   //activityDetailViewController.selectedActivity = //Activity at indexPath;
   //[self.navigationController pushViewController:activityDetailViewController animated:true];
-  [self performSegueWithIdentifier:@"ShowActivityDetail" sender:nil];
+  [self performSegueWithIdentifier:@"ShowActivityDetail" sender:self.myActivities[indexPath.row]];
 }
+
+
+
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+   if ([[segue identifier] isEqualToString:@"ShowActivityDetail"])
+   {
+     // Get reference to the destination view controller
+     Activity *currentActivity = (Activity *)sender;
+     
+     ActivityDetailViewController *activityDetailViewController = [segue destinationViewController];
+     activityDetailViewController.selectedActivity = currentActivity;
+   }
+   
+   if ([segue.identifier isEqualToString:@"ShowActivityCreator"]) {
+     CreateActivityStaticTableViewController *activityCreator = [segue destinationViewController];
+   }
+   
+ }
 
 
 

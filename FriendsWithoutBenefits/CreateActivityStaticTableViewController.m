@@ -74,7 +74,13 @@
   PFRelation *newRelation = [self.activity relationForKey:@"attendees"];
   [newRelation addObject:self.user];
   
-  [self.activity saveInBackground];
+  [self.activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    User *currentUser = [User currentUser];
+    
+    PFRelation *addActivity = [currentUser relationForKey:@"joinedActivities"];
+    [addActivity addObject:self.activity];
+    [currentUser saveInBackground];
+  }];
   [self.navigationController popViewControllerAnimated:true];
   //Set interest
   //Set location

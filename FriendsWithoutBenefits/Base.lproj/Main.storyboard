@@ -1614,6 +1614,7 @@
                         <outlet property="activityTimeLabel" destination="Lke-Ys-kCM" id="bhc-cM-ocT"/>
                         <outlet property="activityTitleLabel" destination="XZI-Dq-CFd" id="uC1-3y-vEa"/>
                         <outlet property="joinButton" destination="BYz-Hv-pBv" id="qKD-iO-f74"/>
+                        <outlet property="mapView" destination="gk4-Bp-u2o" id="2x9-sN-YFz"/>
                         <outlet property="numberOfAttendees" destination="ar6-IC-wC2" id="JrO-MA-aAP"/>
                     </connections>
                 </viewController>

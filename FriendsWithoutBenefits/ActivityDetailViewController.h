@@ -10,5 +10,8 @@
 #import "Activity.h"
 
 @interface ActivityDetailViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) Activity *selectedActivity;
+
 @end

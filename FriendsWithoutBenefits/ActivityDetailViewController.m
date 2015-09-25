@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.user = [User currentUser];
+  [self setUpDetailPage];
   [self fetchRelations];
   if (![self.activityJoinedUsers containsObject:self.user]) {
     [self.joinButton setTitle:@"Join" forState:UIControlStateNormal];
@@ -49,7 +50,7 @@
   //ToString from date to string
  // self.activityDateLabel.text = self.selectedActivity.date;
   //self.time
-  self.activityDescriptionTextView.text = self.selectedActivity.description;
+  self.activityDescriptionTextView.text = self.selectedActivity.about;
   self.numberOfAttendees.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.userActivityRelations.count];
   
 }
