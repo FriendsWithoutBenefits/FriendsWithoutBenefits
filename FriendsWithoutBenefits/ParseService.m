@@ -143,6 +143,13 @@
   return matchedUsers;
 }
 
++(void)addUserToActivity:(Activity *)activity {
+  [activity addObject:[User currentUser] forKey: @"attendees"];
+  [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [[User currentUser] addObject:activity forKey:@"joinedActivities"];
+  }];
+}
+
 +(void)sendPushToNewMatch:(User *)user {
   // Create our Installation query
   PFQuery *pushQuery = [PFInstallation query];
@@ -160,5 +167,13 @@
   [newPush sendPushInBackground];
   
 }
+
++(void)removeUserFromActivity:(Activity *)activity {
+  [activity removeObject:[User currentUser] forKey:@"attendees"];
+  [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [[User currentUser] removeObject:activity forKey:@"joinedActivities"];
+  }];
+}
+
 
 @end
