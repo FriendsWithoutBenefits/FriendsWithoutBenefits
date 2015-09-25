@@ -473,6 +473,7 @@
 				1F4116A11BB30D2000C278EE /* PersonView.xib in Resources */,
 				1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */,
 				586E952C1BB47A5200A77CA1 /* Pacifico.ttf in Resources */,
+				B0AC58851BB4A01B003136AF /* EV_IMAGE.jpg in Resources */,
 				1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */,
 				1F78B5EA1BACF4E600382704 /* Main.storyboard in Resources */,
 				586E95271BB461F700A77CA1 /* launch_bg.jpg in Resources */,
