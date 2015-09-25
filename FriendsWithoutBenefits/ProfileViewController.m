@@ -34,7 +34,7 @@
   NSLog(@"%@", self.user);
   if (self.user) {
     
-    PFFile *userImageFile = self.user.userProfileImageFile;
+    PFFile *userImageFile = self.user.profileImageFile;
     [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
       if (!error) {
         UIImage *image = [UIImage imageWithData:imageData];
@@ -54,7 +54,7 @@
 //    }];
 
 
-    self.title = [@"Hello " stringByAppendingString:self.user.username];
+    self.title = @"Profile";
     self.firstNameLabel.text = self.user.username;
     if (!self.user.age) {
       self.ageLabel.text = @"What's your age?";
