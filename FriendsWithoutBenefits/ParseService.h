@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Interest.h"
+#import "Activity.h"
 
 @interface ParseService : NSObject
 

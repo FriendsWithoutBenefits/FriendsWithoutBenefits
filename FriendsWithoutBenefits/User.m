@@ -24,6 +24,7 @@
 @dynamic isOnline;
 @dynamic avatarImage;
 @dynamic avatarImageURL;
+@dynamic joinedActivities;
 
 +(void)load {
     [self registerSubclass];
