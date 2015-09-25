@@ -21,6 +21,9 @@
 		1F78B5EC1BACF4E600382704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5EB1BACF4E600382704 /* Assets.xcassets */; };
 		1F78B5EF1BACF4E600382704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F78B5ED1BACF4E600382704 /* LaunchScreen.storyboard */; };
 		1F78B5FA1BACF4E700382704 /* FriendsWithoutBenefitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */; };
+		1FD2154F1BB53E9D0040A10B /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD2154E1BB53E9D0040A10B /* ProfileTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1FD215521BB59A8F0040A10B /* InterestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD215511BB59A8F0040A10B /* InterestCell.m */; settings = {ASSET_TAGS = (); }; };
+		1FD215551BB5AB840040A10B /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD215541BB5AB840040A10B /* EditProfileTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE811BB1F17500DD3D04 /* Interest.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE851BB1F1A600DD3D04 /* InterestGraphService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE841BB1F1A600DD3D04 /* InterestGraphService.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -98,6 +101,12 @@
 		1F78B5F51BACF4E700382704 /* FriendsWithoutBenefitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriendsWithoutBenefitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F78B5F91BACF4E700382704 /* FriendsWithoutBenefitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendsWithoutBenefitsTests.m; sourceTree = "<group>"; };
 		1F78B5FB1BACF4E700382704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FD2154D1BB53E9D0040A10B /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		1FD2154E1BB53E9D0040A10B /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		1FD215501BB59A8F0040A10B /* InterestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestCell.h; sourceTree = "<group>"; };
+		1FD215511BB59A8F0040A10B /* InterestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestCell.m; sourceTree = "<group>"; };
+		1FD215531BB5AB840040A10B /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
+		1FD215541BB5AB840040A10B /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		1FDEFE801BB1F17500DD3D04 /* Interest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interest.h; sourceTree = "<group>"; };
 		1FDEFE811BB1F17500DD3D04 /* Interest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interest.m; sourceTree = "<group>"; };
 		1FDEFE831BB1F1A600DD3D04 /* InterestGraphService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestGraphService.h; sourceTree = "<group>"; };
@@ -228,6 +237,8 @@
 				1F4116A31BB30DAB00C278EE /* ChoosePersonView.m */,
 				1F4116A51BB32C8500C278EE /* PersonView.h */,
 				1F4116A61BB32C8500C278EE /* PersonView.m */,
+				1FD215501BB59A8F0040A10B /* InterestCell.h */,
+				1FD215511BB59A8F0040A10B /* InterestCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -336,6 +347,10 @@
 				3400C0951BB07EDE005DA6C8 /* ProfileViewController.m */,
 				3400C0971BB08BF4005DA6C8 /* EditProfileViewController.h */,
 				3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */,
+				1FD2154D1BB53E9D0040A10B /* ProfileTableViewController.h */,
+				1FD2154E1BB53E9D0040A10B /* ProfileTableViewController.m */,
+				1FD215531BB5AB840040A10B /* EditProfileTableViewController.h */,
+				1FD215541BB5AB840040A10B /* EditProfileTableViewController.m */,
 			);
 			name = ProfileViewControllers;
 			sourceTree = "<group>";
@@ -546,6 +561,7 @@
 				B0107F421BB1D0C9002099AF /* FSQVenue.m in Sources */,
 				341D96FD1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m in Sources */,
 				34C9E4DF1BB20C2D00C33815 /* LogInViewController.m in Sources */,
+				1FD215551BB5AB840040A10B /* EditProfileTableViewController.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */,
 				1F417D6B1BB34C4300640281 /* Keys.m in Sources */,
@@ -556,7 +572,9 @@
 				1F4116A71BB32C8500C278EE /* PersonView.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
 				1F4116A41BB30DAB00C278EE /* ChoosePersonView.m in Sources */,
+				1FD215521BB59A8F0040A10B /* InterestCell.m in Sources */,
 				341D96F51BB4ECC300171789 /* ActivityCell.m in Sources */,
+				1FD2154F1BB53E9D0040A10B /* ProfileTableViewController.m in Sources */,
 				B0107F401BB1D0C9002099AF /* FSQLocation.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
 				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,

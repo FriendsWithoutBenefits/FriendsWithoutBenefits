@@ -28,6 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+  //Configure Nav Bar Look
+  [self.navigationController.navigationBar
+   setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+  
   //TODO: Change Query with better logic
   //TODO: GCD/Operation Queue to make more responsive
   [ParseService queryForAllUsers:^(NSArray *users) {

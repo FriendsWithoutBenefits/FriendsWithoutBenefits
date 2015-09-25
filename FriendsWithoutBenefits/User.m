@@ -12,7 +12,7 @@
 
 @implementation User
 
-@dynamic name;
+@dynamic username;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic age;
@@ -25,7 +25,7 @@
 @dynamic avatarImage;
 @dynamic avatarImageURL;
 @dynamic joinedActivities;
-@dynamic userProfileImageFile;
+@dynamic profileImageFile;
 
 +(void)load {
     [self registerSubclass];

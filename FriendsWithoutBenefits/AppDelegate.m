@@ -43,6 +43,9 @@
   [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
   //END PARSE
   
+  [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+
+  
   PFUser *currentUser = [PFUser currentUser];
   if (currentUser) {
       [LayerService.sharedService loginLayer];
