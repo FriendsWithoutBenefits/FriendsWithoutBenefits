@@ -31,4 +31,16 @@
 + (NSString *__nonnull)parseClassName {
   return @"Activity";
 }
+
+-(void)usersInActivity:(void(^)(NSArray *users))completion {
+  PFRelation *joinedUsers = self.attendees;
+  
+  PFQuery *query = [joinedUsers query];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if (!error) {
+      completion(objects);
+    }
+  }];
+}
 @end
