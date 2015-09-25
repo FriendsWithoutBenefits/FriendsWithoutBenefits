@@ -20,9 +20,10 @@
 @property (strong, nonatomic) NSString *aboutMe;
 @property (strong, nonatomic) UIImage *profilePicture;
 //Interests, what kind of data structure is best?
-@property (strong, nonatomic) NSMutableArray *interests;
-@property (strong, nonatomic) NSMutableArray *peopleMatched;
-@property (strong, nonatomic) NSMutableArray *peopleNotMatched;
+@property (strong, nonatomic, readonly) PFRelation *interests;
+@property (strong, nonatomic, readonly) PFRelation *peopleMatched;
+@property (strong, nonatomic, readonly) PFRelation *peopleNotMatched;
+@property (strong, nonatomic) NSArray *joinedActivities;
 @property (strong, nonatomic) PFFile *userProfileImageFile;
 //Location property
 

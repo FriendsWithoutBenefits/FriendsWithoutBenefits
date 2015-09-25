@@ -13,8 +13,9 @@
 #import "Keys.h"
 #import "LayerService.h"
 #import "Activity.h"
+#import "ParseService.h"
+#import "NewMatchViewController.h"
 #import "ProfileViewController.h"
-
 
 @interface AppDelegate ()
 
