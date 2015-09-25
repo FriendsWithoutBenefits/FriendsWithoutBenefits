@@ -20,7 +20,9 @@
 +(void)removeInterestFromCurrentUser:(Interest *)interest;
 +(void)addMatchForCurrentUser:(User *)newMatch;
 +(void)addMismatchForCurrentUser:(User *)newMismatch;
-+(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match))completion;
 +(void)addUserToActivity:(Activity *)activity;
 +(void)removeUserFromActivity:(Activity *)activity;
++(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match, User *matchedUser))completion;
++(void)sendPushToNewMatch:(User *)user;
+
 @end
