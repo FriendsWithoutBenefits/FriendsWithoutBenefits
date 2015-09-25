@@ -329,10 +329,11 @@ NSString *selLongitude;
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
   
   for (FSQVenue *venue in self.venues){
+//    NSLog(@"Venue: %@", venue.annotation);
+//     NSLog(@"View: %@", venue.annotation);
+//    NSLog(@"===============================");
     if (venue.annotation == view.annotation) {
       self.selectedVenue = venue;
-//      VenueDetailViewController *venueDetailVC = [[VenueDetailViewController alloc] init];
-//      [self.navigationController pushViewController:venueDetailVC animated:YES];
       [self performSegueWithIdentifier:@"ShowVenueDetail" sender:self];
     }
   }
