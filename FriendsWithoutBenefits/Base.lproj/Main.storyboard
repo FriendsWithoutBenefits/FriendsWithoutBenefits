@@ -1173,6 +1173,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="AiZ-0K-WmT" id="OMm-4p-g4T"/>
+                        <outlet property="matchNameLabel" destination="Sll-Tk-iN9" id="yrh-oQ-RGh"/>
                         <outlet property="newMatchNameLabel" destination="Sll-Tk-iN9" id="4SX-fc-ec1"/>
                         <outlet property="profileImageView" destination="oxo-PB-WT8" id="bbi-jm-HKB"/>
                     </connections>

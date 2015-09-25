@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *closeButton;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-@property (weak, nonatomic) IBOutlet UILabel *newMatchNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchNameLabel;
 
 @end
 
