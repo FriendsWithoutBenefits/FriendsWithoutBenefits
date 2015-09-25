@@ -23,7 +23,7 @@
 @property (strong, nonatomic, readonly) PFRelation *interests;
 @property (strong, nonatomic, readonly) PFRelation *peopleMatched;
 @property (strong, nonatomic, readonly) PFRelation *peopleNotMatched;
-@property (strong, nonatomic) NSArray *joinedActivities;
+@property (strong, nonatomic, readonly) PFRelation *joinedActivities;
 @property (strong, nonatomic) PFFile *userProfileImageFile;
 //Location property
 
@@ -31,5 +31,6 @@
 
 -(NSString *)fullName;
 -(void)userInterests:(void(^)(NSArray *interests))completion;
+-(void)userJoinedActivities:(void(^)(NSArray *activities))completion;
 
 @end

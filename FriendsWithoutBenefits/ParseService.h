@@ -24,5 +24,6 @@
 +(void)removeUserFromActivity:(Activity *)activity;
 +(void)checkForMatch:(User *)possibleMatch completionHandler:(void(^)(BOOL match, User *matchedUser))completion;
 +(void)sendPushToNewMatch:(User *)user;
-
++(void)removeUserFromActivity:(Activity *)activity;
++(void)addJoinedActivityToUser:(Activity *)activity;
 @end

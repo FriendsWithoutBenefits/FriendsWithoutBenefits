@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   [self queryForActivities];
+  [self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
