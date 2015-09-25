@@ -24,6 +24,7 @@
 		1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE811BB1F17500DD3D04 /* Interest.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE851BB1F1A600DD3D04 /* InterestGraphService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE841BB1F1A600DD3D04 /* InterestGraphService.m */; settings = {ASSET_TAGS = (); }; };
 		1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; };
 		34C9E4DC1BB20C1A00C33815 /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
@@ -49,6 +50,8 @@
 		B0107F451BB1D119002099AF /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F441BB1D119002099AF /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F4A1BB1D2F6002099AF /* Constants.m */; settings = {ASSET_TAGS = (); }; };
 		B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0107F541BB3157D002099AF /* VenueDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */; settings = {ASSET_TAGS = (); }; };
+		B0AC58851BB4A01B003136AF /* EV_IMAGE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,8 @@
 		1FDEFE841BB1F1A600DD3D04 /* InterestGraphService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestGraphService.m; sourceTree = "<group>"; };
 		1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsViewController.h; sourceTree = "<group>"; };
 		1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsViewController.m; sourceTree = "<group>"; };
+		1FF74EE11BB399C200BE3AFC /* NewMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMatchViewController.h; sourceTree = "<group>"; };
+		1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMatchViewController.m; sourceTree = "<group>"; };
 		3400C08E1BB07046005DA6C8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3400C08F1BB07046005DA6C8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3400C0941BB07EDE005DA6C8 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -143,6 +148,9 @@
 		B0107F4A1BB1D2F6002099AF /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B0107F531BB3157D002099AF /* VenueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailViewController.h; sourceTree = "<group>"; };
 		B0107F541BB3157D002099AF /* VenueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailViewController.m; sourceTree = "<group>"; };
+		B0AC58811BB462E8003136AF /* FSQVenuePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSQVenuePhoto.h; sourceTree = "<group>"; };
+		B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSQVenuePhoto.m; sourceTree = "<group>"; };
+		B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EV_IMAGE.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,8 @@
 		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0AC58811BB462E8003136AF /* FSQVenuePhoto.h */,
+				B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */,
 				1F417D691BB34C4300640281 /* Keys.h */,
 				1F417D6A1BB34C4300640281 /* Keys.m */,
 				34C9E4E71BB28B3200C33815 /* ActivityManager.h */,
@@ -218,6 +228,7 @@
 		1F1CE7DF1BB06E1000FB7FAA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1FF74EE41BB39BE800BE3AFC /* LayerViewControllers */,
 				B0107F431BB1D119002099AF /* MapViewController.h */,
 				B0107F441BB1D119002099AF /* MapViewController.m */,
 				586E95281BB4638D00A77CA1 /* CustomLoginViewViewController.h */,
@@ -226,20 +237,14 @@
 				58548EA81BB07F4000AB10C4 /* LogInViewController.m */,
 				1F78B5E51BACF4E600382704 /* ViewController.h */,
 				1F78B5E61BACF4E600382704 /* ViewController.m */,
-				1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */,
-				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
-				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
-				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
-				7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */,
-				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
 				34C9E4F01BB3180C00C33815 /* ActivityViewControllers */,
 				3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */,
-				1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */,
-				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
 				7B3B0AC61BB25B52004CA4FF /* MatchViewController.h */,
 				7B3B0AC71BB25B52004CA4FF /* MatchViewController.m */,
 				B0107F531BB3157D002099AF /* VenueDetailViewController.h */,
 				B0107F541BB3157D002099AF /* VenueDetailViewController.m */,
+				1FF74EE11BB399C200BE3AFC /* NewMatchViewController.h */,
+				1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 		1F78B5DF1BACF4E600382704 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0AC58841BB4A01B003136AF /* EV_IMAGE.jpg */,
 				1F78B5E01BACF4E600382704 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -297,9 +303,24 @@
 			path = FriendsWithoutBenefitsTests;
 			sourceTree = "<group>";
 		};
+		1FF74EE41BB39BE800BE3AFC /* LayerViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CE7E01BB0893900FB7FAA /* ConversationListViewController.h */,
+				1F1CE7E11BB0893900FB7FAA /* ConversationListViewController.m */,
+				1F26FF3D1BB0A2FB00AEB60C /* ConversationViewController.h */,
+				1F26FF3E1BB0A2FB00AEB60C /* ConversationViewController.m */,
+				7B087C2B1BB109EA0074276B /* ParticipantTableViewController.h */,
+				7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */,
+			);
+			name = LayerViewControllers;
+			sourceTree = "<group>";
+		};
 		3400C09A1BB08BFC005DA6C8 /* ProfileViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1FDEFE861BB1F30E00DD3D04 /* InterestsViewController.h */,
+				1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */,
 				1F4116A81BB333CD00C278EE /* InterestsListTableViewController.h */,
 				1F4116A91BB333CD00C278EE /* InterestsListTableViewController.m */,
 				3400C0941BB07EDE005DA6C8 /* ProfileViewController.h */,
@@ -398,6 +419,12 @@
 				TargetAttributes = {
 					1F78B5DB1BACF4E600382704 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = S479M8YV5A;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1F78B5F41BACF4E700382704 = {
 						CreatedOnToolsVersion = 7.0;
@@ -502,6 +529,7 @@
 				34C9E4F61BB31DCB00C33815 /* UserActivityFeedTableViewController.m in Sources */,
 				34C9E4DF1BB20C2D00C33815 /* LogInViewController.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
+				B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */,
 				1F417D6B1BB34C4300640281 /* Keys.m in Sources */,
 				1F4116AA1BB333CD00C278EE /* InterestsListTableViewController.m in Sources */,
 				588006121BB359450060CD00 /* ImageResizer.m in Sources */,
@@ -519,6 +547,7 @@
 				B0107F4B1BB1D2F6002099AF /* Constants.m in Sources */,
 				1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */,
 				1FDEFE821BB1F17500DD3D04 /* Interest.m in Sources */,
+				1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,11 +676,14 @@
 			baseConfigurationReference = 4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jeffjacka.fwob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -660,11 +692,14 @@
 			baseConfigurationReference = 98F4DDD43AF63352830255D8 /* Pods-FriendsWithoutBenefits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FriendsWithoutBenefits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JeffJacka.FriendsWithoutBenefits;
+				PRODUCT_BUNDLE_IDENTIFIER = me.jeffjacka.fwob;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

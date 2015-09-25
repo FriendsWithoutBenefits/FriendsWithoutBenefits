@@ -29,5 +29,6 @@
 @property (nonatomic) BOOL *isOnline;
 
 -(NSString *)fullName;
+-(void)userInterests:(void(^)(NSArray *interests))completion;
 
 @end

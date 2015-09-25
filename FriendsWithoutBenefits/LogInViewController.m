@@ -109,6 +109,17 @@ CGRect logoFrame = self.logInView.logo.frame;
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
         [LayerService.sharedService loginLayer];
+  
+  //Register for Push
+  //Notifcation Settings
+  UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                  UIUserNotificationTypeBadge |
+                                                  UIUserNotificationTypeSound);
+  UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                           categories:nil];
+  [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+  [[UIApplication sharedApplication] registerForRemoteNotifications];
+  
   [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
 }
 
@@ -133,6 +144,17 @@ CGRect logoFrame = self.logInView.logo.frame;
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     [signUpController dismissViewControllerAnimated:true completion:^{
       [LayerService.sharedService loginLayer];
+      
+      //Register for Push
+      //Notifcation Settings
+      UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                      UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound);
+      UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                               categories:nil];
+      [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+      [[UIApplication sharedApplication] registerForRemoteNotifications];
+      
       [self performSegueWithIdentifier:@"showTabBarSeque" sender:self];
     }];
 }

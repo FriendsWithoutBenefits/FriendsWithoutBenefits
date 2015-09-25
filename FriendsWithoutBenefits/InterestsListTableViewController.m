@@ -13,6 +13,7 @@
 @interface InterestsListTableViewController ()
 
 @property (strong, nonatomic) NSArray *interests;
+@property (strong, nonatomic) NSArray *userInterests;
 @property (strong, nonatomic) NSString *className;
 
 @end
@@ -48,6 +49,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+  User *currentUser = [User currentUser];
+  
+  [currentUser userInterests:^(NSArray *interests) {
+    self.userInterests = interests;
+    [self.tableView reloadData];
+  }];
+  
+  
+  
+  
     [ParseService queryForInterests:^(NSArray *interests) {
       self.interests = interests;
       [self.tableView reloadData];
@@ -76,6 +87,14 @@
   
   Interest *currentInterest = self.interests[indexPath.row];
   
+  if ([self.userInterests containsObject:currentInterest]) {
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.tag = 1;
+  } else {
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.tag = 0;
+  }
+  
   cell.textLabel.text = currentInterest.name;
   
     return cell;
@@ -89,8 +108,6 @@
  - (PFQuery *)queryForTable {
  PFQuery *query = [PFQuery queryWithClassName:self.className];
  
- // If Pull To Refresh is enabled, query against the network by default.
- 
  [query orderByDescending:@"name"];
  
  return query;
@@ -99,9 +116,20 @@
 
 #pragma mark - UITableView Selection
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  [tableView deselectRowAtIndexPath:indexPath animated:true];
   
-  
-  
+  Interest *currentInterest = self.interests[indexPath.row];
+
+  if (cell.accessoryType) {
+    NSLog(@"Cell has an accessory");
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    [ParseService removeInterestFromCurrentUser:currentInterest];
+  } else {
+    NSLog(@"Cell has no accessory");
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    [ParseService addInterestToCurrentUser:currentInterest];
+  }
 }
 
 

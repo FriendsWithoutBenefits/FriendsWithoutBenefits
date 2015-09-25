@@ -45,6 +45,18 @@
     return [[NSString stringWithFormat:@"%@%@", [self.firstName substringToIndex:1], [self.lastName substringToIndex:1]] uppercaseString];
 }
 
+-(void)userInterests:(void(^)(NSArray *interests))completion {
+  PFRelation *interests = self.interests;
+  
+  PFQuery *query = [interests query];
+  
+  [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    if (!error) {
+      completion(objects);
+    }
+  }];
+}
+
 //TODO - AvatarImage & AvatarImageURL
 
 

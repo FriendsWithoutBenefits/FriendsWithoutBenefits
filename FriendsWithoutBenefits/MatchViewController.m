@@ -10,6 +10,7 @@
 //https://github.com/modocache/MDCSwipeToChoose
 
 #import "MatchViewController.h"
+#import "NewMatchViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "User.h"
 #import "ParseService.h"
@@ -46,10 +47,6 @@
   }];
 }
 
--(void)viewWillAppear:(BOOL)animated {
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -58,7 +55,7 @@
 #pragma mark - Frame Construction
 - (CGRect)frontCardViewFrame {
   CGFloat horizontalPadding = 20.f;
-  CGFloat topPadding = 60.f;
+  CGFloat topPadding = 80.f;
   CGFloat bottomPadding = 200.f;
   return CGRectMake(horizontalPadding,
                     topPadding,
@@ -81,9 +78,30 @@
   // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
   // and "LIKED" on swipes to the right.
   if (direction == MDCSwipeDirectionLeft) {
+    //User was noped
     NSLog(@"You noped %@.", self.currentUser.firstName);
+    
+    //Add to disliked Users
+    [ParseService addMismatchForCurrentUser:self.currentUser];
   } else {
+    //User was liked
     NSLog(@"You liked %@.", self.currentUser.firstName);
+    //Add to liked users
+    [ParseService addMatchForCurrentUser:self.currentUser];
+    
+    [ParseService checkForMatch:self.currentUser completionHandler:^(BOOL match) {
+      if (match) {
+        NSLog(@"Users are a match!");
+        //Show Match VC
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *newMatchNC = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NewMatchNC"];
+        NewMatchViewController *newMatchVC = (NewMatchViewController *)newMatchNC.topViewController;
+        newMatchVC.matchedUser = self.currentUser;
+        [self presentViewController:newMatchNC animated:true completion:nil];
+        
+        //Send Notification to second user
+      }
+    }];
   }
   
   // MDCSwipeToChooseView removes the view from the view hierarchy
@@ -138,5 +156,15 @@
   
   return personView;
 }
+
+#pragma mark - IBActions 
+- (IBAction)meetButtonPressed:(id)sender {
+  [self.frontUserView mdc_swipe:MDCSwipeDirectionRight];
+}
+
+- (IBAction)hideButtonPressed:(id)sender {
+  [self.frontUserView mdc_swipe:MDCSwipeDirectionLeft];
+}
+
 
 @end
