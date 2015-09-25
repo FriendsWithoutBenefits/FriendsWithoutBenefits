@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSArray *joinedActivities;
 @property (strong, nonatomic) NSArray *nearbyActivities;
 @property (strong, nonatomic) User *user;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -30,6 +31,8 @@
     [super viewDidLoad];
   [self queryForActivities];
   [self.tableView reloadData];
+  
+  [self.dateFormatter setDateFormat:@"yyyy-MM-dd"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -129,6 +132,9 @@
     Activity *activity = [self.myActivities objectAtIndex:indexPath.row];
     NSString *title = activity.title;
     cell.activityTitle.text = title;
+    NSLog(@"Activity date: %@", activity.date);
+    cell.activityInterest.text = activity.interest.name;
+    cell.activityDate.text = [self.dateFormatter stringFromDate:activity.date];
   }
   else if (indexPath.section == 1) { //My Activity (Find all activities that you 'joined'
 //    ObjectData *theCellData = [array2 objectAtIndex:indexPath.row];
