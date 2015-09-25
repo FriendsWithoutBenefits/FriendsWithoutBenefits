@@ -87,6 +87,10 @@
   PFInstallation *currentInstallation = [PFInstallation currentInstallation];
   [currentInstallation setDeviceTokenFromData:deviceToken];
   currentInstallation.channels = @[ @"global" ];
+  
+  User *currentUser = [User currentUser];
+  
+  [currentInstallation setObject:currentUser forKey:@"user"];
   [currentInstallation saveInBackground];
   
   NSError *error;
@@ -100,7 +104,17 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-  [PFPush handlePush:userInfo];
+  //[PFPush handlePush:userInfo];
+  
+  NSString *userId = userInfo[@"user"];
+  
+  [ParseService queryForUserWithId:userId completionHandler:^(User *user) {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *newMatchNC = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"NewMatchNC"];
+    NewMatchViewController *newMatchVC = (NewMatchViewController *)newMatchNC.topViewController;
+    newMatchVC.matchedUser = user;
+    [self.window.rootViewController presentViewController:newMatchNC animated:NO completion:nil];
+  }];
 }
 
 @end

@@ -26,6 +26,12 @@
 		1FDEFE881BB1F30E00DD3D04 /* InterestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDEFE871BB1F30E00DD3D04 /* InterestsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1FF74EE31BB399C200BE3AFC /* NewMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF74EE21BB399C200BE3AFC /* NewMatchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CE7E41BB08A3B00FB7FAA /* ParseService.m */; };
+		341D96EE1BB4E83500171789 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96ED1BB4E83500171789 /* Activity.m */; settings = {ASSET_TAGS = (); }; };
+		341D96F51BB4ECC300171789 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F01BB4ECC300171789 /* ActivityCell.m */; settings = {ASSET_TAGS = (); }; };
+		341D96F61BB4ECC300171789 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F21BB4ECC300171789 /* ActivityDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		341D96F71BB4ECC300171789 /* ActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F41BB4ECC300171789 /* ActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		341D96FA1BB4EE8600171789 /* UserActivityFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96F91BB4EE8600171789 /* UserActivityFeedTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		341D96FD1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341D96FC1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DC1BB20C1A00C33815 /* LayerService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BED70221BB0F88700D9BA6A /* LayerService.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DD1BB20C1D00C33815 /* ParseUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F26FF411BB0BAC900AEB60C /* ParseUserManager.m */; settings = {ASSET_TAGS = (); }; };
 		34C9E4DE1BB20C2400C33815 /* ParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B087C2C1BB109EA0074276B /* ParticipantTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -109,14 +115,18 @@
 		3400C0951BB07EDE005DA6C8 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		3400C0971BB08BF4005DA6C8 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		3400C0981BB08BF4005DA6C8 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
-		34C9E4E41BB2151100C33815 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		34C9E4E51BB2151100C33815 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		34C9E4E71BB28B3200C33815 /* ActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityManager.h; sourceTree = "<group>"; };
-		34C9E4E81BB28B3200C33815 /* ActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityManager.m; sourceTree = "<group>"; };
-		34C9E4F11BB31D3500C33815 /* ActivityFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedTableViewController.h; sourceTree = "<group>"; };
-		34C9E4F21BB31D3500C33815 /* ActivityFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedTableViewController.m; sourceTree = "<group>"; };
-		34C9E4F41BB31DCB00C33815 /* UserActivityFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivityFeedTableViewController.h; sourceTree = "<group>"; };
-		34C9E4F51BB31DCB00C33815 /* UserActivityFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityFeedTableViewController.m; sourceTree = "<group>"; };
+		341D96EC1BB4E83500171789 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		341D96ED1BB4E83500171789 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		341D96EF1BB4ECC300171789 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		341D96F01BB4ECC300171789 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
+		341D96F11BB4ECC300171789 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailViewController.h; sourceTree = "<group>"; };
+		341D96F21BB4ECC300171789 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailViewController.m; sourceTree = "<group>"; };
+		341D96F31BB4ECC300171789 /* ActivityFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityFeedTableViewController.h; sourceTree = "<group>"; };
+		341D96F41BB4ECC300171789 /* ActivityFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityFeedTableViewController.m; sourceTree = "<group>"; };
+		341D96F81BB4EE8600171789 /* UserActivityFeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivityFeedTableViewController.h; sourceTree = "<group>"; };
+		341D96F91BB4EE8600171789 /* UserActivityFeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityFeedTableViewController.m; sourceTree = "<group>"; };
+		341D96FB1BB4EEAD00171789 /* CreateActivityStaticTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateActivityStaticTableViewController.h; sourceTree = "<group>"; };
+		341D96FC1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateActivityStaticTableViewController.m; sourceTree = "<group>"; };
 		4A4551F6296AD843D6BE2506 /* Pods-FriendsWithoutBenefits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendsWithoutBenefits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendsWithoutBenefits/Pods-FriendsWithoutBenefits.debug.xcconfig"; sourceTree = "<group>"; };
 		58548EA71BB07F4000AB10C4 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		58548EA81BB07F4000AB10C4 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
@@ -175,14 +185,12 @@
 		1F1CE7DD1BB06E0500FB7FAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				341D96EC1BB4E83500171789 /* Activity.h */,
+				341D96ED1BB4E83500171789 /* Activity.m */,
 				B0AC58811BB462E8003136AF /* FSQVenuePhoto.h */,
 				B0AC58821BB462E8003136AF /* FSQVenuePhoto.m */,
 				1F417D691BB34C4300640281 /* Keys.h */,
 				1F417D6A1BB34C4300640281 /* Keys.m */,
-				34C9E4E71BB28B3200C33815 /* ActivityManager.h */,
-				34C9E4E81BB28B3200C33815 /* ActivityManager.m */,
-				34C9E4E41BB2151100C33815 /* Activity.h */,
-				34C9E4E51BB2151100C33815 /* Activity.m */,
 				B0107F491BB1D2F6002099AF /* Constants.h */,
 				B0107F4A1BB1D2F6002099AF /* Constants.m */,
 				1F1CE7E31BB08A3B00FB7FAA /* ParseService.h */,
@@ -334,10 +342,16 @@
 		34C9E4F01BB3180C00C33815 /* ActivityViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				34C9E4F11BB31D3500C33815 /* ActivityFeedTableViewController.h */,
-				34C9E4F21BB31D3500C33815 /* ActivityFeedTableViewController.m */,
-				34C9E4F41BB31DCB00C33815 /* UserActivityFeedTableViewController.h */,
-				34C9E4F51BB31DCB00C33815 /* UserActivityFeedTableViewController.m */,
+				341D96F81BB4EE8600171789 /* UserActivityFeedTableViewController.h */,
+				341D96F91BB4EE8600171789 /* UserActivityFeedTableViewController.m */,
+				341D96EF1BB4ECC300171789 /* ActivityCell.h */,
+				341D96F01BB4ECC300171789 /* ActivityCell.m */,
+				341D96F11BB4ECC300171789 /* ActivityDetailViewController.h */,
+				341D96F21BB4ECC300171789 /* ActivityDetailViewController.m */,
+				341D96F31BB4ECC300171789 /* ActivityFeedTableViewController.h */,
+				341D96F41BB4ECC300171789 /* ActivityFeedTableViewController.m */,
+				341D96FB1BB4EEAD00171789 /* CreateActivityStaticTableViewController.h */,
+				341D96FC1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m */,
 			);
 			name = ActivityViewControllers;
 			sourceTree = "<group>";
@@ -517,16 +531,19 @@
 				586E952A1BB4638D00A77CA1 /* CustomLoginViewViewController.m in Sources */,
 				3400C0C61BB1BCAC005DA6C8 /* ParseService.m in Sources */,
 				7B3B0AC81BB25B52004CA4FF /* MatchViewController.m in Sources */,
+				341D96F71BB4ECC300171789 /* ActivityFeedTableViewController.m in Sources */,
+				341D96EE1BB4E83500171789 /* Activity.m in Sources */,
 				B0107F551BB3157D002099AF /* VenueDetailViewController.m in Sources */,
 				34C9E4DE1BB20C2400C33815 /* ParticipantTableViewController.m in Sources */,
-				34C9E4E61BB2151100C33815 /* Activity.m in Sources */,
 				B0107F411BB1D0C9002099AF /* FSQStats.m in Sources */,
 				1F78B5E71BACF4E600382704 /* ViewController.m in Sources */,
+				341D96F61BB4ECC300171789 /* ActivityDetailViewController.m in Sources */,
+				341D96FA1BB4EE8600171789 /* UserActivityFeedTableViewController.m in Sources */,
 				34C9E4DC1BB20C1A00C33815 /* LayerService.m in Sources */,
 				1F78B5E41BACF4E600382704 /* AppDelegate.m in Sources */,
 				34C9E4E11BB20C3600C33815 /* EditProfileViewController.m in Sources */,
 				B0107F421BB1D0C9002099AF /* FSQVenue.m in Sources */,
-				34C9E4F61BB31DCB00C33815 /* UserActivityFeedTableViewController.m in Sources */,
+				341D96FD1BB4EEAD00171789 /* CreateActivityStaticTableViewController.m in Sources */,
 				34C9E4DF1BB20C2D00C33815 /* LogInViewController.m in Sources */,
 				1F26FF3F1BB0A2FB00AEB60C /* ConversationViewController.m in Sources */,
 				B0AC58831BB462E8003136AF /* FSQVenuePhoto.m in Sources */,
@@ -538,7 +555,7 @@
 				1F4116A71BB32C8500C278EE /* PersonView.m in Sources */,
 				1F1CE7E21BB0893900FB7FAA /* ConversationListViewController.m in Sources */,
 				1F4116A41BB30DAB00C278EE /* ChoosePersonView.m in Sources */,
-				34C9E4F31BB31D3500C33815 /* ActivityFeedTableViewController.m in Sources */,
+				341D96F51BB4ECC300171789 /* ActivityCell.m in Sources */,
 				B0107F401BB1D0C9002099AF /* FSQLocation.m in Sources */,
 				1F78B5E11BACF4E600382704 /* main.m in Sources */,
 				B0107F3E1BB1D0C9002099AF /* FSQCategoryIDs.m in Sources */,
