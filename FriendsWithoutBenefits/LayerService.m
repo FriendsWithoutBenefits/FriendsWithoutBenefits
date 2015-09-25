@@ -138,7 +138,13 @@
   NSError *error;
   LYRConversation *newConversation = [self.layerClient newConversationWithParticipants:participants options:@{LYRConversationOptionsDistinctByParticipantsKey: @(YES)} error:&error];
   
-  return newConversation;
+  if(!error) {
+    return newConversation;
+  } else {
+    return nil;
+  }
+  
+
 }
 
 @end

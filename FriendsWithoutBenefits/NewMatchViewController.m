@@ -61,7 +61,6 @@
   
       ConversationViewController *newConvoVC = [ConversationViewController conversationViewControllerWithLayerClient:layerClient];
   newConvoVC.conversation = newConversation;
-  newConvoVC.displaysAddressBar = YES;
   [self.navigationController pushViewController:newConvoVC animated:YES];
 }
 
