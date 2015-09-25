@@ -12,7 +12,7 @@
 
 @implementation User
 
-@dynamic name;
+@dynamic username;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic age;
