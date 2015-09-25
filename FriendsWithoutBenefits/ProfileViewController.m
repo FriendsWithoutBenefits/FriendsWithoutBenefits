@@ -30,17 +30,48 @@
   [super viewDidLoad];
     // Do any additional setup after loading the view.
   self.user = (User*)[PFUser currentUser];
+
+  NSLog(@"%@", self.user);
   if (self.user) {
-    self.title = self.user.firstName;
-    self.firstNameLabel.text = self.user.firstName;
+    
+    PFFile *userImageFile = self.user.userProfileImageFile;
+    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+      if (!error) {
+        UIImage *image = [UIImage imageWithData:imageData];
+        self.profilePicture.image = image;
+        NSLog(@"are there any images?");
+        NSLog(@"%@",self.profilePicture.image);
+      }
+    }];
+    
+    // Create a PFQuery object with className is User, where key is self.user.username
+    // key: profileImageFile
+//    PFFile *userImageFile = anotherPhoto[@"imageFile"];
+//    [userImageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+//      if (!error) {
+//        UIImage *image = [UIImage imageWithData:imageData];
+//      }
+//    }];
+
+
+    self.title = [@"Hello " stringByAppendingString:self.user.username];
+    self.firstNameLabel.text = self.user.username;
     if (!self.user.age) {
       self.ageLabel.text = @"What's your age?";
     }
-    
     self.ageLabel.text = [self.user.age stringValue];
-    self.aboutTextView.text = self.user.aboutMe; // default text shall be put in here
+    self.aboutTextView.text = self.user.aboutMe;
   }
+  
+
 }
+
+//- (void)viewDidAppear:(BOOL)animated{
+//  [super viewDidAppear:YES];
+//  
+//
+//  
+//}
 
 - (void)fetchProfile {
   //Download User Information from Parse
