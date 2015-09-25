@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *activityDescriptionTextView;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfAttendees;
-@property (strong, nonatomic) Activity *selectedActivity;
+
 @property (strong, nonatomic) User *user;
 @end
 
@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.user = (User *)[PFUser currentUser];
+    self.user = [User currentUser];
   if (![self.selectedActivity.attendees containsObject:[User currentUser]]) {
     [self.joinButton setTitle:@"Join" forState:UIControlStateNormal];
   } else {

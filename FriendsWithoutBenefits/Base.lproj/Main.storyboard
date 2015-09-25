@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bAq-ml-ti1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WSO-cC-Q2H">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -807,38 +807,40 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="314" id="zzk-Fx-gYC">
-                                        <rect key="frame" x="0.0" y="308" width="600" height="314"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="56" id="zzk-Fx-gYC">
+                                        <rect key="frame" x="0.0" y="308" width="600" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zzk-Fx-gYC" id="qe8-NB-fcv">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="313.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="55.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S9g-gN-bB1">
-                                                    <rect key="frame" x="8" y="37" width="584" height="268.5"/>
-                                                </mapView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1O-v4-wLO">
-                                                    <rect key="frame" x="8" y="8" width="66" height="21"/>
+                                                    <rect key="frame" x="8" y="17" width="66" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHn-Fc-Gfd">
+                                                    <rect key="frame" x="237" y="13" width="127" height="30"/>
+                                                    <state key="normal" title="Choose a Location"/>
+                                                    <connections>
+                                                        <action selector="chooseLocationButtonPressed:" destination="vWh-CZ-2K9" eventType="touchUpInside" id="atM-sq-NBJ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="S9g-gN-bB1" firstAttribute="top" secondItem="z1O-v4-wLO" secondAttribute="bottom" constant="8" id="BXN-hx-Sft"/>
-                                                <constraint firstItem="S9g-gN-bB1" firstAttribute="leading" secondItem="qe8-NB-fcv" secondAttribute="leadingMargin" id="KKc-ux-L45"/>
-                                                <constraint firstItem="z1O-v4-wLO" firstAttribute="leading" secondItem="qe8-NB-fcv" secondAttribute="leadingMargin" id="b7r-PY-Np4"/>
-                                                <constraint firstItem="z1O-v4-wLO" firstAttribute="top" secondItem="qe8-NB-fcv" secondAttribute="topMargin" id="bP7-ZV-dH0"/>
-                                                <constraint firstItem="S9g-gN-bB1" firstAttribute="trailing" secondItem="qe8-NB-fcv" secondAttribute="trailingMargin" id="cRO-JB-miG"/>
-                                                <constraint firstItem="S9g-gN-bB1" firstAttribute="bottom" secondItem="qe8-NB-fcv" secondAttribute="bottomMargin" id="xbZ-aR-dnW"/>
+                                                <constraint firstItem="z1O-v4-wLO" firstAttribute="leading" secondItem="qe8-NB-fcv" secondAttribute="leadingMargin" id="igZ-uD-FTS"/>
+                                                <constraint firstItem="AHn-Fc-Gfd" firstAttribute="top" secondItem="qe8-NB-fcv" secondAttribute="topMargin" constant="5" id="jXe-A0-DkI"/>
+                                                <constraint firstItem="AHn-Fc-Gfd" firstAttribute="centerX" secondItem="qe8-NB-fcv" secondAttribute="centerX" id="mcd-bE-b1x"/>
+                                                <constraint firstItem="z1O-v4-wLO" firstAttribute="centerY" secondItem="qe8-NB-fcv" secondAttribute="centerY" id="yeB-U5-Mn0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="261" id="9Je-uX-A5Z">
-                                        <rect key="frame" x="0.0" y="622" width="600" height="261"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="257" id="9Je-uX-A5Z">
+                                        <rect key="frame" x="0.0" y="364" width="600" height="257"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Je-uX-A5Z" id="0iG-yT-jdP">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="260.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="256.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bme-G8-xff">
@@ -867,7 +869,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="143" id="bgj-6J-7l8">
-                                        <rect key="frame" x="0.0" y="883" width="600" height="143"/>
+                                        <rect key="frame" x="0.0" y="621" width="600" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bgj-6J-7l8" id="PXP-Of-BMU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="142.5"/>
@@ -883,7 +885,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="732-yd-99j">
-                                        <rect key="frame" x="0.0" y="1026" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="764" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="732-yd-99j" id="zq4-Vz-f0e">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -914,8 +916,8 @@
                     <connections>
                         <outlet property="activityDatePicker" destination="bme-G8-xff" id="pqu-5i-gut"/>
                         <outlet property="activityDescriptionTextView" destination="AJA-ac-kqS" id="sLF-K8-Eap"/>
-                        <outlet property="activityLocationMapView" destination="S9g-gN-bB1" id="h1s-L6-Q4m"/>
                         <outlet property="activityTitleTextField" destination="mcr-Ab-ujt" id="dlV-ZN-8XN"/>
+                        <segue destination="xEI-9J-JS4" kind="show" identifier="ShowLocationMap" id="0Rd-6H-axF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iaa-Vd-EHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1153,6 +1155,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2XN-Px-85z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1739" y="-1491"/>
+        </scene>
+        <!--Center Pin Map View Controller-->
+        <scene sceneID="Wky-cf-DzP">
+            <objects>
+                <viewController id="xEI-9J-JS4" customClass="CenterPinMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SB1-3p-06k"/>
+                        <viewControllerLayoutGuide type="bottom" id="RCI-QC-E1G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z1a-Sp-zDh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SD8-OQ-gLF">
+                                <rect key="frame" x="0.0" y="20" width="600" height="534"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOk-M5-cPH">
+                                <rect key="frame" x="247" y="562" width="106" height="30"/>
+                                <state key="normal" title="Select Location"/>
+                                <connections>
+                                    <action selector="setLocationButtonPressed:" destination="xEI-9J-JS4" eventType="touchUpInside" id="6yP-K3-1UU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SD8-OQ-gLF" firstAttribute="top" secondItem="SB1-3p-06k" secondAttribute="bottom" id="D78-rH-N1S"/>
+                            <constraint firstItem="RCI-QC-E1G" firstAttribute="top" secondItem="VOk-M5-cPH" secondAttribute="bottom" constant="8" id="KA8-9P-dGH"/>
+                            <constraint firstItem="VOk-M5-cPH" firstAttribute="top" secondItem="SD8-OQ-gLF" secondAttribute="bottom" constant="8" id="L0m-oj-sB2"/>
+                            <constraint firstItem="SD8-OQ-gLF" firstAttribute="leading" secondItem="Z1a-Sp-zDh" secondAttribute="leadingMargin" constant="-20" id="WSl-y8-Lc5"/>
+                            <constraint firstItem="VOk-M5-cPH" firstAttribute="centerX" secondItem="Z1a-Sp-zDh" secondAttribute="centerX" id="kPn-Bn-cif"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SD8-OQ-gLF" secondAttribute="trailing" constant="-20" id="vMe-rs-7Ef"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="SD8-OQ-gLF" id="MS0-fP-f41"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iCL-Vx-xhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2765" y="-1491"/>
         </scene>
     </scenes>
 </document>

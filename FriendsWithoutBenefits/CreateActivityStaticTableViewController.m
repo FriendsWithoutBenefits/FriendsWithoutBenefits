@@ -7,9 +7,11 @@
 //
 
 #import "CreateActivityStaticTableViewController.h"
+#import "CenterPinMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "User.h"
 #import "Activity.h"
+#import "UIKit/UIKit.h"
 
 
 @interface CreateActivityStaticTableViewController () <UITextFieldDelegate, UITextViewDelegate>
@@ -29,6 +31,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coordinateNotificationHandler:) name:@"CoordinateNotification" object:nil];
   self.user = (User *)[User currentUser];
   self.activityDatePicker.datePickerMode = UIDatePickerModeDate;
   self.activity = [[Activity alloc] init];
@@ -41,6 +44,17 @@
   self.activityTitleTextField.placeholder = @"i.e. Mad Decent Block Party!";
   self.activityDescriptionTextView.text = @"    It's time for round two of the Mad Decent Block Party in Eugene! Love trap music and obnoxious loud EDM? Join this activity and let's all have a great time. I mean guess Major Lazer is awesome right?";
   
+}
+- (IBAction)chooseLocationButtonPressed:(UIButton *)sender {
+  CenterPinMapViewController *centerPinMap = [[CenterPinMapViewController alloc] init];
+  centerPinMap.activity = self.activity;
+  [self performSegueWithIdentifier:@"ShowLocationMap" sender:sender];
+}
+
+-(void)coordinateNotificationHandler: (NSNotification *) notification {
+  //Add region
+  PFGeoPoint *geoPoint = notification.userInfo[@"Coordinate"];
+  self.activity.location = geoPoint;
 }
 
 -(void)pickActivityLocation {
